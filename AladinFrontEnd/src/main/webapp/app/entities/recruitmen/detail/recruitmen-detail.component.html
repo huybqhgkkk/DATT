@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="recruitmen">
+      <h2 data-cy="recruitmenDetailsHeading"><span jhiTranslate="AladinTechApp.recruitmen.detail.title">Recruitmen</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ recruitmen.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.position">Position</span></dt>
+        <dd>
+          <span>{{ recruitmen.position }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.description">Description</span></dt>
+        <dd>
+          <textarea rows="7" class="textarea-cus">{{ recruitmen.description }}</textarea>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.require">Require</span></dt>
+        <dd>
+          <textarea rows="7" class="textarea-cus">{{ recruitmen.require }}</textarea>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.benefit">Benefit</span></dt>
+        <dd>
+          <textarea rows="7" class="textarea-cus">{{ recruitmen.benefit }}</textarea>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.amount">Amount</span></dt>
+        <dd>
+          <span>{{ recruitmen.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.job">Job</span></dt>
+        <dd>
+          <span>{{ recruitmen.job }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.location">Location</span></dt>
+        <dd>
+          <span>{{ recruitmen.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.duration">duration</span></dt>
+        <dd>
+          <span>{{ recruitmen.duration }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.recruitmen.level">Level</span></dt>
+        <dd>
+          <span>{{ recruitmen.level }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/recruitment', recruitmen.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

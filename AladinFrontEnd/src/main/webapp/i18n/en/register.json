@@ -1,0 +1,24 @@
+{
+  "register": {
+    "title": "Sign in",
+    "form": {
+      "button": "Sign in"
+    },
+    "messages": {
+      "validate": {
+        "login": {
+          "required": "You must to enter your username",
+          "minlength": "Username must be between 3 and 20 characters.",
+          "maxlength": "Username must be between 3 and 20 characters.",
+          "pattern": "Your username is invalid."
+        }
+      },
+      "success": "<strong>Sign in successful!</strong> Please check your email to confirm your account.",
+      "error": {
+        "fail": "<strong>Sign in failed!</strong> Please try again later.",
+        "userexists": "<strong>Username is already being used!</strong> Please enter another username",
+        "emailexists": "<strong>Email is already being used!</strong> Please enter another email."
+      }
+    }
+  }
+}

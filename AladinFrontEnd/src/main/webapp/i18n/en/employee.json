@@ -1,0 +1,93 @@
+{
+    "AladinTechApp": {
+        "employee": {
+            "formTitle": "Personal Information",
+            "qualification": "Qualification",
+            "target": "Target",
+            "team": "Team",
+            "home": {
+                "title": "Employees",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "Add a new Employee",
+                "createOrEditLabel": "Add new or update Employee",
+                "notFound": "No Employees found"
+            },
+            "created": "A new Employee is created with the identifier {{ param }}",
+            "updated": "Employee updated with identifier {{ param }}",
+            "deleted": "Employee deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Do you want to delete Employee {{ id }}?"
+            },
+            "detail": {
+                "title": "Employee"
+            },
+            "placeholder": {
+                "full_name": "Marcus Rashford",
+                "phone_number": "0989898989",
+                "email": "super@aladintech.co",
+                "date_of_birth": "",
+                "countryside": "Manchester, United Kingdom",
+                "current_residence": "Sir Mat Buddy streets",
+                "relative": "Mom: 0989898989",
+                "favourite": "Read book, sleep, crypto",
+                "education": "Harvard University 2015-2020",
+                "experience": "2 years at Google",
+                "english": "IETLS 8.5",
+                "objective_in_cv": "Become CEO",
+                "marital_status": "Available",
+                "children": "2 girls",
+                "family": "Mom: Melanie Maynard, Dad: Robert Rashford",
+                "avatar": "",
+                "gender": "Male",
+                "certification": "",
+                "bank_name": "JP Morgan",
+                "account_number": "68686868"
+            },
+            "employee_information_list": "Employees information list",
+            "nemployee_information_declaration_form": "FORM FOR DECLARATION OF EMPLOYEE INFORMATION",
+            "employee_details": "EMPLOYEES DETAIL",
+            "personal_information": "PERSONAL INFORMATION",
+            "level": "LEVEL",
+            "your_wishes": "YOUR WISHES",
+            "position": "POSITION",
+            "id": "ID",
+            "first_day_work": "Date of work",
+            "full_name": "Fullname",
+            "phone_number": "Phone number",
+            "email": "Email",
+            "date_of_birth": "Date of birth",
+            "countryside": "Countryside",
+            "current_residence": "Address",
+            "relative": "Relatives",
+            "favourite": "favourite",
+            "education": "Education",
+            "experience": "Experience",
+            "english": "English",
+            "objective_in_cv": "Career Objective",
+            "marital_status": "Marital status",
+            "children": "Number of children",
+            "family": "Family",
+            "avatar": "Avatar",
+            "gender": "Gender",
+            "certification": "Certification",
+            "bank_name": "Bank name",
+            "account_number": "Account number",
+            "user": "User",
+            "department": "Department",
+            "male": "Male",
+            "female": "Female",
+            "preview": "Preview",
+            "chooseImage": "Choose image"
+        }
+    },
+    "backendAladinApp": {
+        "employee": {
+            "created": "Created a new Employee Profile successfully!",
+            "updated": "Updated your Employee Profile successfully!",
+            "deleted": "Deleted your Employee Profile successfully!",
+            "delete": {
+                "question": "Do you want to delete Employee Profile {{ id }}?"
+            }
+        }
+    }
+}

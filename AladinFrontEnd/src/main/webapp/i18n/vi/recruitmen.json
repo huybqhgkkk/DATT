@@ -1,0 +1,65 @@
+{
+  "AladinTechApp": {
+    "recruitmen": {
+      "home": {
+        "title": "Tuyển dụng",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Recruitment",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Recruitment",
+        "notFound": "No Recruitment found"
+      },
+      "created": "Một Recruitment mới được tạo với định danh {{ param }}",
+      "updated": "Một Recruitment cập nhật với định danh {{ param }}",
+      "deleted": "Một Recruitment đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Recruitmen {{ id }}?"
+      },
+      "detail": {
+        "title": "Recruitment"
+      },
+      "quote": "Đến với Aladin, có rất nhiều cơ hội phù hợp với bạn đang chờ được khám phá!",
+      "id": "ID",
+      "position": "Chức vụ",
+      "description": "Mô tả",
+      "require": "Yêu cầu",
+      "benefit": "Lợi ích",
+      "amount": "Số lượng",
+      "job": "Nghề nghiệp",
+      "location": "Vị trí",
+      "duration": "Hết hạn",
+      "level": "Trình độ",
+      "career": "Tuyển dụng",
+      "come_in": "Đến với Aladin, có rất nhiều cơ hội phù hợp với bạn đang chờ được khám phá!",
+      "contact": "Liên hệ",
+      "more_job": "Công việc khác"
+    }
+  },
+  "recruitment": {
+    "home": {
+      "title": "Ứng tuyển",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Thêm mới một Ứng tuyển",
+      "createOrEditLabel": "Thêm mới hoặc cập nhật Ứng tuyển",
+      "notFound": "No Ứng tuyển found"
+    },
+    "created": "Một Ứng tuyển mới được tạo với định danh {{ param }}",
+    "updated": "Một Ứng tuyển cập nhật với định danh {{ param }}",
+    "deleted": "Một Ứng tuyển đã xóa với định danh {{ param }}",
+    "delete": {
+      "question": "Bạn có chắc là muốn xóa Ứng tuyển {{ id }}?"
+    },
+    "detail": {
+      "title": "Ứng tuyển"
+    },
+    "id": "ID",
+    "position": "Vị trí",
+    "description": "Mô tả",
+    "require": "Yêu cầu",
+    "benefit": "Quyền lợi",
+    "amount": "Số lượng",
+    "job": "Công việc",
+    "location": "Địa điểm",
+    "duration": "Hết hạn",
+    "level": "Trình độ"
+  }
+}

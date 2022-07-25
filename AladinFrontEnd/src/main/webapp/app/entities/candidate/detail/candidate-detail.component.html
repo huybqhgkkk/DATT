@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="candidate">
+      <h2 data-cy="candidateDetailsHeading"><span jhiTranslate="AladinTechApp.candidate.detail.title">Candidate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ candidate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.phone">Phone</span></dt>
+        <dd>
+          <span>{{ candidate.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.email">Email</span></dt>
+        <dd>
+          <span>{{ candidate.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.position">Position</span></dt>
+        <dd>
+          <span>{{ candidate.position }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.birthday">Birthday</span></dt>
+        <dd>
+          <span>{{ candidate.birthday | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.location">Location</span></dt>
+        <dd>
+          <span>{{ candidate.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.preference">Preference</span></dt>
+        <dd>
+          <span>{{ candidate.preference }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.education">Education</span></dt>
+        <dd>
+          <span>{{ candidate.education }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.experience">Experience</span></dt>
+        <dd>
+          <span>{{ candidate.experience }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.target">Target</span></dt>
+        <dd>
+          <span>{{ candidate.target }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.relationship">Relationship</span></dt>
+        <dd>
+          <span>{{ candidate.relationship }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.timeregister">dateRegister</span></dt>
+        <dd>
+          <span>{{ candidate.dateRegister | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.fullname">Fullname</span></dt>
+        <dd>
+          <span>{{ candidate.fullname }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.sex">Sex</span></dt>
+        <dd>
+          <span>{{ candidate.sex }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.candidate.cv">Cv</span></dt>
+        <dd>
+          <div *ngIf="candidate.cv">
+            <a (click)="openFile(candidate.cv, candidate.cvContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ candidate.cvContentType }}, {{ byteSize(candidate.cv) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/candidate', candidate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

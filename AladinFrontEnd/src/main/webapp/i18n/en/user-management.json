@@ -1,0 +1,31 @@
+{
+  "userManagement": {
+    "home": {
+      "title": "Account",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Create a new account",
+      "createOrEditLabel": "Insert or Update an account"
+    },
+    "created": "A new account has been created with the identifier {{ param }}",
+    "updated": "An account has been updated with the identifier {{ param }}",
+    "deleted": "An account has been deleted with the identifier {{ param }}",
+    "delete": {
+      "question": "Do you want to delete an account {{ login }}?"
+    },
+    "detail": {
+      "title": "Account"
+    },
+    "login": "Username",
+    "firstName": "Firstname",
+    "lastName": "Lastname",
+    "email": "Email",
+    "activated": "Activated",
+    "deactivated": "Key",
+    "profiles": "Permissions",
+    "langKey": "Languages",
+    "createdBy": "Creator",
+    "createdDate": "Date created",
+    "lastModifiedBy": "Updater",
+    "lastModifiedDate": "Date updated"
+  }
+}

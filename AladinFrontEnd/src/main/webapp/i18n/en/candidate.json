@@ -1,0 +1,129 @@
+{
+  "AladinTechApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "refreshListLabel": "Refresh",
+        "createLabel": "Create new Candidate",
+        "createOrEditLabel": "Create or Edit Candidate",
+        "notFound": "Candidate Not found"
+      },
+      "created": "A new Candidate is created with identifier {{ param }}",
+      "updated": "A Candidate is updated with identifier {{ param }}",
+      "deleted": "A Candidate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Candidate {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "id": "ID",
+      "phone": "Phone number",
+      "email": "Email",
+      "position": "Position",
+      "birthday": "Date of birth",
+      "location": "Location",
+      "preference": "Favourite",
+      "education": "Education",
+      "experience": "Experience",
+      "target": "Objective",
+      "relationship": "Relationship",
+      "timeregister": "Apply time",
+      "fullname": "Full name",
+      "sex": "Gender",
+      "cv": "CV",
+      "male": "Male",
+      "female": "Female",
+      "alone": "Available",
+      "hasFamily": "Already have family",
+      "uploadCV": "Upload Cv",
+      "recruitment": "Recruitment",
+      "apply": "Apply",
+      "find": "Delicious",
+      "job": "Jobs"
+    }
+  },
+  "candidate": {
+    "home": {
+      "title": "Candidates",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Create Candidate",
+      "createOrEditLabel": "Create or Update Candidate",
+      "notFound": "No Candidates found"
+    },
+    "created": "Created new Candidate {{ param }}",
+    "updated": "Updated Candidate {{ param }}",
+    "deleted": "Deleted Candidate{{ param }}",
+    "delete": {
+      "question": "Do you want to delete Candidate {{ id }}?"
+    },
+    "detail": {
+      "title": "Candidate"
+    },
+    "id": "ID",
+    "phone": "Phone number",
+    "email": "Email",
+    "position": "Position",
+    "birthday": "Date of birth",
+    "location": "Location",
+    "preference": "Preference",
+    "education": "Education",
+    "experience": "Experience",
+    "target": "Objective",
+    "relationship": "Relationship",
+    "timeregister": "Apply time",
+    "fullname": "Full name",
+    "sex": "Gender",
+    "cv": "Cv",
+    "male": "Male",
+    "female": "Female",
+    "alone": "Available",
+    "hasFamily": "Already have famlily",
+    "uploadCV": "Upload family",
+    "apply": "Apply",
+    "find": "Find",
+    "job": "Job",
+    "placeholder": {
+      "fullname": "Your full name",
+      "location": "Your location",
+      "experience": "Your experience",
+      "email": "Your email",
+      "target": "Your Objective",
+      "education": "Your education",
+      "preference": "Your preference",
+      "cv": "Your CV",
+      "job": "Your job"
+    },
+    "error": {
+      "notfound": {
+        "job": "Couldn't find the right job for you"
+      },
+      "required": {
+        "fullname": "Pleade fill your full name",
+        "phone": "Please fill your phone number",
+        "email": "Please fill your email",
+        "position": "Please fill your position",
+        "birthday": "Please fill your date of birth",
+        "location": "Please fill your location",
+        "preference": "Please fill your preference",
+        "education": "Please fill your education",
+        "experience": "Please fill your experience",
+        "target": "Please fill your objective",
+        "relationship": "Please fill your relationship",
+        "timeregister": "Please fill your apply time",
+        "sex": "Please fill your gender",
+        "cv": "Please upload your CV",
+        "uploadCV": "Please upload your CV",
+        "apply": "Please fill your apply"
+      },
+      "pattern": {
+        "phone": "Your phone number is wrong format",
+        "email": "Your email is wrong format",
+        "birthday": "Your date of birth is wrong format"
+      },
+      "minLength": {
+        "phone": "This field need min 10 characters"
+      }
+    }
+  }
+}

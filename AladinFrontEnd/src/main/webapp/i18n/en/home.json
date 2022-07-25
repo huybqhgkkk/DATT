@@ -1,0 +1,20 @@
+{
+  "home": {
+    "title": "AladinTech",
+    "rule": "Rule",
+    "subtitle": "This is your homepage",
+    "logged": {
+      "message": "You are logged in with an account \"{{username}}\"."
+    },
+    "question": "If you have any questions about JHipster please visit:",
+    "link": {
+      "homepage": "JHipster homepage",
+      "stackoverflow": "JHipster on Stack Overflow",
+      "bugtracker": "JHipster bug tracking",
+      "chat": "JHipster public chat room",
+      "follow": "Follow @jhipster on Twitter"
+    },
+    "like": "If you like JHipster, don't forget to give us a star",
+    "github": "GitHub"
+  }
+}

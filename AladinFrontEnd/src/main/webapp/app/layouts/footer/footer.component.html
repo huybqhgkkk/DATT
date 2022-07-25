@@ -1,0 +1,147 @@
+<div class="row justify-content-center" style="background: #111112; padding: 3% 1%; color: white">
+    <div class="row col-sm col-md-11" style="width: 100%">
+        <div class="col-sm-12 col-lg-3">
+            <div class="row justify-content-center">
+                <span class="col-sm col-xl-10 logo-img-footer"></span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-9" id="footer-need-margin-top">
+            <div class="row">
+                <div class="col-sm-4 col-lg-3">
+                    <div class="card justify-content-center" style="background: #111112">
+                        <div class="card-title" style="font-weight: bold">Aladin Technology</div>
+                        <div class="card-subtitle">
+                            <div class="nav" style="margin-left: -5%">
+                                <a class="nav-link-cus12 col-12" href="#" jhiTranslate="footerTranslate.label.home">Trang chủ</a>
+                                <a class="nav-link-cus12 col-12" href="career" jhiTranslate="footerTranslate.label.career">Tuyển dụng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-2" style>
+                    <div class="card justify-content-center" style="background: #111112">
+                        <div class="card-title" style="font-weight: bold" jhiTranslate="footerTranslate.label.services">Dịch vụ</div>
+                        <div class="card-subtitle" style="margin-left: -8%">
+                            <ng-container *ngIf="serviceList">
+                                <ng-container *ngFor="let items of serviceList">
+                                    <div class="nav">
+                                        <a class="nav-link-cus12 col-12" href="service/{{ items.id }}">{{ items.type }}</a>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="card justify-content-center" style="background: #111112">
+                        <div class="card-title" style="font-weight: bold">Aladin Technology</div>
+                        <div class="card-subtitle">
+                            <div class="nav" style="margin-left: -5%">
+                                <a class="nav-link-cus12 col-12" href="contacts" jhiTranslate="footerTranslate.label.contact">Liên hệ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md col-lg-4">
+                    <div class="row" id="footer-need-hide">
+                        <div class="col card justify-content-center" style="background: #111112">
+                            <div class="card-title" jhiTranslate="footerTranslate.label.follow" style="font-weight: bold">Theo dõi chúng tôi tại</div>
+                            <div class="row">
+                                <img class="icon-cus" href="#" src="content/images/icon/instagram.png" />
+                                <img class="icon-cus" href="#" src="content/images/icon/twitter.png" />
+                                <img class="icon-cus" href="#" src="content/images/icon/youtube.png" />
+                                <a href="https://www.facebook.com/AladinTech.co"><img class="icon-cus" src="content/images/icon/facebook.png" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5%" id="footer-need-center">
+                        <div class="col card" style="background: #111112">
+                            <div class="card-title" style="font-weight: bold" jhiTranslate="footerTranslate.label.contact"></div>
+                            <div class="card-subtitle" style="margin-left: 2%">
+                                <div class="row align-items-center" style="margin-top: 3%">
+                                    <img class="icon-cus-call" style="margin: 0" src="content/images/icon/location.png" />
+                                    <span class="col-10" jhiTranslate="AladinTechApp.contact.address.detailAddress" style="font-size: 80%">
+                  </span>
+                                </div>
+                                <div class="row align-items-center" style="margin-top: 3%">
+                                    <img class="icon-cus-call" style="margin: 0" src="content/images/icon/location.png" />
+                                    <span class="col-10" jhiTranslate="AladinTechApp.contact.address.businessRegistryAddress" style="font-size: 80%"></span>
+                                </div>
+                                <div class="row align-items-center" style="margin-top: 3%">
+                                    <img class="icon-cus-call" style="margin: 0" src="content/images/icon/email.png" />
+                                    <span class="col-10" style="font-size: 80%">Email: support@aladintech.co</span>
+                                </div>
+                                <div class="row align-items-center" style="margin-top: 3%">
+                                    <img class="icon-cus-call" style="margin: 0" src="content/images/icon/mobile.png" />
+                                    <span class="col-10" style="font-size: 80%">Mobile: 0988 985 247</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12" style="margin-top: 3%">
+            <div class="col-sm-12 col-lg-3 justify-content-center">
+                <div style="font-size: 80%; text-align: center; padding: 0.5rem 0">Aladin Technology Company, Copyright @2021</div>
+            </div>
+            <div class="col-sm-12 col-lg-9">
+                <div class="" id="footer-link" style="font-size: 80%; float: right">
+                    <a class="nav-link-cus1" href="use-rule" jhiTranslate="footerTranslate.label.rule">Điều khoản sử dụng |</a>
+                    <a class="nav-link-cus1" href="contacts" jhiTranslate="footerTranslate.label.help">Liên hệ & trợ giúp </a>
+                </div>
+            </div>
+        </div>
+        <!--    <div class="col-sm-2" style="text-align: center; padding: 1%">Copyright © 2021 AladinTech.</div>-->
+        <!--    <div class="col-sm col-md nav-justified">-->
+        <!--      <ul style="margin: 2%; float: right; text-align: center">-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--        <a class="nav-link-cus" routerLink="contact">-->
+        <!--          <span jhiTranslate="global.menu.contact">Contact</span>-->
+        <!--        </a>-->
+        <!--      </ul>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--  &lt;!&ndash; Messenger Plugin chat Code &ndash;&gt;-->
+        <!--  <div id="fb-root"></div>-->
+
+        <!--  &lt;!&ndash; Your Plugin chat code &ndash;&gt;-->
+        <!--  <div id="fb-customer-chat" class="fb-customerchat">-->
+    </div>
+
+    <!--  <script>-->
+    <!--    var chatbox = document.getElementById('fb-customer-chat');-->
+    <!--    chatbox.setAttribute("page_id", "102589798777670");-->
+    <!--    chatbox.setAttribute("attribution", "biz_inbox");-->
+
+    <!--    window.fbAsyncInit = function() {-->
+    <!--      FB.init({-->
+    <!--        xfbml            : true,-->
+    <!--        version          : 'v11.0'-->
+    <!--      });-->
+    <!--    };-->
+
+    <!--    (function(d, s, id) {-->
+    <!--      var js, fjs = d.getElementsByTagName(s)[0];-->
+    <!--      if (d.getElementById(id)) return;-->
+    <!--      js = d.createElement(s); js.id = id;-->
+    <!--      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';-->
+    <!--      fjs.parentNode.insertBefore(js, fjs);-->
+    <!--    }(document, 'script', 'facebook-jssdk'));-->
+    <!--  </script>-->
+</div>

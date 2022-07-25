@@ -1,0 +1,30 @@
+.cell {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 20px;
+  color: #000000;
+}
+
+.ki-text {
+  position: absolute;
+  top: 13%;
+  left: 21%;
+  width: 63%;
+  font-size: 6em;
+  color: #005d03;
+  font-weight: 700;
+}
+
+.photo-img {
+  width: 100%;
+  height: auto;
+}
+
+.ki-status {
+  border-radius: 10px;
+  padding: 0.35rem 1rem;
+  background-color: red;
+  font-weight: 600;
+  color: #fff;
+  font-size: 12px;
+}

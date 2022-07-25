@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ImageForNews.
+    -->
+    <changeSet id="20210806020402-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="news_id"
+                                 baseTableName="image_for_news"
+                                 constraintName="fk_image_for_news__news_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="news"/>
+    </changeSet>
+</databaseChangeLog>

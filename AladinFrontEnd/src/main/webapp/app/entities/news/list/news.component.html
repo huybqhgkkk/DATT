@@ -1,0 +1,119 @@
+<div>
+  <h2 id="page-heading" data-cy="NewsHeading">
+    <span jhiTranslate="AladinTechApp.news.home.title">News</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="AladinTechApp.news.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-news"
+        [routerLink]="['/news/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="AladinTechApp.news.home.createLabel"> Create a new News </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="news?.length === 0">
+    <span jhiTranslate="AladinTechApp.news.home.notFound">No news found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="news && news.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="title">
+            <span jhiTranslate="AladinTechApp.news.title">Title</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="content">
+            <span jhiTranslate="AladinTechApp.news.content">Content</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="image1">
+            <span jhiTranslate="AladinTechApp.news.image1">Image 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="image2">
+            <span jhiTranslate="AladinTechApp.news.image2">Image 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="image3">
+            <span jhiTranslate="AladinTechApp.news.image3">Image 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let news of news; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/news', news.id, 'view']">{{ news.id }}</a>
+          </td>
+          <td>{{ news.title }}</td>
+          <td>{{ news.content }}</td>
+          <td>
+            <a *ngIf="news.image1" (click)="openFile(news.image1, news.image1ContentType)">
+              <img [src]="'data:' + news.image1ContentType + ';base64,' + news.image1" style="max-height: 30px" alt="news image" />
+            </a>
+            <span *ngIf="news.image1">{{ news.image1ContentType }}, {{ byteSize(news.image1) }}</span>
+          </td>
+          <td>
+            <a *ngIf="news.image2" (click)="openFile(news.image2, news.image2ContentType)">
+              <img [src]="'data:' + news.image2ContentType + ';base64,' + news.image2" style="max-height: 30px" alt="news image" />
+            </a>
+            <span *ngIf="news.image2">{{ news.image2ContentType }}, {{ byteSize(news.image2) }}</span>
+          </td>
+          <td>
+            <a *ngIf="news.image3" (click)="openFile(news.image3, news.image3ContentType)">
+              <img [src]="'data:' + news.image3ContentType + ';base64,' + news.image3" style="max-height: 30px" alt="news image" />
+            </a>
+            <span *ngIf="news.image3">{{ news.image3ContentType }}, {{ byteSize(news.image3) }}</span>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/news', news.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/news', news.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(news)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="news && news.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+{
+  "name": "Recruitmen",
+  "fields": [
+    {
+      "fieldName": "position",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "require",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "benefit",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "job",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "javadoc": "entity Book{\\ntilte String\\ndes String\\nimage ImageBlob\\n}\\n\\nentity TypeBook{\\nTypeName String\\n}\\n\\nrelationship ManyToMany{\\nBook{typeBook} to TypeBook{book}\\n}",
+  "entityTableName": "recruitmen",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210724081250"
+}

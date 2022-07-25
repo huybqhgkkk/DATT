@@ -1,0 +1,109 @@
+<div>
+  <h2 id="page-heading" data-cy="EmailtemplateHeading">
+    <span jhiTranslate="AladinTechApp.emailtemplate.home.title">Emailtemplates</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="AladinTechApp.emailtemplate.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-emailtemplate"
+        [routerLink]="['/emailtemplate/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="AladinTechApp.emailtemplate.home.createLabel"> Create a new Emailtemplate </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="emailtemplates?.length === 0">
+    <span jhiTranslate="AladinTechApp.emailtemplate.home.notFound">No emailtemplates found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="emailtemplates && emailtemplates.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="templatename">
+            <span jhiTranslate="AladinTechApp.emailtemplate.templatename">Templatename</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subject">
+            <span jhiTranslate="AladinTechApp.emailtemplate.subject">Subject</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hyperlink">
+            <span jhiTranslate="AladinTechApp.emailtemplate.hyperlink">Hyperlink</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="datetime">
+            <span jhiTranslate="AladinTechApp.emailtemplate.datetime">Datetime</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="content">
+            <span jhiTranslate="AladinTechApp.emailtemplate.content">Content</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emailtemplate of emailtemplates; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/emailtemplate', emailtemplate.id, 'view']">{{ emailtemplate.id }}</a>
+          </td>
+          <td>{{ emailtemplate.templatename }}</td>
+          <td>{{ emailtemplate.subject }}</td>
+          <td>{{ emailtemplate.hyperlink }}</td>
+          <td>{{ emailtemplate.datetime | formatMediumDatetime }}</td>
+          <td>{{ emailtemplate.content }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/emailtemplate', emailtemplate.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/emailtemplate', emailtemplate.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="emailtemplates && emailtemplates.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

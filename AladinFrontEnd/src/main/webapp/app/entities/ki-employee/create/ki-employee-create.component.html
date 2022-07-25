@@ -1,0 +1,1402 @@
+<div class="row justify-content-center" xmlns:white-space="http://www.w3.org/1999/xhtml">
+  <div class="col-10">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <div style="position: relative">
+        <img src="./content/images/KI_U.png" class="photo-img" />
+        <div><h1 class="ki-text" jhiTranslate="AladinTechApp.kiEmployee.ki_create">BIỂU MẪU ĐÁNH GIÁ KI</h1></div>
+      </div><br /><br />
+      <div>
+        <br />
+        <jhi-alert-error></jhi-alert-error>
+        <div class="row justify-content-center">
+          <div class="form-group col-1" [hidden]="editForm.get('id')!.value == null">
+            <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+          <div class="form-group col-11"></div>
+        </div>
+
+        <div class="" style="justify-content: center; display: flex">
+          <div class="row col-12 content-contact container-cus">
+            <div class="col-sm col-lg-5">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <div class="rectanglenv"><h4 class="font-create-ki"  jhiTranslate="AladinTechApp.kiEmployee.employee1">Employee</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.date_time"
+                        for="field_date_time"
+                        >Date Time</label
+                      >
+                      <div class="input-group">
+                        <input
+                          required
+
+                          onkeydown="return false"
+                          id="field_date_time"
+                          data-cy="date_time"
+                          type="date"
+                          class="form-control"
+                          name="date_time"
+                          formControlName="date_time"
+                        />
+                      </div>
+                      <div
+                        *ngIf="
+                          editForm.get('date_time')!.invalid && (editForm.get('date_time')!.dirty || editForm.get('date_time')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('date_time')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8"></div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="form-group col-5">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.employee_ki_point"
+                        for="field_employee_ki_point"
+                        >Employee Ki Point</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="employee_ki_point"
+                        id="field_employee_ki_point"
+                        data-cy="employee_ki_point"
+                        formControlName="employee_ki_point"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('employee_ki_point')!.invalid &&
+                          (editForm.get('employee_ki_point')!.dirty || editForm.get('employee_ki_point')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('employee_ki_point')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('employee_ki_point')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('employee_ki_point')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('employee_ki_point')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-7">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.employee"
+                        for="field_employee"
+                        >Employee</label
+                      >
+                      <input
+                        onkeydown="return false"
+                        required
+                        class="form-control"
+                        id="field_employee"
+                        data-cy="employee"
+                        name="employee"
+                        formControlName="employee"
+                      />
+
+                      <div
+                        *ngIf="
+                          editForm.get(['employee'])!.invalid && (editForm.get(['employee'])!.dirty || editForm.get(['employee'])!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get(['employee'])?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+
+                  <div class="rectanglekl"><h4 class="font-create-ki" jhiTranslate="AladinTechApp.kiEmployee.disciplinary_performance_assessment"> Disciplinary performance assessment</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_discipline"
+                        for="field_work_discipline"
+                        >Work Discipline</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="work_discipline"
+                        id="field_work_discipline"
+                        data-cy="work_discipline"
+                        formControlName="work_discipline"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('work_discipline')!.invalid &&
+                          (editForm.get('work_discipline')!.dirty || editForm.get('work_discipline')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('work_discipline')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_discipline_comment"
+                        for="field_work_discipline_comment"
+                        >Work Discipline Comment</label
+                      >
+                      <textarea
+                        placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.work_discipline_comment' | translate }}"
+                        required
+                        rows="3"
+                        type="text"
+                        class="form-control"
+                        name="work_discipline_comment"
+                        id="field_work_discipline_comment"
+                        data-cy="work_discipline_comment"
+                        formControlName="work_discipline_comment"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          editForm.get('work_discipline_comment')!.invalid &&
+                          (editForm.get('work_discipline_comment')!.dirty || editForm.get('work_discipline_comment')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline_comment')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline_comment')?.errors?.minlength"
+                          jhiTranslate="entity.validation.minlength"
+                          [translateValues]="{ min: 10 }"
+                        >
+                          This field is required to be at least 10 characters.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_discipline_comment')?.errors?.maxlength"
+                          jhiTranslate="entity.validation.maxlength"
+                          [translateValues]="{ max: 2000 }"
+                        >
+                          This field cannot be longer than 2000 characters.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+
+                  <div class="rectanglescv"><h4 class="font-create-ki" jhiTranslate="AladinTechApp.kiEmployee.assessment_of_workload">Assessment of workload</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_quantity"
+                        for="field_work_quantity"
+                        >Work Quantity</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="work_quantity"
+                        id="field_work_quantity"
+                        data-cy="work_quantity"
+                        formControlName="work_quantity"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('work_quantity')!.invalid &&
+                          (editForm.get('work_quantity')!.dirty || editForm.get('work_quantity')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('work_quantity')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_quantity_comment"
+                        for="field_work_quantity_comment"
+                        >Work Quantity Comment</label
+                      >
+                      <textarea
+                        placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.work_quantity_comment' | translate }}"
+                        required
+                        rows="3"
+                        type="text"
+                        class="form-control"
+                        name="work_quantity_comment"
+                        id="field_work_quantity_comment"
+                        data-cy="work_quantity_comment"
+                        formControlName="work_quantity_comment"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          editForm.get('work_quantity_comment')!.invalid &&
+                          (editForm.get('work_quantity_comment')!.dirty || editForm.get('work_quantity_comment')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity_comment')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity_comment')?.errors?.minlength"
+                          jhiTranslate="entity.validation.minlength"
+                          [translateValues]="{ min: 10 }"
+                        >
+                          This field is required to be at least 10 characters.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quantity_comment')?.errors?.maxlength"
+                          jhiTranslate="entity.validation.maxlength"
+                          [translateValues]="{ max: 2000 }"
+                        >
+                          This field cannot be longer than 2000 characters.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+
+
+                  <div class="rectangleccv"><h4 class="font-create-ki" jhiTranslate="AladinTechApp.kiEmployee.assess_the_quality_of_work">assess the quality of work</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_quality"
+                        for="field_work_quality"
+                        >Work Quality</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="work_quality"
+                        id="field_work_quality"
+                        data-cy="work_quality"
+                        formControlName="work_quality"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('work_quality')!.invalid &&
+                          (editForm.get('work_quality')!.dirty || editForm.get('work_quality')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('work_quality')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_quality_comment"
+                        for="field_work_quality_comment"
+                        >Work Quality Comment</label
+                      >
+                      <textarea
+                        placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.work_quality_comment' | translate }}"
+                        required
+                        rows="3"
+                        type="text"
+                        class="form-control"
+                        name="work_quality_comment"
+                        id="field_work_quality_comment"
+                        data-cy="work_quality_comment"
+                        formControlName="work_quality_comment"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          editForm.get('work_quality_comment')!.invalid &&
+                          (editForm.get('work_quality_comment')!.dirty || editForm.get('work_quality_comment')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality_comment')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality_comment')?.errors?.minlength"
+                          jhiTranslate="entity.validation.minlength"
+                          [translateValues]="{ min: 10 }"
+                        >
+                          This field is required to be at least 10 characters.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_quality_comment')?.errors?.maxlength"
+                          jhiTranslate="entity.validation.maxlength"
+                          [translateValues]="{ max: 2000 }"
+                        >
+                          This field cannot be longer than 2000 characters.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+
+                  <div class="rectangletd"><h4 class="font-create-ki" jhiTranslate="AladinTechApp.kiEmployee.evaluate_work_progress">Evaluate work progress</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_progress"
+                        for="field_work_progress"
+                        >Work Progress</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="work_progress"
+                        id="field_work_progress"
+                        data-cy="work_progress"
+                        formControlName="work_progress"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('work_progress')!.invalid &&
+                          (editForm.get('work_progress')!.dirty || editForm.get('work_progress')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('work_progress')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_progress_comment"
+                        for="field_work_progress_comment"
+                        >Work Progress Comment</label
+                      >
+                      <textarea
+                        placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.work_progress_comment' | translate }}"
+                        required
+                        rows="3"
+                        type="text"
+                        class="form-control"
+                        name="work_progress_comment"
+                        id="field_work_progress_comment"
+                        data-cy="work_progress_comment"
+                        formControlName="work_progress_comment"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          editForm.get('work_progress_comment')!.invalid &&
+                          (editForm.get('work_progress_comment')!.dirty || editForm.get('work_progress_comment')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress_comment')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress_comment')?.errors?.minlength"
+                          jhiTranslate="entity.validation.minlength"
+                          [translateValues]="{ min: 10 }"
+                        >
+                          This field is required to be at least 10 characters.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_progress_comment')?.errors?.maxlength"
+                          jhiTranslate="entity.validation.maxlength"
+                          [translateValues]="{ max: 2000 }"
+                        >
+                          This field cannot be longer than 2000 characters.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+
+                  <div class="rectangletp"><h4 class="font-create-ki" jhiTranslate="AladinTechApp.kiEmployee.evaluate_working_style">Evaluate working style</h4></div>
+                  <br />
+                  <div class="row justify-content-center">
+                    <div class="form-group col-4">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_attitude"
+                        for="field_work_attitude"
+                        >Work Attitude</label
+                      >
+                      <select
+                        required
+                        type="text"
+                        class="form-control"
+                        name="work_attitude"
+                        id="field_work_attitude"
+                        data-cy="work_attitude"
+                        formControlName="work_attitude"
+                      >
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                        <option>0.5</option>
+                        <option>0.6</option>
+                        <option>0.7</option>
+                        <option>0.8</option>
+                        <option>0.9</option>
+                        <option [value]="this.point">1.0</option>
+                        <option>1.1</option>
+                        <option>1.2</option>
+                        <option>1.3</option>
+                        <option>1.4</option>
+                        <option>1.5</option>
+                        <option>1.6</option>
+                        <option>1.7</option>
+                        <option>1.8</option>
+                        <option>1.9</option>
+                        <option>2.0</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          editForm.get('work_attitude')!.invalid &&
+                          (editForm.get('work_attitude')!.dirty || editForm.get('work_attitude')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude')?.errors?.min"
+                          jhiTranslate="entity.validation.min"
+                          [translateValues]="{ min: 0.1 }"
+                        >
+                          This field should be at least 0.1.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude')?.errors?.max"
+                          jhiTranslate="entity.validation.max"
+                          [translateValues]="{ max: 2.0 }"
+                        >
+                          This field cannot be more than 2.0.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          [hidden]="!editForm.get('work_attitude')?.errors?.number"
+                          jhiTranslate="entity.validation.number"
+                        >
+                          This field should be a number.
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group col-8">
+                      <label
+                        style="color: #111112; font-weight: 600"
+                        class="form-control-label"
+                        jhiTranslate="AladinTechApp.kiEmployee.work_attitude_comment"
+                        for="field_work_attitude_comment"
+                        >Work Attitude Comment</label
+                      >
+                      <textarea
+                        placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.work_attitude_comment' | translate }}"
+                        required
+                        rows="3"
+                        type="text"
+                        class="form-control"
+                        name="work_attitude_comment"
+                        id="field_work_attitude_comment"
+                        data-cy="work_attitude_comment"
+                        formControlName="work_attitude_comment"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          editForm.get('work_attitude_comment')!.invalid &&
+                          (editForm.get('work_attitude_comment')!.dirty || editForm.get('work_attitude_comment')!.touched)
+                        "
+                      >
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude_comment')?.errors?.required"
+                          jhiTranslate="entity.validation.required"
+                        >
+                          This field is required.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude_comment')?.errors?.minlength"
+                          jhiTranslate="entity.validation.minlength"
+                          [translateValues]="{ min: 10 }"
+                        >
+                          This field is required to be at least 10 characters.
+                        </small>
+                        <small
+                          class="form-text text-danger"
+                          *ngIf="editForm.get('work_attitude_comment')?.errors?.maxlength"
+                          jhiTranslate="entity.validation.maxlength"
+                          [translateValues]="{ max: 2000 }"
+                        >
+                          This field cannot be longer than 2000 characters.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm col-lg-1"></div>
+
+
+            <div class="col-sm col-lg-6">
+              <div class="rectanglett"><h4 class="font-wotm" jhiTranslate="AladinTechApp.kiEmployee.jobs_for_the_month">Jobs for the month</h4></div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.assigned_work"
+                  for="field_assigned_work"
+                  >Assigned Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.assigned_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="assigned_work"
+                  id="field_assigned_work"
+                  data-cy="assigned_work"
+                  formControlName="assigned_work"
+                ></textarea>
+                <div
+                  *ngIf="
+                    editForm.get('assigned_work')!.invalid &&
+                    (editForm.get('assigned_work')!.dirty || editForm.get('assigned_work')!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('assigned_work')?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('assigned_work')?.errors?.minlength"
+                    jhiTranslate="entity.validation.minlength"
+                    [translateValues]="{ min: 10 }"
+                  >
+                    This field is required to be at least 10 characters.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('assigned_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.other_work"
+                  for="field_other_work"
+                  >Other Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.other_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="other_work"
+                  id="field_other_work"
+                  data-cy="other_work"
+                  formControlName="other_work"
+                ></textarea>
+                <div
+                  *ngIf="editForm.get('other_work')!.invalid && (editForm.get('other_work')!.dirty || editForm.get('other_work')!.touched)"
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('other_work')?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('other_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.completed_work"
+                  for="field_completed_work"
+                  >Completed Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.completed_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="completed_work"
+                  id="field_completed_work"
+                  data-cy="completed_work"
+                  formControlName="completed_work"
+                ></textarea>
+                <div
+                  *ngIf="
+                    editForm.get('completed_work')!.invalid &&
+                    (editForm.get('completed_work')!.dirty || editForm.get('completed_work')!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('completed_work')?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('completed_work')?.errors?.minlength"
+                    jhiTranslate="entity.validation.minlength"
+                    [translateValues]="{ min: 10 }"
+                  >
+                    This field is required to be at least 10 characters.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('completed_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.uncompleted_work"
+                  for="field_uncompleted_work"
+                  >Uncompleted Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.uncompleted_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="uncompleted_work"
+                  id="field_uncompleted_work"
+                  data-cy="uncompleted_work"
+                  formControlName="uncompleted_work"
+                ></textarea>
+                <div
+                  *ngIf="
+                    editForm.get('uncompleted_work')!.invalid &&
+                    (editForm.get('uncompleted_work')!.dirty || editForm.get('uncompleted_work')!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('uncompleted_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.favourite_work"
+                  for="field_favourite_work"
+                  >Favourite Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.favourite_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="favourite_work"
+                  id="field_favourite_work"
+                  data-cy="favourite_work"
+                  formControlName="favourite_work"
+                ></textarea>
+                <div
+                  *ngIf="
+                    editForm.get('favourite_work')!.invalid &&
+                    (editForm.get('favourite_work')!.dirty || editForm.get('favourite_work')!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('favourite_work')?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('favourite_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <label
+                  style="color: #111112; font-weight: 600"
+                  class="form-control-label"
+                  jhiTranslate="AladinTechApp.kiEmployee.unfavourite_work"
+                  for="field_unfavourite_work"
+                  >Unfavourite Work</label
+                >
+                <textarea
+                  placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.unfavourite_work' | translate }}"
+                  required
+                  rows="6"
+                  type="text"
+                  class="form-control"
+                  name="unfavourite_work"
+                  id="field_unfavourite_work"
+                  data-cy="unfavourite_work"
+                  formControlName="unfavourite_work"
+                ></textarea>
+                <div
+                  *ngIf="
+                    editForm.get('unfavourite_work')!.invalid &&
+                    (editForm.get('unfavourite_work')!.dirty || editForm.get('unfavourite_work')!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get('unfavourite_work')?.errors?.maxlength"
+                    jhiTranslate="entity.validation.maxlength"
+                    [translateValues]="{ max: 2000 }"
+                  >
+                    This field cannot be longer than 2000 characters.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="" style="justify-content: center; display: flex">
+          <div class="row col-12 content-contact container-cus">
+            <div class="col-sm col-lg-5">
+              <div class="rectangleTP"><h4 class="font-tp" jhiTranslate="AladinTechApp.kiEmployee.leader">leader</h4></div>
+              <br />
+              <div class="row justify-content-center">
+                <div class="form-group col-5">
+                  <label
+                    style="color: #111112; font-weight: 600"
+                    class="form-control-label"
+                    jhiTranslate="AladinTechApp.kiEmployee.leader_ki_point"
+                    for="field_leader_ki_point"
+                    >Leader Ki Point</label
+                  >
+                  <select
+                    required
+                    type="text"
+                    class="form-control"
+                    name="leader_ki_point"
+                    id="field_leader_ki_point"
+                    data-cy="leader_ki_point"
+                    formControlName="leader_ki_point"
+                  >
+                    <option>0.1</option>
+                    <option>0.2</option>
+                    <option>0.3</option>
+                    <option>0.4</option>
+                    <option>0.5</option>
+                    <option>0.6</option>
+                    <option>0.7</option>
+                    <option>0.8</option>
+                    <option>0.9</option>
+                    <option>0.95</option>
+                    <option [value]="this.point">1.0</option>
+                    <option>1.1</option>
+                    <option>1.2</option>
+                    <option>1.3</option>
+                    <option>1.4</option>
+                    <option>1.5</option>
+                    <option>1.6</option>
+                    <option>1.7</option>
+                    <option>1.8</option>
+                    <option>1.9</option>
+                    <option>2.0</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      editForm.get('leader_ki_point')!.invalid &&
+                      (editForm.get('leader_ki_point')!.dirty || editForm.get('leader_ki_point')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_ki_point')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_ki_point')?.errors?.min"
+                      jhiTranslate="entity.validation.min"
+                      [translateValues]="{ min: 0.1 }"
+                    >
+                      This field should be at least 0.1.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_ki_point')?.errors?.max"
+                      jhiTranslate="entity.validation.max"
+                      [translateValues]="{ max: 2.0 }"
+                    >
+                      This field cannot be more than 2.0.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      [hidden]="!editForm.get('leader_ki_point')?.errors?.number"
+                      jhiTranslate="entity.validation.number"
+                    >
+                      This field should be a number.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group col-7">
+                  <label
+                    style="color: #111112; font-weight: 600"
+                    class="form-control-label"
+                    jhiTranslate="AladinTechApp.kiEmployee.leader_comment"
+                    for="field_leader_comment"
+                    >Leader Comment</label
+                  >
+                  <textarea
+                    placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.leader_comment' | translate }}"
+                    rows="3"
+                    required
+                    type="text"
+                    class="form-control"
+                    name="leader_comment"
+                    id="field_leader_comment"
+                    data-cy="leader_comment"
+                    formControlName="leader_comment"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      editForm.get('leader_comment')!.invalid &&
+                      (editForm.get('leader_comment')!.dirty || editForm.get('leader_comment')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_comment')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_comment')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 10 }"
+                    >
+                      This field is required to be at least 10 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('leader_comment')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm col-lg-1"></div>
+
+            <div class="col-sm col-lg-6">
+              <div class="rectanglegd"><h4 class="font-gd" jhiTranslate="AladinTechApp.kiEmployee.boss">Boss</h4></div>
+              <br />
+              <div class="row justify-content-center">
+                <div class="form-group col-4">
+                  <label
+                    style="color: #111112; font-weight: 600"
+                    class="form-control-label"
+                    jhiTranslate="AladinTechApp.kiEmployee.boss_ki_point"
+                    for="field_boss_ki_point"
+                    >Boss Ki Point</label
+                  >
+                  <select
+                    required
+                    type="text"
+                    class="form-control"
+                    name="boss_ki_point"
+                    id="field_boss_ki_point"
+                    data-cy="boss_ki_point"
+                    formControlName="boss_ki_point"
+                  >
+                    <option>0.1</option>
+                    <option>0.2</option>
+                    <option>0.3</option>
+                    <option>0.4</option>
+                    <option>0.5</option>
+                    <option>0.6</option>
+                    <option>0.7</option>
+                    <option>0.8</option>
+                    <option>0.9</option>
+                    <option>0.95</option>
+                    <option [value]="this.point">1.0</option>
+                    <option>1.1</option>
+                    <option>1.2</option>
+                    <option>1.3</option>
+                    <option>1.4</option>
+                    <option>1.5</option>
+                    <option>1.6</option>
+                    <option>1.7</option>
+                    <option>1.8</option>
+                    <option>1.9</option>
+                    <option>2.0</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      editForm.get('boss_ki_point')!.invalid &&
+                      (editForm.get('boss_ki_point')!.dirty || editForm.get('boss_ki_point')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_ki_point')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_ki_point')?.errors?.min"
+                      jhiTranslate="entity.validation.min"
+                      [translateValues]="{ min: 0.1 }"
+                    >
+                      This field should be at least 0.1.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_ki_point')?.errors?.max"
+                      jhiTranslate="entity.validation.max"
+                      [translateValues]="{ max: 2.0 }"
+                    >
+                      This field cannot be more than 2.0.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      [hidden]="!editForm.get('boss_ki_point')?.errors?.number"
+                      jhiTranslate="entity.validation.number"
+                    >
+                      This field should be a number.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group col-8">
+                  <label
+                    style="color: #111112; font-weight: 600"
+                    class="form-control-label"
+                    jhiTranslate="AladinTechApp.kiEmployee.boss_comment"
+                    for="field_boss_comment"
+                    >Boss Comment</label
+                  >
+                  <textarea
+                    rows="3"
+                    required
+                    placeholder="{{ 'AladinTechApp.kiEmployee.placeholder.boss_comment' | translate }}"
+                    type="text"
+                    class="form-control"
+                    name="boss_comment"
+                    id="field_boss_comment"
+                    data-cy="boss_comment"
+                    formControlName="boss_comment"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      editForm.get('boss_comment')!.invalid &&
+                      (editForm.get('boss_comment')!.dirty || editForm.get('boss_comment')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_comment')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_comment')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 10 }"
+                    >
+                      This field is required to be at least 10 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('boss_comment')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br />
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+        <br /><br />
+      </div>
+    </form>
+  </div>
+</div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<ngx-scrolltop [backgroundColor]="'green'" [symbolColor]="'#fafafa'" [size]="55" [mode]="'classic'" position="right" theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>

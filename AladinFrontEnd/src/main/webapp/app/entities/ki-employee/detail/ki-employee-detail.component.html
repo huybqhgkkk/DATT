@@ -1,0 +1,175 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div *ngIf="kiEmployee"><br>
+      <div style="position: relative">
+        <img src="./content/images/KI_V.png" class="photo-img">
+        <div><h1 class="ki-text" jhiTranslate="AladinTechApp.kiEmployee.ki_detail"><b>PHIẾU ĐÁNH GIÁ NHÂN VIÊN</b></h1></div>
+      </div><br>
+
+      <jhi-alert-error></jhi-alert-error>
+      <jhi-alert></jhi-alert>
+
+      <div class="" style="justify-content: center; display: flex">
+        <div class="row col-12 content-contact container-cus">
+          <div class="col-sm col-lg-5">
+            <div class="row justify-content-center">
+              <div class="col-12" style="text-align: left">
+                <div>
+                  <h4 data-cy="kiEmployeeDetailsHeading" class="font-dgl" jhiTranslate="AladinTechApp.kiEmployee.detail.nevaluate_ki"><span>Evaluate KI</span></h4><hr>
+                </div><br>
+                <dl class="row-md jh-entity-details">
+                  <dt><span jhiTranslate="global.field.id">ID</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.id }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.employee">Employee</span></dt>
+                  <dd>
+                    <div>
+                      <span>{{ kiEmployee.employee?.full_name }}</span>
+                    </div>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.employee_ki_point">Employee Ki Point</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.employee_ki_point }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.date_time">Date Time</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.date_time | formatMediumDate }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_quantity">Work Quantity</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.work_quantity }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_quantity_comment">Work Quantity Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.work_quantity_comment }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_quality">Work Quality</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.work_quality }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_quality_comment">Work Quality Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.work_quality_comment }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_progress">Work Progress</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.work_progress }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_progress_comment">Work Progress Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.work_progress_comment }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_attitude">Work Attitude</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.work_attitude }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_attitude_comment">Work Attitude Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.work_attitude_comment }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_discipline">Work Discipline</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.work_discipline }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.work_discipline_comment">Work Discipline Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.work_discipline_comment }}</span>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm col-lg-1"></div>
+
+          <div class="col-sm col-lg-6">
+            <div class="col-sm col-xl-12" style="text-align: left">
+              <div >
+                <h4 data-cy="kiEmployeeDetailsHeading" class="font-gdr" jhiTranslate="AladinTechApp.kiEmployee.detail.monthly_job_evaluation"><span>monthly job evaluation</span></h4><hr>
+              </div><br>
+              <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.assigned_work">Assigned Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.assigned_work }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.other_work">Other Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.other_work }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.completed_work">Completed Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.completed_work }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.uncompleted_work">Uncompleted Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.uncompleted_work }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.favourite_work">Favourite Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.favourite_work }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.unfavourite_work">Unfavourite Work</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.unfavourite_work }}</span>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="" style="justify-content: center; display: flex">
+        <div class="row col-12 content-contact container-cus">
+          <div class="col-sm col-lg-5">
+            <div class="row justify-content-center">
+              <div class=" col-12">
+                <div>
+                  <h4 data-cy="kiEmployeeDetailsHeading" class="font-dgl" jhiTranslate="AladinTechApp.kiEmployee.detail.head_of_department_assessment"><span>Head of Department's assessment</span></h4><hr>
+                </div><br>
+                <dl class="row-md jh-entity-details">
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.leader_ki_point">Leader Ki Point</span></dt>
+                  <dd>
+                    <span>{{ kiEmployee.leader_ki_point }}</span>
+                  </dd>
+                  <dt><span jhiTranslate="AladinTechApp.kiEmployee.leader_comment">Leader Comment</span></dt>
+                  <dd>
+                    <span class="font-style">{{ kiEmployee.leader_comment }}</span>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm col-lg-1"></div>
+
+          <div class="col-sm col-lg-6">
+            <div class="col-sm col-xl-12" style="text-align: left">
+              <div >
+                <h4 data-cy="kiEmployeeDetailsHeading" class="font-gdr" jhiTranslate="AladinTechApp.kiEmployee.detail.director_rating"><span> Director rating</span></h4><hr>
+              </div><br>
+              <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.boss_ki_point">Boss Ki Point</span></dt>
+                <dd>
+                  <span>{{ kiEmployee.boss_ki_point }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.kiEmployee.boss_comment">Boss Comment</span></dt>
+                <dd>
+                  <span class="font-style">{{ kiEmployee.boss_comment }}</span>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ki-employee', kiEmployee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div><br>

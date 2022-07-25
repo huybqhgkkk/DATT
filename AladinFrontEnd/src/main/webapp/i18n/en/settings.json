@@ -1,0 +1,32 @@
+{
+  "settings": {
+    "title": "Set users with [<strong>{{username}}</strong>]",
+    "form": {
+      "firstname": "Firstname",
+      "firstname.placeholder": "Enter your firstname",
+      "lastname": "Lastname",
+      "lastname.placeholder": "Enter your lastname",
+      "language": "Languages",
+      "button": "Save"
+    },
+    "messages": {
+      "error": {
+        "fail": "<strong> An error occurred!</strong> Unable to save settings.",
+        "emailexists": "<strong>Email already in use!</strong> Please enter another email."
+      },
+      "success": "<strong>Saved settings!</strong>",
+      "validate": {
+        "firstname": {
+          "required": "You must enter your firstname.",
+          "minlength": "Firstname must be between 3 and 20 characters",
+          "maxlength": "Firstname must be between 3 and 20 characterss"
+        },
+        "lastname": {
+          "required": "You must enter your lasttname.",
+          "minlength": "Lastname must be between 3 and 20 characters",
+          "maxlength": "Lastname must be between 3 and 20 characters"
+        }
+      }
+    }
+  }
+}

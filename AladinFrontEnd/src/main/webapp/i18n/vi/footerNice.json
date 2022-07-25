@@ -1,0 +1,19 @@
+{
+  "footerTranslate": {
+    "label": {
+      "news": "Tin tức",
+      "services": "Dịch vụ",
+      "products": "Sản phẩm",
+      "home": "Trang chủ",
+      "career": "Tuyển dụng",
+      "introduction": "Giới thiệu công ty",
+      "expand": "Phát triển",
+      "follow": "Theo dõi chúng tôi tại",
+      "contact": "Liên hệ",
+      "rule": "Điều khoản sử dụng |",
+      "diagram": "Sơ đồ website |",
+      "help": "Liên hệ & trợ giúp |",
+      "trademark": "Thương hiệu"
+    }
+  }
+}

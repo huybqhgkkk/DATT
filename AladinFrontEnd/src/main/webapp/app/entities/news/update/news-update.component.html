@@ -1,0 +1,158 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-news-heading" data-cy="NewsCreateUpdateHeading" jhiTranslate="AladinTechApp.news.home.createOrEditLabel">
+        Create or edit a News
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.news.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.news.content" for="field_content">Content</label>
+          <input type="text" class="form-control" name="content" id="field_content" data-cy="content" formControlName="content" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.news.image1" for="field_image1">Image 1</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('image1ContentType')!.value + ';base64,' + editForm.get('image1')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('image1')!.value"
+              alt="news image"
+            />
+            <div *ngIf="editForm.get('image1')!.value" class="form-text text-danger clearfix">
+              <span class="pull-left">{{ editForm.get('image1ContentType')!.value }}, {{ byteSize(editForm.get('image1')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('image1', 'image1ContentType', 'file_image1')"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_image1"
+              data-cy="image1"
+              (change)="setFileData($event, 'image1', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="image1" id="field_image1" data-cy="image1" formControlName="image1" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="image1ContentType"
+            id="field_image1ContentType"
+            formControlName="image1ContentType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.news.image2" for="field_image2">Image 2</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('image2ContentType')!.value + ';base64,' + editForm.get('image2')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('image2')!.value"
+              alt="news image"
+            />
+            <div *ngIf="editForm.get('image2')!.value" class="form-text text-danger clearfix">
+              <span class="pull-left">{{ editForm.get('image2ContentType')!.value }}, {{ byteSize(editForm.get('image2')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('image2', 'image2ContentType', 'file_image2')"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_image2"
+              data-cy="image2"
+              (change)="setFileData($event, 'image2', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="image2" id="field_image2" data-cy="image2" formControlName="image2" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="image2ContentType"
+            id="field_image2ContentType"
+            formControlName="image2ContentType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.news.image3" for="field_image3">Image 3</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('image3ContentType')!.value + ';base64,' + editForm.get('image3')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('image3')!.value"
+              alt="news image"
+            />
+            <div *ngIf="editForm.get('image3')!.value" class="form-text text-danger clearfix">
+              <span class="pull-left">{{ editForm.get('image3ContentType')!.value }}, {{ byteSize(editForm.get('image3')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('image3', 'image3ContentType', 'file_image3')"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_image3"
+              data-cy="image3"
+              (change)="setFileData($event, 'image3', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="image3" id="field_image3" data-cy="image3" formControlName="image3" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="image3ContentType"
+            id="field_image3ContentType"
+            formControlName="image3ContentType"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,214 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-candidate-heading" data-cy="CandidateCreateUpdateHeading" jhiTranslate="AladinTechApp.candidate.home.createOrEditLabel">
+        Create or edit a Candidate
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+          <div *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('phone')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.position" for="field_position">Position</label>
+          <input type="text" class="form-control" name="position" id="field_position" data-cy="position" formControlName="position" />
+          <div *ngIf="editForm.get('position')!.invalid && (editForm.get('position')!.dirty || editForm.get('position')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('position')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.birthday" for="field_birthday">Birthday</label>
+          <div class="d-flex">
+            <input
+              id="field_birthday"
+              data-cy="birthday"
+              type="datetime-local"
+              class="form-control"
+              name="birthday"
+              formControlName="birthday"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('birthday')!.invalid && (editForm.get('birthday')!.dirty || editForm.get('birthday')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('birthday')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('birthday')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+          <div *ngIf="editForm.get('location')!.invalid && (editForm.get('location')!.dirty || editForm.get('location')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('location')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.preference" for="field_preference">Preference</label>
+          <input
+            type="text"
+            class="form-control"
+            name="preference"
+            id="field_preference"
+            data-cy="preference"
+            formControlName="preference"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.education" for="field_education">Education</label>
+          <input type="text" class="form-control" name="education" id="field_education" data-cy="education" formControlName="education" />
+          <div *ngIf="editForm.get('education')!.invalid && (editForm.get('education')!.dirty || editForm.get('education')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('education')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.experience" for="field_experience">Experience</label>
+          <input
+            type="text"
+            class="form-control"
+            name="experience"
+            id="field_experience"
+            data-cy="experience"
+            formControlName="experience"
+          />
+          <div *ngIf="editForm.get('experience')!.invalid && (editForm.get('experience')!.dirty || editForm.get('experience')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('experience')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.target" for="field_target">Target</label>
+          <input type="text" class="form-control" name="target" id="field_target" data-cy="target" formControlName="target" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.relationship" for="field_relationship"
+            >Relationship</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="relationship"
+            id="field_relationship"
+            data-cy="relationship"
+            formControlName="relationship"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.fullname" for="field_fullname">Fullname</label>
+          <input type="text" class="form-control" name="fullname" id="field_fullname" data-cy="fullname" formControlName="fullname" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.sex" for="field_sex">Sex</label>
+          <input type="text" class="form-control" name="sex" id="field_sex" data-cy="sex" formControlName="sex" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.candidate.cv" for="field_cv">Cv</label>
+          <div>
+            <div *ngIf="editForm.get('cv')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-left"
+                (click)="openFile(editForm.get('cv')!.value, editForm.get('cvContentType')!.value)"
+                jhiTranslate="entity.action.open"
+                >open</a
+              ><br />
+              <span class="pull-left">{{ editForm.get('cvContentType')!.value }}, {{ byteSize(editForm.get('cv')!.value) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ cv: null }); editForm.patchValue({ cvContentType: null })"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input type="file" id="file_cv" data-cy="cv" (change)="setFileData($event, 'cv', false)" jhiTranslate="entity.action.addblob" />
+          </div>
+          <input type="hidden" class="form-control" name="cv" id="field_cv" data-cy="cv" formControlName="cv" />
+          <input type="hidden" class="form-control" name="cvContentType" id="field_cvContentType" formControlName="cvContentType" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

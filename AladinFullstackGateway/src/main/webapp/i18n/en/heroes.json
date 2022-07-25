@@ -1,0 +1,27 @@
+{
+  "aladinFullstackApp": {
+    "heroes": {
+      "home": {
+        "title": "Heroes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Heroes",
+        "createOrEditLabel": "Create or edit a Heroes",
+        "search": "Search for Heroes",
+        "notFound": "No Heroes found"
+      },
+      "created": "A new Heroes is created with identifier {{ param }}",
+      "updated": "A Heroes is updated with identifier {{ param }}",
+      "deleted": "A Heroes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Heroes {{ id }}?"
+      },
+      "detail": {
+        "title": "Heroes"
+      },
+      "id": "ID",
+      "name": "Name",
+      "create_time": "Create Time",
+      "viettelSubscriber": "Viettel Subscriber"
+    }
+  }
+}

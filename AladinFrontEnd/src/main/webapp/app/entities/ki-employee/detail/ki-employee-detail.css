@@ -1,0 +1,57 @@
+.btnthoat{
+  background-color: #FF0000;
+}
+
+.font-style{
+  white-space: break-spaces
+}
+
+.ki-text {
+  position: absolute;
+  top: 0%;
+  left: 21%;
+  width: 75%;
+  font-size: 5em;
+  color: #00980a;
+  font-weight: 700;
+}
+
+.btnsua{
+  background-color: #04B404;
+}
+
+.photo-img{
+  width: 100%;
+  height: auto;
+}
+
+.font-dgl{
+  text-align: left;
+  color: #09c609;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.font-gdr{
+  text-align: left;
+  color: #09c609;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.content-contact {
+//margin-left: 10%;
+//margin-right: 10%;
+  opacity: 0.97;
+  background-color: white;
+  padding: 3% 0 5%;
+
+}
+
+.container-cus {
+  max-width: 2000px !important;
+}
+
+
+
+

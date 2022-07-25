@@ -1,0 +1,103 @@
+{
+  "contact": {
+    "title": "Liên hệ",
+    "button": "Liên hệ",
+    "subtitle": "Đây là trang chủ của bạn",
+    "logged": {
+      "message": "Bạn đang đăng nhập bằng tài khoản \"{{username}}\"."
+    },
+    "label": {
+      "fullname": "Họ và tên",
+      "email": "Email",
+      "message": "Lời nhắn",
+      "interestThing": "Bạn quan tâm",
+      "phone": "Số điện thoại",
+      "job": "Nghề nghiệp",
+      "company": "Tên công ty"
+    },
+    "placeholder": {
+      "fullname": "Nhập họ và tên",
+      "email": "Nhập email",
+      "message": "Lời nhắn bạn muốn gửi đến chúng tôi",
+      "phone": "Nhập số điện thoại",
+      "job": "Nhập tên nghề nghiệp",
+      "company": "Nhập tên công ty"
+    },
+    "company": {
+      "required": "Tên công ty là bắt buộc",
+      "minlength": "Tên công ty ít nhất 5 ký tự"
+    },
+    "job": {
+      "required": "Tên công việc là bắt buộc",
+      "minlength": "Tên công việc ít nhất 5 ký tự"
+    },
+    "name": {
+      "validate": {
+        "required": "Tên là điều bắt buộc.",
+        "minlength": "Tên bạn phải nhiều hơn 1 ký tự",
+        "pattern": "Tên không chứa những ký tự đặc biệt"
+      }
+    },
+    "email": {
+      "validate": {
+        "required": "Email là điều bắt buộc",
+        "minlength": "Email phải nhiều hơn 5 ký tự",
+        "maxlength": "Email phải ít hơn 254 ký tự",
+        "pattern": "Email không hợp lệ rồi"
+      }
+    },
+    "message": {
+      "validate": {
+        "required": "Lời nhắn là điều bắt buộc đó",
+        "minlength": "Lời nhắn phải nhiều hơn 4 ký tự",
+        "pattern": "Tin nhắn không hợp lệ"
+      }
+    },
+    "phone": {
+      "required": "Số điện thoại không thể để trống",
+      "invalid": "Số điện thoại không hợp lệ",
+      "maxlength": "Số điện thoại thừa ký tự",
+      "minlength": "Số điện thoại cần ít nhất 8 ký tự"
+    },
+    "sendContact": {
+      "success": "Thông tin đã được gửi! ^.^",
+      "error": "Gửi thông tin thất bại!"
+    }
+  },
+  "AladinTechApp": {
+    "contact": {
+      "home": {
+        "title": "LIÊN HỆ",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Tạo mới một liên hệ",
+        "createOrEditLabel": "Tạo mới hoặc chỉnh sửa liên hệ",
+        "notFound": "Không tìm thấy liên hệ"
+      },
+      "receiveMail": "Bạn có muốn nhận mail từ chúng tôi ?",
+      "information": "Thông tin",
+      "created": "Tạo mới liên hệ {{ param }}",
+      "updated": "Cập nhập liên hệ {{ param }}",
+      "deleted": "Xóa liên hệ {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc chắn xóa liên hệ {{ id }}?"
+      },
+      "detail": {
+        "title": "liên hệ"
+      },
+      "id": "ID",
+      "name": "Tên",
+      "email": "Email",
+      "message": "Tin nhắn",
+      "phone": "Phone",
+      "datetime": "Date Time",
+      "jobtitle": "Nghề nghiệp",
+      "company": "Tên công ty",
+      "interest": "Quan tâm",
+      "address": {
+        "subAddress": "Tầng 4, Chung cư HH1 Meco Complex, ngõ 102 Trường Chinh, Phương Mai, Đống Đa, Hà Nội",
+        "detailAddress": "Tầng 4, Chung cư HH1 Meco Complex, ngõ 102 Trường Chinh, P. Phương Mai, Q. Đống Đa, TP. Hà Nội",
+        "businessRegistryAddress": "89/34, Vĩnh Tuy, Hai Bà Trưng, Hà Nội"
+      }
+    }
+  }
+}

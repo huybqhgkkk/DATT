@@ -1,0 +1,26 @@
+{
+  "AladinTechApp": {
+    "department": {
+      "home": {
+        "title": "Department",
+        "refreshListLabel": "Reload list",
+        "createLabel": "Add a new Department",
+        "createOrEditLabel": "Add new or update Department",
+        "notFound": "No Departments found"
+      },
+      "created": "A new Department is created with the identifier {{ param }}",
+      "updated": "Department updated with identifier {{ param }}",
+      "deleted": "Department deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Do you want to delete Department {{ id }}?"
+      },
+      "detail": {
+        "title": "Department"
+      },
+      "header": "DEPARTMENT",
+      "id": "ID",
+      "departmentName": "Department",
+      "user": "User"
+    }
+  }
+}

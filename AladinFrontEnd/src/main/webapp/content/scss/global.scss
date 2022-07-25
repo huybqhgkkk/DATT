@@ -1,0 +1,768 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400&display=swap');
+
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+//customer Hieumt
+
+body {
+  overflow-x: hidden;
+}
+
+.active1 {
+  color: #fff !important;
+  text-decoration: none !important;
+  background-color: #09c608 !important;
+}
+
+.mouse:before {
+  width: 46px;
+  height: 82px;
+  border-radius: 100px;
+}
+
+.mouse:before,
+.mouse:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.mouse:after {
+  background-color: #111112;
+  width: 5px;
+  height: 12px;
+  border-radius: 25%;
+  animation: trackBallSlide 5s linear infinite;
+}
+
+.mouse {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto;
+  width: 36px;
+  height: 54px;
+  border-radius: 50px;
+  border: 3px solid black;
+  animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@keyframes colorSlide {
+  0% {
+    background-position: 0% 100%;
+  }
+  20% {
+    background-position: 0% 0%;
+  }
+
+  29.99% {
+    background-position: 0% 0%;
+  }
+  30% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  59% {
+    background-position: 0% 0%;
+  }
+  60% {
+    background-position: 0% 100%;
+  }
+  80% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(8px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(0.9) translateY(2px);
+  }
+  14% {
+    opacity: 0;
+    transform: scale(0.4) translateY(16px);
+  }
+  15%,
+  19% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-8px);
+  }
+  28%,
+  29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(0.9) translateY(2px);
+  }
+  44% {
+    opacity: 0;
+    transform: scale(0.4) translateY(16px);
+  }
+  45%,
+  49% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-8px);
+  }
+  58%,
+  59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(0.9) translateY(2px);
+  }
+  74% {
+    opacity: 0;
+    transform: scale(0.4) translateY(16px);
+  }
+  75%,
+  79% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-8px);
+  }
+  88%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(-8px);
+  }
+}
+
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(8px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
+
+html {
+}
+
+.active-cus > a {
+  color: #111112;
+  background-color: #fff;
+  color: #0ab90a;
+}
+
+.card-img-cus-none-background {
+  padding: 1rem 0.2rem;
+  margin: 3%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.card-img-cus {
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.card-img-cus-services {
+  width: 100%;
+}
+
+.hr {
+  border-bottom: 8px solid #09c608;
+  width: 120px;
+  margin-bottom: -0.5rem !important;
+}
+
+.sub-title-list-tech-use {
+  float: left;
+  border-left: 8px solid #09c608;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.sub-title-cus {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.sub-title-large-cus {
+  font-weight: bold;
+  font-size: xxx-large;
+  color: #09bd35;
+}
+
+.background-img {
+  padding: 3rem;
+  padding-inline: 3rem 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 550px;
+}
+
+.font-family {
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 2;
+}
+
+.textarea-cus {
+  border: none;
+  width: 100%;
+  line-height: 2;
+  resize: none;
+}
+
+.logo-img-footer {
+  height: 220px;
+  width: 170px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../images/home/logo-aladintech 1.png') no-repeat center center;
+  background-size: contain;
+}
+
+.icon-cus {
+  height: 30px;
+  width: 30px;
+  margin: 1% 4%;
+}
+
+.icon-cus-call {
+  height: 25px;
+  width: 30px;
+  margin: 1% 4%;
+}
+
+.type-services {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 1500px) {
+  .slides > div {
+    max-width: 24% !important;
+    margin-right: 20px !important;
+  }
+  .logo-img {
+    width: 90% !important;
+  }
+
+  .nice {
+    min-height: 350px !important;
+  }
+  .card-img-cus {
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1499px) {
+  .slides > div {
+    max-width: 23% !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  #logo-header {
+    margin-left: -1rem;
+  }
+  #footer-need-hide {
+    display: none;
+  }
+
+  #footer-need-center {
+    text-align: center;
+  }
+
+  #footer-need-margin-top {
+    margin-top: 3%;
+  }
+  #footer-link {
+    float: unset !important;
+    text-align: center;
+  }
+  .background-img {
+    background-size: cover;
+    min-height: 500px;
+  }
+
+  .product-container {
+    position: relative;
+  }
+
+  .overlay-product-text {
+    position: absolute !important;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    width: 95%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .product-container:hover .overlay-product-text {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 510px) {
+  #logo-header {
+    margin-left: -1.8rem;
+  }
+  #footer-need-hide {
+    display: none;
+  }
+
+  #footer-need-center {
+    text-align: center;
+  }
+
+  #footer-need-margin-top {
+    margin-top: 3%;
+  }
+  #footer-link {
+    float: unset !important;
+    text-align: center;
+  }
+  .type-services {
+    font-size: 3rem;
+  }
+  .sub-title-large-cus {
+    font-size: x-large;
+  }
+
+  .background-img {
+    background-size: cover;
+    min-height: 400px;
+  }
+
+  .product-container {
+    position: relative;
+  }
+
+  .overlay-product-text {
+    position: absolute !important;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    width: 95%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .product-container:hover .overlay-product-text {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 509px) {
+  .product-container {
+    position: relative;
+  }
+
+  .overlay-product-text {
+    position: absolute !important;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    width: 95%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .product-container:hover .overlay-product-text {
+    opacity: 1;
+  }
+  .fun > .card-body {
+    display: none !important;
+  }
+  .fun > .card-title > a {
+    color: white;
+  }
+}
+
+//slides
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: #09bd35;
+  border-radius: 10px;
+}
+
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nice {
+  width: 100%;
+  height: 300px;
+  max-height: 16rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.nice > div {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.slides > div {
+  scroll-snap-align: start;
+  padding: 1rem 0;
+  flex-shrink: 0;
+  margin: 0 20px 0 0;
+  min-height: 200px;
+  max-height: 300px;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//end slider
+
+//end customer
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+/* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
+a {
+  color: #533f03;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #533f03;
+}
+
+/* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
+a:not([href]):not([tabindex]):hover.dropdown-item {
+  color: $dropdown-link-hover-color;
+}
+
+/* override .dropdown-item.active background-color on hover */
+.dropdown-item.active:hover {
+  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+}
+
+a:hover {
+  /* make sure browsers use the pointer cursor for anchors, even with no href */
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: $dropdown-link-hover-color;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+/* Error highlight on input fields */
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid red;
+}
+
+/* other generic styles */
+
+.jh-card {
+  //margin-top: 20px;
+  border: none;
+  min-height: 81vh;
+}
+
+.card-customer {
+  margin: 1% 1.25% 1% 1.25%;
+  background: #fff6f7;
+  min-height: 17rem;
+  border-radius: 5%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s ease-in;
+  margin: 0 3rem;
+}
+
+.error {
+  color: white;
+  background-color: red;
+}
+
+.pad {
+  padding: 10px;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.break {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.readonly {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background: #111112;
+  color: white;
+  font-size: larger;
+}
+
+.footer-cus {
+}
+
+.nav-link-cus {
+  padding: 0.5rem 0.8rem !important;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.nav-link-cus1 {
+  padding: 0.5rem 0.5rem;
+  color: #fff;
+}
+
+.nav-link-cus12 {
+  padding: 0.5rem 0.5rem;
+  color: #fff;
+  font-weight: unset;
+}
+
+.hand,
+[jhisortby] {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts {
+  .alert {
+    text-overflow: ellipsis;
+
+    pre {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    .popover pre {
+      font-size: 10px;
+    }
+  }
+
+  .jhi-toast {
+    position: fixed;
+    width: 100%;
+
+    &.left {
+      left: 5px;
+    }
+
+    &.right {
+      right: 5px;
+    }
+
+    &.top {
+      top: 55px;
+    }
+
+    &.bottom {
+      bottom: 55px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .alerts .jhi-toast {
+    width: 50%;
+  }
+}
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.row-md.jh-entity-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .row-md.jh-entity-details > {
+    dt {
+      float: left;
+      overflow: hidden;
+      clear: left;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0.5em 0;
+      min-width: 200px;
+    }
+
+    dd {
+      border-bottom: 1px solid #ffffff;
+      padding: 0.5em 0;
+      margin-left: 0;
+      max-width: 500px;
+    }
+  }
+}
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:root {
+  --animate-duration: 1000ms;
+  --animate-delay: 0.6s;
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */

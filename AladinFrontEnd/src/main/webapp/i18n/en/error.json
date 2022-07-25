@@ -1,0 +1,14 @@
+{
+  "error": {
+    "title": "Error page!",
+    "http": {
+      "400": "Bad request.",
+      "403": "Forbidden Error .",
+      "404": "No Found.",
+      "405": "Method Not Allowed.",
+      "500": "Server error."
+    },
+    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
+    "validation": "Validation error on the server."
+  }
+}

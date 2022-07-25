@@ -1,0 +1,15 @@
+{
+  "sessions": {
+    "title": "Current login sessions of [<strong>{{username}}</strong>]",
+    "table": {
+      "ipaddress": "IP address",
+      "useragent": "Browser",
+      "date": "Date",
+      "button": "Close this session"
+    },
+    "messages": {
+      "success": "<strong>The login session closed!</strong>",
+      "error": "<strong>An error occurred!</strong> The login session could not be closed."
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<div>
+  <div style="position: relative">
+    <img src="./content/images/department_List.png " class="photo-img" />
+    <div>
+      <h1 class="de-text" jhiTranslate="AladinTechApp.department.header"><b>PHÒNG BAN</b></h1>
+    </div>
+  </div>
+  <br /><br />
+  <h2 id="page-heading" data-cy="DepartmentHeading">
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="AladinTechApp.department.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="departments?.length === 0">
+    <span jhiTranslate="AladinTechApp.department.home.notFound">No departments found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="departments && departments.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead style="background: #c7c0c0">
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="departmentName" class="cell">
+            <span jhiTranslate="AladinTechApp.department.departmentName">Department Name</span>
+          </th>
+          <th scope="col" jhiSortBy="user.login" class="cell">
+            <span jhiTranslate="AladinTechApp.department.user">User</span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let department of departments; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/department', department.departmentName, 'view']">{{ department.departmentName }}</a>
+          </td>
+          <td>
+            {{ department.user?.login }}
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/department', department.departmentName, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="departments && departments.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

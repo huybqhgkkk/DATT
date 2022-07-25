@@ -1,0 +1,66 @@
+{
+  "AladinTechApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Product",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Product",
+        "notFound": "No Products found"
+      },
+      "created": "Một Product mới được tạo với định danh {{ param }}",
+      "updated": "Một Product cập nhật với định danh {{ param }}",
+      "deleted": "Một Product đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "label": {
+        "id": "ID",
+        "name": "Name",
+        "content": "Content",
+        "services": "Service name",
+        "image": "Image",
+        "description": "Description"
+      },
+      "name": {
+        "validate": {
+          "required": "Tên là bắt buộc",
+          "minlength": "Ít nhất 3 ký tự",
+          "maxlength": "Không thể nhiều hơn 254 ký tự"
+        }
+      },
+      "content": {
+        "validate": {
+          "required": "Nội dung là bắt buộc",
+          "minlength": "Ít nhất 3 ký tự",
+          "maxlength": "Không thể nhiều hơn 4000 ký tự"
+        }
+      },
+      "description": {
+        "validate": {
+          "required": "Miêu tả là bắt buộc",
+          "minlength": "Ít nhất 3 ký tự",
+          "maxlength": "Không thể nhiều hơn 1024 ký tự"
+        }
+      },
+      "services": {
+        "validate": {
+          "required": "Chọn 1 cái đi mà!"
+        }
+      }
+    }
+  },
+  "backendAladinApp": {
+    "product": {
+      "created": "Bạn đã tạo mới sản phẩm thành công",
+      "updated": "Bạn đã sửa sản phẩm thành công",
+      "deleted": "Bạn đã xóa sản phẩm thành công",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa dịch vụ {{ id }}?"
+      }
+    }
+  }
+}

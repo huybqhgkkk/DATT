@@ -1,0 +1,26 @@
+{
+  "aladinFullstackApp": {
+    "viettelSubscriber2": {
+      "home": {
+        "title": "Viettel Subscriber 2 S",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Viettel Subscriber 2",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Viettel Subscriber 2",
+        "search": "Tìm Viettel Subscriber 2",
+        "notFound": "No Viettel Subscriber 2 S found"
+      },
+      "created": "Một Viettel Subscriber 2 mới được tạo với định danh {{ param }}",
+      "updated": "Một Viettel Subscriber 2 cập nhật với định danh {{ param }}",
+      "deleted": "Một Viettel Subscriber 2 đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Viettel Subscriber 2 {{ id }}?"
+      },
+      "detail": {
+        "title": "Viettel Subscriber 2"
+      },
+      "id": "ID",
+      "name": "Name",
+      "msisdn": "Msisdn"
+    }
+  }
+}

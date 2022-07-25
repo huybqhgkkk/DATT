@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="form-search">
+    <form [formGroup]="searchForm">
+      <span class="p-input-icon-left input">
+        <i class="pi pi-search"></i>
+        <input
+          (keydown.enter)="onSearch()"
+          formControlName="searchValue"
+          pInputText
+          placeholder="{{ 'global.search' | translate }}"
+          type="text"
+        />
+        <p-button [loading]="isLoading" icon="pi pi-search" label="{{ 'global.search' | translate }}" type="submit"></p-button>
+      </span>
+    </form>
+    <p *ngIf="searchText && hasData" class="mt-3 mb-2">
+      <span jhiTranslate="search.result"></span> <span class="search-value">{{ searchText }} </span>
+      <span *ngIf="totalItems > 0" [translateValues]="{ totalItems: totalItems }" jhiTranslate="search.resultNumber"></span>
+    </p>
+    <div *ngIf="searchText && !hasData" class="mt-3">
+      <p>
+        <span jhiTranslate="search.noResult"></span> <span class="search-value">{{ searchText }}</span>
+      </p>
+      <p jhiTranslate="search.suggest"></p>
+      <ul>
+        <li jhiTranslate="search.suggestCorrectWord"></li>
+        <li jhiTranslate="search.suggestDifferentWord"></li>
+        <li jhiTranslate="search.suggestGeneralWord"></li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="hasData" class="results">
+    <ng-container *ngFor="let responseData of listResponseData">
+      <a
+        *ngIf="responseData.index === 'employee'"
+        class="result-item mb-3"
+        routerLink="/{{ responseData.index }}/{{ responseData.id }}/view"
+      >
+        <div class="result-image">
+          <img alt="" class="w-100" [src]="responseData.avatar" />
+        </div>
+        <div class="result-info">
+          <div class="result-title">{{ responseData.displayInfo }}</div>
+          <div class="result-category mt-1">
+            <span jhiTranslate="global.category"></span>
+            <span class="category" jhiTranslate="AladinTechApp.employee.home.title"></span>
+          </div>
+          <div class="result-description mt-1">
+            <span jhiTranslate="AladinTechApp.employee.department"></span>
+            <span class="category">{{ responseData.department?.departmentName }}</span>
+          </div>
+          <div class="result-description mt-1">
+            <span jhiTranslate="AladinTechApp.employee.phone_number"></span>
+            <span class="category">{{ responseData.phone_number }}</span>
+          </div>
+          <div class="result-description mt-1">
+            {{ responseData.description }}
+          </div>
+        </div>
+      </a>
+      <a *ngIf="responseData.index != 'employee'" class="result-item mb-3" routerLink="/{{ responseData.index }}/{{ responseData.id }}">
+        <div class="result-image">
+          <img *ngIf="responseData.index === 'service'" alt="" class="w-100" src="../../content/images/search-pictures/service.jpg" />
+          <img *ngIf="responseData.index === 'career'" alt="" class="w-100" src="../../content/images/search-pictures/career.png" />
+        </div>
+        <div class="result-info">
+          <div class="result-title">{{ responseData.displayInfo }}</div>
+          <div class="result-category">
+            <span jhiTranslate="global.category"></span>
+            <span *ngIf="responseData.index === 'service'" class="category" jhiTranslate="global.menu.entities.services"></span>
+            <span *ngIf="responseData.index === 'career'" class="category" jhiTranslate="global.menu.entities.recruitmen"></span>
+          </div>
+          <div class="result-description">
+            {{ responseData.description }}
+          </div>
+        </div>
+      </a>
+    </ng-container>
+  </div>
+  <div class="row justify-content-center" *ngIf="totalItems > itemsPerPage">
+    <ngb-pagination
+      (pageChange)="loadPage($event)"
+      *ngIf="searchText && hasData"
+      [(page)]="ngbPaginationPage"
+      [boundaryLinks]="true"
+      [collectionSize]="totalItems"
+      [maxSize]="5"
+      [pageSize]="itemsPerPage"
+      [rotate]="true"
+    ></ngb-pagination>
+  </div>
+</div>

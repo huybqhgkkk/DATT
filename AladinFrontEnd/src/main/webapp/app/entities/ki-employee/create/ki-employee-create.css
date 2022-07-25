@@ -1,0 +1,149 @@
+.headerh2{
+  text-align: center;
+  color: #000000;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.ki-text {
+  position: absolute;
+  top: 27%;
+  left: 35%;
+  width: 55%;
+  font-size: 5em;
+  color: #00b209;
+  font-weight: 700;
+}
+
+.rectangle{
+  width:250px;
+  height:30px;
+  background: #424040;
+}
+
+.rectanglegd{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:30%;
+  border-radius:10px 0px 10px;
+}
+
+.rectangleTP{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:30%;
+  border-radius:10px 0px 10px;
+}
+
+.rectanglett{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectangletp{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectangletd{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectanglenv{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectanglekl{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectanglescv{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.rectangleccv{
+  text-align: center;
+  border:1px solid #009b00;
+  background-color:#09c609;
+  width:100%;
+  height:4%;
+  border-radius:10px 0px 10px;
+}
+
+.font-create-ki{
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1%;
+}
+
+.font-tp{
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  padding-top: 1%;
+}
+
+.font-gd{
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  padding-top: 1%;
+}
+
+.font-wotm{
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1%;
+}
+
+.photo-img{
+  width: 100%;
+  height: auto;
+}
+
+.content-contact {
+//margin-left: 10%;
+//margin-right: 10%;
+  opacity: 0.97;
+  background-color: white;
+  padding: 3% 0 5%;
+}
+
+.container-cus {
+  max-width: 2000px !important;
+}
+

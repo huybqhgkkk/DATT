@@ -1,0 +1,493 @@
+<!-- modal apply -->
+<ng-template #submit_job_modal_detail let-modal>
+  <form role="form" class="container" [formGroup]="submitRecruitment" (ngSubmit)="onRecruitment()">
+    <div class="modal-header">
+      <h4 class="modal-title" id="submit-job-modal-detail">{{ careerDetail?.job }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body form-row">
+      <!-- fullname -->
+      <div class="form-group col-9">
+        <label for="fullname">
+          <text jhiTranslate="candidate.fullname"></text>
+        </label>
+        <input
+          id="fullname"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.fullname }}"
+          formControlName="fullname"
+          maxlength="1000"
+          required
+        />
+        <div *ngIf="
+                submitRecruitment.get('fullname')?.errors &&
+                (submitRecruitment.get('fullname')?.dirty || submitRecruitment.get('fullname')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('fullname')?.errors?.required"
+            jhiTranslate="candidate.error.required.fullname"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- sex -->
+      <div class="form-group col-3">
+        <span><text jhiTranslate="candidate.sex"></text></span>
+        <div class="form-check">
+          <input id="male" type="radio" class="form-check-input" formControlName="sex" value="male"/>
+          <label class="form-check-label" for="male">
+            <text jhiTranslate="candidate.male"></text>
+          </label>
+        </div>
+        <div class="form-check">
+          <input id="female" type="radio" class="form-check-input" formControlName="sex" value="female"/>
+          <label class="form-check-label" for="female">
+            <text jhiTranslate="candidate.female"></text>
+          </label>
+        </div>
+        <div *ngIf="submitRecruitment.get('sex')">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('sex')?.errors?.required"
+            jhiTranslate="candidate.error.required.sex"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- dateOfBirth -->
+      <div class="form-group col-5">
+        <label for="birthday">
+          <text jhiTranslate="candidate.birthday"></text>
+        </label>
+        <div class="input-group">
+          <input
+            max="{{ DateFDW }}"
+            onkeydown="return false"
+            type="date"
+            id="birthday"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            formControlName="birthday"
+            ngbDatepicker
+            maxlength="400"
+            required
+          />
+        </div>
+        <div *ngIf="
+                submitRecruitment.get('birthday')?.errors &&
+                (submitRecruitment.get('birthday')?.dirty || submitRecruitment.get('birthday')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('birthday')?.errors?.required"
+            jhiTranslate="candidate.error.required.birthday"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- phone -->
+      <div class="form-group col-7">
+        <label for="phone">
+          <text jhiTranslate="candidate.phone"></text>
+        </label>
+        <input id="phone" type="text" class="form-control" placeholder="0xxxxxxxxxx" formControlName="phone"
+               maxlength="14" required/>
+        <div *ngIf="
+                submitRecruitment.get('phone')?.errors &&
+                (submitRecruitment.get('phone')?.dirty || submitRecruitment.get('phone')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('phone')?.errors?.required"
+            jhiTranslate="candidate.error.required.phone"
+          >
+          </small>
+        </div>
+        <div *ngIf="
+                submitRecruitment.get('phone')?.errors &&
+                (submitRecruitment.get('phone')?.dirty || submitRecruitment.get('phone')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('phone')?.errors?.pattern"
+            jhiTranslate="candidate.error.pattern.phone"
+          >
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="email">
+          <text jhiTranslate="candidate.email"></text>
+        </label>
+        <input
+          id="email"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.email }}"
+          formControlName="email"
+          required
+          maxlength="256"
+        />
+        <div *ngIf="
+                submitRecruitment.get('email')?.errors &&
+                (submitRecruitment.get('email')?.dirty || submitRecruitment.get('email')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('email')?.errors?.required"
+            jhiTranslate="candidate.error.required.email"
+          >
+          </small>
+        </div>
+        <div *ngIf="
+                submitRecruitment.get('email')?.errors &&
+                (submitRecruitment.get('email')?.dirty || submitRecruitment.get('email')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('email')?.errors?.pattern"
+            jhiTranslate="candidate.error.pattern.email"
+          >
+          </small>
+        </div>
+      </div>
+      <div class="form-group col-12">
+        <label for="location">
+          <text jhiTranslate="candidate.location" maxlength="400" required></text>
+        </label>
+        <input required id="location" class="form-control" placeholder="{{ candidate?.placeholder?.location }}"
+               formControlName="location"/>
+        <div *ngIf="
+                submitRecruitment.get('location')?.errors &&
+                (submitRecruitment.get('location')?.dirty || submitRecruitment.get('location')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('location')?.errors?.required"
+            jhiTranslate="candidate.error.required.location"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- education -->
+      <div class="form-group col-9">
+        <label for="education">
+          <text jhiTranslate="candidate.education"></text>
+        </label>
+        <textarea
+          id="education"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.education }}"
+          formControlName="education"
+          required
+        ></textarea>
+        <div *ngIf="
+                submitRecruitment.get('education')?.errors &&
+                (submitRecruitment.get('education')?.dirty || submitRecruitment.get('education')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('education')?.errors?.required"
+            jhiTranslate="candidate.error.required.education"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- relationship -->
+      <div class="form-group col-3">
+        <span><text jhiTranslate="candidate.relationship"></text></span>
+        <div class="form-check">
+          <input id="alone" type="radio" class="form-check-input" formControlName="relationship" value="alone"/>
+          <label class="form-check-label" for="alone">
+            <text jhiTranslate="candidate.alone"></text>
+          </label>
+        </div>
+        <div class="form-check">
+          <input id="in_family" type="radio" class="form-check-input" formControlName="relationship" value="in_family"/>
+          <label class="form-check-label" for="in_family">
+            <text jhiTranslate="candidate.hasFamily"></text>
+          </label>
+        </div>
+        <div *ngIf="
+                submitRecruitment.get('in_family')?.errors &&
+                (submitRecruitment.get('in_family')?.dirty || submitRecruitment.get('in_family')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('sex')?.errors?.required"
+            jhiTranslate="candidate.error.required.relationship"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- experience -->
+      <div class="form-group col-12">
+        <label for="experience">
+          <text jhiTranslate="candidate.experience"></text>
+        </label>
+        <textarea
+          id="experience"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.experience }}"
+          formControlName="experience"
+          maxlength="1000"
+          required
+        ></textarea>
+        <div *ngIf="
+                submitRecruitment.get('experience')?.errors &&
+                (submitRecruitment.get('experience')?.dirty || submitRecruitment.get('experience')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('experience')?.errors?.required"
+            jhiTranslate="candidate.error.required.experience"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- target -->
+      <div class="form-group col-12">
+        <label for="target">
+          <text jhiTranslate="candidate.target"></text>
+        </label>
+        <textarea
+          id="target"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.target }}"
+          formControlName="target"
+          maxlength="1000"
+          required
+        ></textarea>
+        <div *ngIf="
+                submitRecruitment.get('target')?.errors &&
+                (submitRecruitment.get('target')?.dirty || submitRecruitment.get('target')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('target')?.errors?.required"
+            jhiTranslate="candidate.error.required.target"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- preference -->
+      <div class="form-group col-12">
+        <label for="preference">
+          <text jhiTranslate="candidate.preference"></text>
+        </label>
+        <textarea
+          id="preference"
+          class="form-control"
+          placeholder="{{ candidate?.placeholder?.preference }}"
+          formControlName="preference"
+          maxlength="1000"
+          required
+        ></textarea>
+        <div *ngIf="
+                submitRecruitment.get('preference')?.errors &&
+                (submitRecruitment.get('preference')?.dirty || submitRecruitment.get('preference')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('preference')?.errors?.required"
+            jhiTranslate="candidate.error.required.preference"
+          >
+          </small>
+        </div>
+      </div>
+      <!-- cv -->
+      <div class="form-group col-8">
+        <label for="cv">
+          <text jhiTranslate="candidate.uploadCV"></text>
+        </label>
+        <input
+          id="cv"
+          class="form-control-file"
+          placeholder="{{ candidate?.placeholder?.cv }}"
+          data-cy="cv"
+          (change)="setFileData($event, 'cv', false)"
+          formControlName="cv"
+          type="file"
+          accept=".pdf,.docs,.html"
+          required
+        />
+        <div *ngIf="
+                submitRecruitment.get('cv')?.errors &&
+                (submitRecruitment.get('cv')?.dirty || submitRecruitment.get('cv')?.touched)
+              ">
+          <small
+            class="form-text text-danger"
+            *ngIf="submitRecruitment.get('cv')?.errors?.required"
+            jhiTranslate="candidate.error.required.cv"
+          >
+          </small>
+        </div>
+      </div>
+    </div>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Exit')">
+        <text jhiTranslate="global.modal.exit"></text>
+      </button>
+      <button type="submit" class="{{ !!formValid ? 'btn btn-success' : 'btn btn-secondary' }}" [disabled]="!formValid">
+        <span *ngIf="reqLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        <fa-icon *ngIf="!reqLoading" [icon]="faCheck"></fa-icon>
+        <text jhiTranslate="global.modal.send"></text>
+      </button>
+    </div>
+  </form>
+</ng-template>
+<!-- common -->
+
+<!-- career carousel -->
+<!-- career detail -->
+<!-- career detail header -->
+<!-- career detail content -->
+<!-- career detail job content -->
+<!-- career detail more job -->
+<div class="row content-bg-header">
+  <div class="container">
+    <div class="career-header">
+      <content>
+        <h1 class="wow animate__animated animate__fadeInUp" style="font-weight: bold; font-size: 2em">TUYỂN DỤNG</h1>
+        <blockquote style="width: 50%; min-width: 250px" class="wow animate__animated animate__fadeInUp animate__delay-1s">
+          Đến với Aladin, có rất nhiều cơ hội phù hợp với bạn đang chờ được khám phá!
+        </blockquote>
+        <button class="btn contact btn-outline-light wow animate__animated animate__fadeInUp animate__delay-2s" (click)="navigateToContact()">
+          <text jhiTranslate="AladinTechApp.recruitmen.contact"></text>
+        </button>
+      </content>
+    </div>
+  </div>
+</div>
+<div class="row content-bg">
+  <div class="container job-detail-content">
+    <div class="career-job my-5 rounded">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-0 col-md-3 wow animate__animated animate__fadeInUp animate__delay-3s" style="display: flex">
+            <img src="../../../content/images/careerJoinUs.jpg" style="width: 100%; margin-bottom: 1rem" class="rounded"
+                 alt="..."/>
+          </div>
+          <div class="col-xs-12 col-md-7 job-info wow animate__animated animate__fadeInUp animate__delay-3s">
+            <h4>
+              <b>{{ careerDetail?.job }}</b>
+              <i *ngIf="!careerDetail?.description">_</i>
+            </h4>
+            <p class="card-text">
+              <text jhiTranslate="AladinTechApp.recruitmen.amount"></text>
+              :
+              <i *ngIf="!careerDetail?.amount">_</i>
+              {{ careerDetail?.amount }}
+            </p>
+            <p class="card-text">
+              <text jhiTranslate="AladinTechApp.recruitmen.level"></text>
+              : {{ careerDetail?.level }}
+              <i *ngIf="!careerDetail?.level">_</i>
+            </p>
+            <p class="card-text">
+              <text jhiTranslate="AladinTechApp.recruitmen.location"></text>
+              :
+              {{ careerDetail?.location }}
+              <i *ngIf="!careerDetail?.location">_</i>
+            </p>
+          </div>
+          <div class="col-md-2 wow animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="row more-info">
+              <div class="col-12 duration-show">
+                <p class="card-text">
+                  <fa-icon [icon]="faCalendar" style="margin-right: 10px"></fa-icon>
+                  {{ careerDetail?.duration }}<i *ngIf="!careerDetail?.duration">_</i>
+                </p>
+              </div>
+              <div class="col-12 apply-btn">
+                <button type="button" class="btn btn-success mt-2">
+                  <fa-icon [icon]="isLoading ? faSpinner : faCaretRight" style="margin-right: 10px"></fa-icon>
+                  <text jhiTranslate="global.modal.apply"
+                        (click)="open(submit_job_modal_detail, 'submit-job-modal-detail')"></text>
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <div class="col-12">
+            <div class="head-label wow animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="bar"></div>
+              <text jhiTranslate="AladinTechApp.recruitmen.description"></text>
+            </div>
+            <div class="container wow animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="">
+                <i *ngIf="!careerDetail?.description">Contact to know more</i>
+                <div class="col-10">
+                  <ng-container *ngFor="let items of listDescription">
+                    <p>{{ items }}</p>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+            <div class="head-label wow animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="bar"></div>
+              <text jhiTranslate="AladinTechApp.recruitmen.require"></text>
+            </div>
+            <div class="container">
+              <i *ngIf="!careerDetail?.require">Contact to know more</i>
+              <div class="">
+                <ng-container *ngFor="let items of listRequire">
+                  <p>{{ items }}</p>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="head-label wow animate__animated animate__fadeInUp">
+              <div class="bar"></div>
+              <text jhiTranslate="AladinTechApp.recruitmen.benefit"></text>
+            </div>
+            <div class="container wow animate__animated animate__fadeInUp">
+              <i *ngIf="!careerDetail?.benefit">Contact to know more</i>
+              <div class="">
+                <ng-container *ngFor="let items of listBenefit">
+                  <p>{{ items }}</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="sharing wow animate__animated animate__fadeInUp">
+              <button type="button" class="btn btn-primary" (click)="sharingFacebook()">
+                <fa-icon [icon]="faShare" style="margin-right: 10px"></fa-icon>
+                Facebook
+              </button>
+            </div>
+            <hr/>
+            <div class="more-job ">
+              <div class="head-label wow animate__animated animate__fadeInLeft">
+                <div class="bar"></div>
+                <text jhiTranslate="AladinTechApp.recruitmen.more_job"></text>
+              </div>
+              <div class="more-job-list">
+                <i *ngIf="careerMoreJob?.length === 0" class="none-job"> No job vailable </i>
+                <div *ngFor="let item of careerMoreJob" class="job-item rounded wow animate__animated animate__fadeInLeft">
+                  <img src="../../../content/images/6671.jpg" width="200px" class="rounded "/>
+                  <a
+                    [ngClass]="item?.id === careerDetail?.id ? 'item-job-name chose' : 'item-job-name'"
+                    [routerLink]="['/career', item?.id]"
+                    target="_blank"
+                  >{{ item?.job }}</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<ngx-scrolltop [backgroundColor]="'green'" [symbolColor]="'#fafafa'" [size]="55" [mode]="'classic'" position="right"
+               theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>

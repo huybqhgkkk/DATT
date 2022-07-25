@@ -1,0 +1,166 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div *ngIf="employee">
+      <div style="position: relative">
+        <img src="./content/images/Employee_D.png" class="photo-img" />
+        <div *ngIf="employee.avatar">
+          <a>
+            <img [src]="employee?.avatar" alt="employee image" class="headerl" />
+          </a>
+        </div>
+        <div>
+          <h1 class="emd-text" jhiTranslate="AladinTechApp.employee.employee_details"><b>Employee</b></h1>
+        </div>
+      </div>
+      <br /><br />
+      <jhi-alert-error></jhi-alert-error>
+      <jhi-alert></jhi-alert>
+      <div class="" style="justify-content: center; display: flex">
+        <div class="row col-12 content-contact container-cus">
+          <div class="col-sm col-lg-5">
+            <div class="row justify-content-center">
+              <div class="col-11" style="text-align: left">
+                <div>
+                  <h2 class="headerh2"><span jhiTranslate="AladinTechApp.employee.personal_information"></span></h2>
+                  <hr />
+                  <dl class="row-md jh-entity-details">
+                    <dt><span jhiTranslate="global.field.id">ID</span></dt>
+                    <dd>
+                      <span>{{ employee.id }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.first_day_work">First Day Work</span></dt>
+                    <dd>
+                      <span>{{ employee.first_day_work | formatMediumDate }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.full_name">Full Name</span></dt>
+                    <dd>
+                      <span>{{ employee.full_name }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.phone_number">Phone Number</span></dt>
+                    <dd>
+                      <span>{{ employee.phone_number }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.email">Email</span></dt>
+                    <dd>
+                      <span>{{ employee.email }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.date_of_birth">Date Of Birth</span></dt>
+                    <dd>
+                      <span>{{ employee.date_of_birth | formatMediumDate }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.countryside">Countryside</span></dt>
+                    <dd>
+                      <span>{{ employee.countryside }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.current_residence">Current Residence</span></dt>
+                    <dd>
+                      <span>{{ employee.current_residence }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.favourite">Favourite</span></dt>
+                    <dd>
+                      <span>{{ employee.favourite }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.marital_status">Marital Status</span></dt>
+                    <dd>
+                      <span>{{ employee.marital_status }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.children">Children</span></dt>
+                    <dd>
+                      <span>{{ employee.children }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.family">Family</span></dt>
+                    <dd>
+                      <span>{{ employee.family }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.gender">Gender</span></dt>
+                    <dd>
+                      <span *ngIf="employee.gender === 'Nam'" jhiTranslate="AladinTechApp.employee.male"></span>
+                      <span *ngIf="employee.gender === 'Nữ'" jhiTranslate="AladinTechApp.employee.female"></span>
+                    </dd>
+
+                    <dt><span jhiTranslate="AladinTechApp.employee.relative">Relative</span></dt>
+                    <dd>
+                      <span>{{ employee.relative }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.bank_name">Bank name</span></dt>
+                    <dd>
+                      <span>{{ employee.bank_name }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="AladinTechApp.employee.account_number">Account number</span></dt>
+                    <dd>
+                      <span>{{ employee.account_number }}</span>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm col-lg-1"></div>
+
+          <div class="col-sm col-lg-6" style="margin-bottom: 2%">
+            <div class="col-sm col-xl-12" style="text-align: left">
+              <h2 class="headerh2"><span style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.qualification"></span></h2>
+              <hr />
+              <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="AladinTechApp.employee.certification">Certification</span></dt>
+                <dd>
+                  <div *ngIf="employee.certification">
+                    <a style="color: green" (click)="openFile(employee.certification, employee.certificationContentType)"> Mở </a>
+                  </div>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.employee.education">Education</span></dt>
+                <dd>
+                  <span class="font-style">{{ employee.education }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.employee.experience">Experience</span></dt>
+                <dd>
+                  <span class="font-style">{{ employee.experience }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.employee.english">English</span></dt>
+                <dd>
+                  <span class="font-style">{{ employee.english }}</span>
+                </dd>
+              </dl>
+              <br /><br />
+
+              <h2 class="headerh2"><span style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.target"></span></h2>
+              <hr />
+              <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="AladinTechApp.employee.objective_in_cv">Objective In Cv</span></dt>
+                <dd>
+                  <span class="font-style">{{ employee.objective_in_cv }}</span>
+                </dd>
+              </dl>
+              <br /><br />
+
+              <h2 class="headerh2"><span style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.team"></span></h2>
+              <hr />
+              <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="AladinTechApp.employee.user">User</span></dt>
+                <dd>
+                  <span>{{ employee.user?.login }}</span>
+                </dd>
+                <dt><span jhiTranslate="AladinTechApp.employee.department">Department</span></dt>
+                <dd>
+                  <div>
+                    <span>{{ employee.department?.departmentName }}</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
+<br />

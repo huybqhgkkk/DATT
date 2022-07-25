@@ -1,0 +1,27 @@
+{
+  "aladinFullstackApp": {
+    "heroes": {
+      "home": {
+        "title": "Heroes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Heroes",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Heroes",
+        "search": "Tìm Heroes",
+        "notFound": "No Heroes found"
+      },
+      "created": "Một Heroes mới được tạo với định danh {{ param }}",
+      "updated": "Một Heroes cập nhật với định danh {{ param }}",
+      "deleted": "Một Heroes đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Heroes {{ id }}?"
+      },
+      "detail": {
+        "title": "Heroes"
+      },
+      "id": "ID",
+      "name": "Name",
+      "create_time": "Create Time",
+      "viettelSubscriber": "Viettel Subscriber"
+    }
+  }
+}

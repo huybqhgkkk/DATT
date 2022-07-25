@@ -1,0 +1,10 @@
+{
+  "configuration": {
+    "title": "Configuration",
+    "filter": "Filter (start with)",
+    "table": {
+      "prefix": "Starts with",
+      "properties": "Properties"
+    }
+  }
+}

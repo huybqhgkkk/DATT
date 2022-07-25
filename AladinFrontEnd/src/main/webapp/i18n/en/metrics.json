@@ -1,0 +1,95 @@
+{
+  "metrics": {
+    "title": "Program data",
+    "refresh.button": "Refresh",
+    "updating": "Updating...",
+    "jvm": {
+      "title": "Data of Java virtual machine",
+      "memory": {
+        "title": "Memory",
+        "total": "Total memory",
+        "heap": "Heap memory",
+        "nonheap": "Memory is not in the heap"
+      },
+      "threads": {
+        "title": "Streams",
+        "all": "All",
+        "runnable": "Running",
+        "timedwaiting": "Pending (scheduled)",
+        "waiting": "Waiting",
+        "blocked": "Locked",
+        "dump": {
+          "title": "Record of streams",
+          "id": "Identification: ",
+          "blockedtime": "Lock time",
+          "blockedcount": "Number of keys",
+          "waitedtime": "Waiting time",
+          "waitedcount": "Number of waiting",
+          "lockname": "Key name",
+          "stacktrace": "Detail",
+          "show": "Show details",
+          "hide": "Hide details"
+        }
+      },
+      "gc": {
+        "title": "Auto clean",
+        "marksweepcount": "Number of tests",
+        "marksweeptime": "Test time",
+        "scavengecount": "Number of cleaning times",
+        "scavengetime": "Cleaning time"
+      },
+      "http": {
+        "title": "Number of HTTP requests (events per second)",
+        "active": "Number of requests in progress:",
+        "total": "total requirements:",
+        "table": {
+          "code": "Code",
+          "count": "Quantily",
+          "mean": "Average",
+          "average": "Average",
+          "max": "Max"
+        },
+        "code": {
+          "ok": "Success",
+          "notfound": "Not found",
+          "servererror": "server error"
+        }
+      }
+    },
+    "servicesstats": {
+      "title": "Statistics of services (time in milliseconds)",
+      "table": {
+        "name": "service name",
+        "count": "Quantily",
+        "mean": "Average",
+        "min": "Min",
+        "max": "Max",
+        "p50": "50%",
+        "p75": "75%",
+        "p95": "95%",
+        "p99": "99%"
+      }
+    },
+    "ehcache": {
+      "title": "Ehcache Statistics",
+      "cachename": "Cache name",
+      "objects": "Objects",
+      "hits": "Find",
+      "misses": "Not found",
+      "evictioncount": "Clear from cache"
+    },
+    "datasource": {
+      "usage": "Use",
+      "title": "Database access statistics (time in milliseconds)",
+      "name": "Using containers",
+      "count": "Quantily",
+      "mean": "Average",
+      "min": "Min",
+      "max": "Max",
+      "p50": "50%",
+      "p75": "75%",
+      "p95": "95%",
+      "p99": "99%"
+    }
+  }
+}

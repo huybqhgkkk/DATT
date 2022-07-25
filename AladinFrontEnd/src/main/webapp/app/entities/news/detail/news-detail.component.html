@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="news">
+      <h2 data-cy="newsDetailsHeading"><span jhiTranslate="AladinTechApp.news.detail.title">News</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ news.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.news.title">Title</span></dt>
+        <dd>
+          <span>{{ news.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.news.content">Content</span></dt>
+        <dd>
+          <span>{{ news.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.news.image1">Image 1</span></dt>
+        <dd>
+          <div *ngIf="news.image1">
+            <a (click)="openFile(news.image1, news.image1ContentType)">
+              <img [src]="'data:' + news.image1ContentType + ';base64,' + news.image1" style="max-width: 100%" alt="news image" />
+            </a>
+            {{ news.image1ContentType }}, {{ byteSize(news.image1) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.news.image2">Image 2</span></dt>
+        <dd>
+          <div *ngIf="news.image2">
+            <a (click)="openFile(news.image2, news.image2ContentType)">
+              <img [src]="'data:' + news.image2ContentType + ';base64,' + news.image2" style="max-width: 100%" alt="news image" />
+            </a>
+            {{ news.image2ContentType }}, {{ byteSize(news.image2) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="AladinTechApp.news.image3">Image 3</span></dt>
+        <dd>
+          <div *ngIf="news.image3">
+            <a (click)="openFile(news.image3, news.image3ContentType)">
+              <img [src]="'data:' + news.image3ContentType + ';base64,' + news.image3" style="max-width: 100%" alt="news image" />
+            </a>
+            {{ news.image3ContentType }}, {{ byteSize(news.image3) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/news', news.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

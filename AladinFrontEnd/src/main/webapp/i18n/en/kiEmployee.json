@@ -1,0 +1,97 @@
+{
+    "AladinTechApp": {
+        "kiEmployee": {
+            "home": {
+                "title": "KI list",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "Create KI employee",
+                "createOrEditLabel": "Create or update Ki Employee",
+                "notFound": "KI not found"
+            },
+            "created": "A new Ki Employee is created with the identifier {{ param }}",
+            "updated": "Employee updated Ki with identifier {{ param }}",
+            "deleted": "Employee deleted Ki with identifier {{ param }}",
+            "delete": {
+                "question": "Do you want to delete Ki Employee {{ id }}?"
+            },
+            "detail": {
+                "title": "Ki Employee",
+                "nevaluate_ki": "KI EVALUATION",
+                "monthly_job_evaluation": "MONTHLY JOBS EVALUATION",
+                "head_of_department_assessment": "LEADER EVALUATION",
+                "director_rating": "BOSS EVALUATION"
+            },
+            "placeholder": {
+                "work_quantity": "",
+                "work_quantity_comment": "Work quantity is enough",
+                "work_quality": "",
+                "work_quality_comment": "Work quality is greate",
+                "work_progress": "",
+                "work_progress_comment": "Every task on time",
+                "work_attitude": "",
+                "work_attitude_comment": "Profestional",
+                "work_discipline": "",
+                "work_discipline_comment": "All good",
+                "assigned_work": "Viettel MPS Project",
+                "other_work": "Building new chat application",
+                "completed_work": "Viettel MPS Project",
+                "uncompleted_work": "none",
+                "favourite_work": "Meeting with partner",
+                "unfavourite_work": "Day off",
+                "employee_ki_point": "",
+                "leader_ki_point": "",
+                "leader_comment": "Doing well this month",
+                "boss_ki_point": "",
+                "boss_comment": "Doing good, keep the hard work and you can become leader",
+                "employee": "Employee name"
+            },
+            "ki_create": "KI ASSESSMENT FORM",
+            "ki_detail": "KI EMPLOYEE DETAIL",
+            "ki_list": "KI LIST",
+            "employee1": "EMPLOYEE",
+            "disciplinary_performance_assessment": "DISCIPLINE IMPLEMENTATION ASSESSMENT",
+            "assessment_of_workload": "ASSESSMENT OF THE NUMBER OF JOBS",
+            "assess_the_quality_of_work": "ASSESSMENT QUALITY OF WORK",
+            "evaluate_work_progress": "JOB PROGRESS ASSESSMENT",
+            "evaluate_working_style": "MANNER WORKING ASSESMENT",
+            "jobs_for_the_month": "WORKS DO IN MONTH",
+            "leader": "LEADER",
+            "boss": "BOSS",
+            "id": "ID",
+            "status": "Status",
+            "date_time": "Date time",
+            "work_quantity": "work quantity",
+            "work_quantity_comment": "Opinion on the amount of work",
+            "work_quality": "Work quality",
+            "work_quality_comment": "Opinions about the quality of work",
+            "work_progress": "Work progress",
+            "work_progress_comment": "Opinions about work progress",
+            "work_attitude": "Work attitude",
+            "work_attitude_comment": "Opinions about working attitude",
+            "work_discipline": "Work Discipline",
+            "work_discipline_comment": "Opinions about discipline at work",
+            "assigned_work": "Assigned work",
+            "other_work": "Other jobs",
+            "completed_work": "Work done",
+            "uncompleted_work": "Work not done",
+            "favourite_work": "Favourite work",
+            "unfavourite_work": "Unfavorite work",
+            "employee_ki_point": "KI employee self-assessment",
+            "leader_ki_point": "KI Leader assessment",
+            "leader_comment": "Leader comment",
+            "boss_ki_point": "KI Boss assessment",
+            "boss_comment": "Boss comment",
+            "employee": "Employee name"
+        }
+    },
+    "backendAladinApp": {
+        "kiEmployee": {
+            "created": "Created a new KI successfully!",
+            "updated": "Updated KI successfully!",
+            "deleted": "Deleted KI successfully!",
+            "delete": {
+                "question": "Do you want to delete Ki Employee {{ id }}?"
+            }
+        }
+    }
+}

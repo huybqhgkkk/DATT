@@ -1,0 +1,194 @@
+{
+    "global": {
+        "homeTitle1": "Providing systems and comprehensive solutions Telecom",
+        "homeTitle2": "AladinTech - a development company, specializing in providing leading information technology - telecommunications service solutions for all customers in the country and regions in the fields of Telecommunications, Banking, Enterprise, .. Applying using professional methods, strategies and processes, successfully implementing applications answering projects on the waiting of customers.",
+        "homeTitle3": "Dynamic & creative working environment",
+        "homeTitle4": "Professional process & efficiency",
+        "homeTitle5": "Training & career development opportunities",
+        "homeTitle6": "Extracurricular activities",
+        "homeTitle7": "The technologies we use",
+        "homeTitle8": "Big Data",
+        "homeTitle9": "Language",
+        "homeTitle10": "Tools",
+        "homeTitle11": "Our Partner",
+        "homeTitle12": "The motto of cooperation and development, bringing many benefits in terms of resources, capabilities, resources, expertise and ensuring that the goals are always on the right track",
+        "homeTitle14": "500+",
+        "homeTitle15": "Businesses and customers have trusted to cooperate and work with Aladintech",
+        "ourServices": "Our services",
+        "choose": "Why you should choose Aladin",
+        "search": "Search",
+        "category": "Category:",
+        "description": "Description:",
+        "modal": {
+            "detail": "Detail",
+            "apply": "Apply",
+            "exit": "Exit",
+            "send": "Send"
+        },
+        "title": "AladinTech",
+        "companyName": "Aladin Technology Co.,Ltd",
+        "browsehappy": "Your browser is <strong>too old</strong>. Please <a href=\"http://browsehappy.com/?locale=vi\"> upgrade your browser </a> for the best experience.",
+        "menu": {
+            "home": "Home",
+            "contact": "Contact",
+            "service": "Service",
+            "product": "Product",
+            "career": "Recruitment",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Employee",
+                "recruitmen": "Recruitment",
+                "services": "Services",
+                "product": "Product",
+                "contact": "Contact",
+                "candidate": "Candidate",
+                "news": "News",
+                "employee": "Employee",
+                "recruitmen": "Recruitmen",
+                "kiEmployee": "KI Employee",
+                "department": "Department",
+                "emailtemplate": "Emailtemplate",
+                "employee": "Employee",
+                "kiEmployee": "Ki Employee",
+                "department": "Department",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "account": {
+                "main": "Account",
+                "settings": "Setting",
+                "password": "Password",
+                "sessions": "Login version",
+                "login": "Login",
+                "logout": "Logout",
+                "register": "Registration"
+            },
+            "admin": {
+                "main": "Administration",
+                "userManagement": "Account Management",
+                "tracker": "Follow users",
+                "metrics": "Data",
+                "health": "Status",
+                "configuration": "Configuration",
+                "logs": "Record logs",
+                "apidocs": "API",
+                "database": "Database",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "Language"
+        },
+        "form": {
+            "username.label": "Account name",
+            "username.placeholder": "Enter your account name",
+            "currentpassword.label": "Current password",
+            "currentpassword.placeholder": "Enter current password",
+            "newpassword.label": "New password",
+            "newpassword.placeholder": "Enter your new password",
+            "confirmpassword.label": "Confirm new password",
+            "confirmpassword.placeholder": "Enter a new password",
+            "email.label": "Email",
+            "email.placeholder": "Enter your email"
+        },
+        "messages": {
+            "info": {
+                "authenticated": {
+                    "prefix": "If you want ",
+                    "link": "Login",
+                    "suffix": ", you can try with default account:<br/>- Administrators (Account=\"admin\" and password=\"admin\") <br/>- User (Account=\"user\" and password=\"user\")."
+                },
+                "register": {
+                    "noaccount": "You still don't have an account?",
+                    "link": "Register a new account"
+                }
+            },
+            "error": {
+                "dontmatch": "Confirm password does not match!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "You must enter a password.",
+                    "minlength": "Password must be between 4 and 50 characters.",
+                    "maxlength": "Password must be between 4 and 50 characters.",
+                    "strength": "Password strength:"
+                },
+                "confirmpassword": {
+                    "required": "You must re-enter your password to confirm.",
+                    "minlength": "Password must be between 4 and 50 characters.",
+                    "maxlength": "Password must be between 4 and 50 characters."
+                },
+                "email": {
+                    "required": "You must enter your email.",
+                    "invalid": "The email you entered is not valid.",
+                    "minlength": "Email must be between 5 and 50 characters.",
+                    "maxlength": "Email must be between 5 and 50 characters."
+                }
+            }
+        },
+        "field": {
+            "id": "ID"
+        },
+        "ribbon": {
+            "dev": "Develop"
+        },
+        "item-count": "Show {{first}} - {{second}} of {{total}} record."
+    },
+    "button": {
+        "save": "Save",
+        "decline": "Decline"
+    },
+    "entity": {
+        "action": {
+            "addblob": "Add blob",
+            "addimage": "Add image",
+            "back": "Return",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "edit": "Edit",
+            "open": "Open",
+            "save": "Save",
+            "view": "View"
+        },
+        "detail": {
+            "field": "Filed",
+            "value": "Value"
+        },
+        "delete": {
+            "title": "Confirm delete"
+        },
+        "validation": {
+            "required": "This field is required to enter.",
+            "minlength": "This field must have at least {{ min }} characters.",
+            "maxlength": "This field cannot exceed {{ max }} characters.",
+            "min": "This field must be larger {{ min }}.",
+            "max": "This field must be less than {{ max }}.",
+            "minbytes": "This field capacity must be larger {{ min }} bytes.",
+            "maxbytes": "The capacity of this field must be less than {{ max }} bytes.",
+            "pattern": "This field must be in the format {{ pattern }}.",
+            "number": "This field must be a number.",
+            "datetimelocal": "This field must be in time format.",
+            "invalidImageFile": "Invalid image format (JPG, PNG only).",
+            "invalidPdfFile": "Please choose PDF file.",
+            "numberOnly": "This field contains only numbers.",
+            "email": "Invalid email format."
+        }
+    },
+    "error": {
+        "internalServerError": "Internal server error",
+        "server.not.reachable": "Server not found",
+        "url.not.found": "Not found",
+        "NotNull": "Field {{ fieldName }} cannot be left blank!",
+        "Size": "Field {{ fieldName }} not within min/max limit!",
+        "userexists": "Username already in use!",
+        "emailexists": "Email already in use!",
+        "idexists": "Add new {{ entityName }} cannot match an existing identifier",
+        "onlyKi": "You can only create 1 KI review per month",
+        "idnull": "Invalid ID",
+        "idinvalid": "Invalid Id",
+        "leaderUpdateKi": "Leader has evaluated KI you are not allowed to edit anymore",
+        "idnotfound": "ID cannot be found",
+        "file": {
+            "could.not.extract": "Could not extract file",
+            "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+        }
+    },
+    "footer": "This is your page"
+}

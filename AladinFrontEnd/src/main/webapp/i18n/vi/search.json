@@ -1,0 +1,12 @@
+{
+  "search": {
+    "title": "Tìm kiếm",
+    "result": "Kết quả tìm kiếm cho: ",
+    "resultNumber": "({{totalItems}} kết quả tất cả)",
+    "noResult": "Không tìm thấy kết quả cho: ",
+    "suggest": "Gợi ý:",
+    "suggestCorrectWord": "Chắc chắn rằng bạn đã nhập đúng chính tả.",
+    "suggestDifferentWord": "Hãy thử những từ khóa khác.",
+    "suggestGeneralWord": "Hãy thử nhừng từ chung hơn."
+  }
+}

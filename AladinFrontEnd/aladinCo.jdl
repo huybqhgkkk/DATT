@@ -1,0 +1,63 @@
+
+
+entity Recruitment{
+	position String required
+    description String required
+    require String required
+    benefit String required
+    amount Long required
+    job String
+    location String
+    duration String
+    level String
+}
+
+entity Services{
+	type String
+    description String
+  	reason String
+}
+
+entity Product{
+	name String
+    content String
+    image ImageBlob
+}
+
+entity Contact{
+	name String required
+    email String required
+    message String
+    phone String required
+    datetime Instant
+    jobtitle String
+    company String
+    interest String
+}
+
+entity Candidate{
+	phone String required
+    email String required
+    position String required
+    birthday Instant required
+    location String required
+    preference String
+    education String required
+    experience String required
+    target String
+    ralationship String
+    timeregister Instant
+    fullname String
+    sex String
+    cv AnyBlob
+}
+
+entity News{
+	title String
+    content String
+    image1 ImageBlob
+    image2 ImageBlob
+    image3 ImageBlob
+}
+
+paginate all with pagination

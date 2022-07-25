@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading" jhiTranslate="AladinTechApp.product.home.createOrEditLabel">
+        Create or edit a Product
+      </h2>
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.product.label.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && editForm.get('name')!.touched">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name')?.errors?.required"
+              jhiTranslate="AladinTechApp.product.name.validate.required"
+            >
+              Name is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name')?.errors?.minlength"
+              jhiTranslate="AladinTechApp.product.name.validate.minlength"
+            >
+              Name is required to be at least 1 character.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name')?.errors?.maxlength"
+              jhiTranslate="AladinTechApp.product.name.validate.maxlength"
+            >
+              Name cannot be longer than 254 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.product.label.content" for="field_content">Content</label>
+          <textarea
+            rows="7"
+            type="text"
+            class="form-control"
+            name="content "
+            id="field_content"
+            data-cy="content"
+            formControlName="content"
+          ></textarea>
+          <div *ngIf="editForm.get('content')!.invalid && editForm.get('content')!.touched">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('content')?.errors?.required"
+              jhiTranslate="AladinTechApp.product.content.validate.required"
+            >
+              Content is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('content')?.errors?.minlength"
+              jhiTranslate="AladinTechApp.product.content.validate.minlength"
+            >
+              Content is required to be at least 1 character.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('content')?.errors?.maxlength"
+              jhiTranslate="AladinTechApp.product.content.validate.maxlength"
+            >
+              Content cannot be longer than 4000 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.product.label.description" for="field_description"
+            >Description</label
+          >
+          <textarea
+            rows="7"
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          ></textarea>
+          <div *ngIf="editForm.get('description')!.invalid && editForm.get('description')!.touched">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.required"
+              jhiTranslate="AladinTechApp.product.description.validate.required"
+            >
+              description is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.minlength"
+              jhiTranslate="AladinTechApp.product.description.validate.minlength"
+            >
+              description is required to be at least 1 character.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.maxlength"
+              jhiTranslate="AladinTechApp.product.description.validate.maxlength"
+            >
+              description cannot be longer than 254 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label">Services</label>
+          <select class="form-control" name="services" formControlName="services" required>
+            <ng-container *ngFor="let servicesOption of listService; let i = index">
+              <option
+                [ngValue]="servicesOption.id === editForm.get('services')!.value?.id ? editForm.get('services')!.value : servicesOption"
+              >
+                {{ servicesOption.type }}
+              </option>
+            </ng-container>
+          </select>
+          <div *ngIf="editForm.get('services')!.invalid && editForm.get('services')!.touched">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('services')?.errors?.required"
+              jhiTranslate="AladinTechApp.product.services.validate.required"
+            >
+              Content is required.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="AladinTechApp.product.label.image" for="field_image">Image</label>
+          <div>
+            <img
+              [src]="'data:' + 'image/png' + ';base64,' + editForm.get('image')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('image')!.value"
+              alt="product image"
+            />
+            <div *ngIf="editForm.get('image')!.value" class="form-text text-danger clearfix">
+              <span class="pull-left">{{ editForm.get('imageContentType')!.value }} , {{ byteSize(editForm.get('image')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('image', 'imageContentType', 'file_image')"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_image"
+              data-cy="image"
+              (change)="setFileData($event, 'image', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="image" id="field_image" data-cy="image" formControlName="image" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="imageContentType"
+            id="field_imageContentType"
+            formControlName="imageContentType"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+    <!--      <strong>{{editForm.get('services')!.value?.id}}</strong>-->
+    <!--    <strong>{{test?.id}}</strong>-->
+    <!--&lt;!&ndash;    <strong>{{test}}</strong>&ndash;&gt;-->
+    <!--    <strong>{{test?.services?.id}}</strong><br>-->
+    <!--    <strong>{{test?.services?.type}}</strong><br>-->
+    <!--    <strong>{{test?.services?.products}}</strong><br>-->
+    <!--    <strong>{{test?.services?.description}}</strong><br>-->
+    <!--    <button (click)="ok()">ok</button>-->
+  </div>
+</div>

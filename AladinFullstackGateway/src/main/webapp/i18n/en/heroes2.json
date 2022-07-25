@@ -1,0 +1,27 @@
+{
+  "aladinFullstackApp": {
+    "heroes2": {
+      "home": {
+        "title": "Heroes 2 S",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Heroes 2",
+        "createOrEditLabel": "Create or edit a Heroes 2",
+        "search": "Search for Heroes 2",
+        "notFound": "No Heroes 2 S found"
+      },
+      "created": "A new Heroes 2 is created with identifier {{ param }}",
+      "updated": "A Heroes 2 is updated with identifier {{ param }}",
+      "deleted": "A Heroes 2 is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Heroes 2 {{ id }}?"
+      },
+      "detail": {
+        "title": "Heroes 2"
+      },
+      "id": "ID",
+      "name": "Name",
+      "create_time": "Create Time",
+      "viettelSubscriber2": "Viettel Subscriber 2"
+    }
+  }
+}

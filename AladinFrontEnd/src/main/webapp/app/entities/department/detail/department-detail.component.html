@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="departments"><br><br>
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <div class="table-responsive" id="entities" *ngIf="departments && departments.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+          <thead  style="background: #c7c0c0">
+          <tr>
+            <th style="padding-left: 50px" class="cell">ID</th>
+            <th class="cell">Phòng ban</th>
+            <th class="cell">Người dùng</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let department of departments" data-cy="entityTable">
+            <td style="padding-left: 50px">
+              {{ department.id }}
+            </td>
+            <td>
+              {{ department.departmentName }}
+            </td>
+            <td>
+              {{ department.user?.login }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button style="margin-left: 91%" type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "aladinFullstackApp": {
+    "viettelSubscriber": {
+      "home": {
+        "title": "Viettel Subscribers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Viettel Subscriber",
+        "createOrEditLabel": "Create or edit a Viettel Subscriber",
+        "search": "Search for Viettel Subscriber",
+        "notFound": "No Viettel Subscribers found"
+      },
+      "created": "A new Viettel Subscriber is created with identifier {{ param }}",
+      "updated": "A Viettel Subscriber is updated with identifier {{ param }}",
+      "deleted": "A Viettel Subscriber is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Viettel Subscriber {{ id }}?"
+      },
+      "detail": {
+        "title": "Viettel Subscriber"
+      },
+      "id": "ID",
+      "name": "Name",
+      "msisdn": "Msisdn"
+    }
+  }
+}

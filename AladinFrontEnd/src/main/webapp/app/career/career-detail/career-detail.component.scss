@@ -1,0 +1,212 @@
+.container {
+  h4 {
+    color: #09c608;
+    font-weight: 300 !important;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .job-detail {
+    display: table-cell;
+    vertical-align: middle;
+    min-height: calc(100vh - 90px);
+  }
+}
+
+.common {
+  padding: 10%;
+}
+
+.content-bg {
+  background-image: url(../../../content/images/career_job.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-bg-header {
+  background-image: url(../../../content/images/career_header.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.career-header {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  padding: 15% 0;
+
+  content {
+    color: white;
+    .contact {
+      border: solid white 1px;
+    }
+    h4 {
+      color: white !important;
+      padding: 0px;
+    }
+
+    .contact {
+      color: white !important;
+    }
+    top: 20%;
+    left: 10%;
+  }
+}
+
+.career-job {
+  background-color: #ffffff95;
+  padding: 2rem 0;
+  hr {
+    height: 2px;
+    border-top: solid #11111150 2px;
+    margin-top: 3rem !important;
+  }
+}
+
+.head-label {
+  .bar {
+    background-color: #09c608;
+    height: 2.5rem;
+    width: 2px;
+    margin-right: 1.25rem;
+  }
+  margin: 2.5rem 0;
+  display: flex;
+  font-size: 1.25rem;
+
+  text {
+    padding: 5px;
+  }
+}
+
+.des-content {
+  white-space: pre-wrap;
+  overflow: scroll;
+  padding: 0 0.5rem 1rem;
+
+  ::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #09c608;
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #09c608;
+  }
+}
+
+.more-job {
+  .more-job-list {
+    display: flex;
+    margin: 2rem 2rem 0;
+    padding-bottom: 2rem;
+    overflow: scroll;
+
+    .job-item {
+      margin-right: 2rem;
+      width: 200px;
+
+      .item-job-name {
+        // css style
+        margin: 1rem 10px;
+        font-weight: 300;
+
+        // text transform
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+
+  ::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #09c608;
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #09c608;
+  }
+}
+.job-info {
+}
+
+.sharing {
+  text-align: right;
+}
+
+.more-info {
+  height: 100%;
+  position: relative;
+
+  .duration-show {
+    height: 50%;
+    position: relative;
+    min-height: 50px;
+
+    p {
+      position: absolute;
+      top: 0px;
+      left: 15px;
+      width: calc(100% - 30px);
+      line-height: 27px;
+    }
+  }
+
+  .apply-btn {
+    display: table-cell;
+    height: 50%;
+    width: 100%;
+    position: relative;
+    min-height: 50px;
+
+    button {
+      position: absolute;
+      bottom: 0px;
+      left: 15px;
+      width: calc(100% - 30px);
+    }
+  }
+}
+
+.card-text {
+  margin-bottom: 0.75rem !important;
+}
+
+.none-job {
+  height: 200px;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.chose {
+  color: #09c608 !important;
+}
+
+.btn-success {
+  background-color: #09c608;
+  border-color: #09c608;
+}

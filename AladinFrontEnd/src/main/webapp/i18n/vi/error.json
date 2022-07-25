@@ -1,0 +1,14 @@
+{
+  "error": {
+    "title": "Trang thông tin lỗi!",
+    "http": {
+      "400": "Yêu cầu không hợp lệ.",
+      "403": "Bạn không có quyền xem trang này.",
+      "404": "Trang không tồn tại.",
+      "405": "Từ khóa HTTP bạn sử dụng không được hỗ trợ cho đường dẫn này.",
+      "500": "Lỗi máy chủ."
+    },
+    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
+    "validation": "Validation error on the server."
+  }
+}

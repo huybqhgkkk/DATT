@@ -1,0 +1,12 @@
+{
+  "search": {
+    "title": "Search",
+    "result": "Results for: ",
+    "resultNumber": "({{totalItems}} results found)",
+    "noResult": "There is no result for: ",
+    "suggest": "Suggestions:",
+    "suggestCorrectWord": "Make sure that all words are spelled correctly.",
+    "suggestDifferentWord": "Try different keywords.",
+    "suggestGeneralWord": "Try more general keywords."
+  }
+}

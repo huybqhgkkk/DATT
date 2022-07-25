@@ -1,0 +1,129 @@
+{
+  "AladinTechApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "refreshListLabel": "Tải lại trang",
+        "createLabel": "Tạo mới Candidate",
+        "createOrEditLabel": "Tạo hoặc chỉnh sửa Candidate",
+        "notFound": "Không tìm thấy Candidate"
+      },
+      "created": "A new Candidate is created with identifier {{ param }}",
+      "updated": "A Candidate is updated with identifier {{ param }}",
+      "deleted": "A Candidate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Candidate {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "id": "ID",
+      "phone": "Sđt",
+      "email": "Email",
+      "position": "Vị trí",
+      "birthday": "Sinh nhật",
+      "location": "Địa chỉ",
+      "preference": "Sở thích",
+      "education": "Trình độ",
+      "experience": "Kinh nghiệm",
+      "target": "Mục tiêu",
+      "relationship": "Tình trạng",
+      "timeregister": "Thời gian ứng tuyển",
+      "fullname": "Họ và tên",
+      "sex": "Giới tính",
+      "cv": "Cv",
+      "male": "Nam",
+      "female": "Nữ",
+      "alone": "Đọc thân",
+      "hasFamily": "Đã có gia đình",
+      "uploadCV": "Upload Cv",
+      "recruitment": "Recruitment",
+      "apply": "Apply",
+      "find": "Delicious",
+      "job": "Jobs"
+    }
+  },
+  "candidate": {
+    "home": {
+      "title": "Candidates",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Thêm mới một Ứng viên",
+      "createOrEditLabel": "Thêm mới hoặc cập nhật Ứng viên",
+      "notFound": "No Candidates found"
+    },
+    "created": "Một Ứng viên mới được tạo với định danh {{ param }}",
+    "updated": "Một Ứng viên cập nhật với định danh {{ param }}",
+    "deleted": "Một Ứng viên đã xóa với định danh {{ param }}",
+    "delete": {
+      "question": "Bạn có chắc là muốn xóa Ứng viên {{ id }}?"
+    },
+    "detail": {
+      "title": "Ứng viên"
+    },
+    "id": "ID",
+    "phone": "Số điện thoại",
+    "email": "Thư điện tử",
+    "position": "Vị trí",
+    "birthday": "Ngày sinh",
+    "location": "Địa chỉ",
+    "preference": "Tham chiếu",
+    "education": "Học vấn",
+    "experience": "Kinh nghiệm",
+    "target": "Mục tiêu",
+    "relationship": "Tình trạng quan hệ",
+    "timeregister": "Thời gian đăng ký",
+    "fullname": "Họ và tên",
+    "sex": "Giới tính",
+    "cv": "Cv",
+    "male": "Nam",
+    "female": "Nữ",
+    "alone": "Độc thân",
+    "hasFamily": "Có gia đình",
+    "uploadCV": "Tải CV",
+    "apply": "Ứng tuyển",
+    "find": "Tìm thấy",
+    "job": "Công việc",
+    "placeholder": {
+      "fullname": "Vui lòng nhập họ và tên của bạn",
+      "location": "Vui lòng nhập địa chỉ nơi ở hiện tại",
+      "experience": "Mô tả quá trình làm việc, kinh nghiệm của bạn",
+      "email": "Vui lòng nhập thư điện tử của bạn",
+      "target": "Mô tả mục tiêu trong công ty",
+      "education": "Mô tả quá trình học của bạn",
+      "preference": "Người tham chiếu",
+      "cv": "Tải lên CV của bạn",
+      "job": "Nhập công việc ..."
+    },
+    "error": {
+      "notfound": {
+        "job": "Không tìm thấy công việc phù hợp cho bạn"
+      },
+      "required": {
+        "fullname": "Họ và tên còn thiếu",
+        "phone": "Số điện thoại còn thiếu",
+        "email": "Thư điện tử còn thiếu",
+        "position": "Vị trí còn thiếu",
+        "birthday": "Ngày sinh còn thiếu",
+        "location": "Địa chỉ còn thiếu",
+        "preference": "Tham chiếu còn thiếu",
+        "education": "Học vấn còn thiếu",
+        "experience": "Kinh nghiệm còn thiếu",
+        "target": "Mục tiêu còn thiếu",
+        "relationship": "Tình trạng quan hệ còn thiếu",
+        "timeregister": "Thời gian đăng ký còn thiếu",
+        "sex": "Giới tính còn thiếu",
+        "cv": "Cv còn thiếu",
+        "uploadCV": "Tải CV",
+        "apply": "Ứng tuyển còn thiếu"
+      },
+      "pattern": {
+        "phone": "Số điện thoại sai định dạng",
+        "email": "Thư điện tử sai định dạng",
+        "birthday": "Ngày sinh sai định dạng"
+      },
+      "minLength": {
+        "phone": "Trường này không được dưới 10 ký tự"
+      }
+    }
+  }
+}

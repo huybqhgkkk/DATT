@@ -1,0 +1,225 @@
+<div class="row pre-picture-about-us" style="
+    background: url('../../content/images/backgroundContact.png') center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 500px;
+  ">
+    <div class="row" style="padding: 2% 0 0 11%; color: white">
+        <span></span>
+    </div>
+    <div style="padding: 1% 4% 4% 11%; color: white; line-height: 2">
+        <div class="col-sm col-md-6">
+            <div class="wow animate__animated animate__bounceInDown" style="font-size: 2em">
+                <b jhiTranslate="AladinTechApp.contact.home.title" style="text-transform: uppercase"></b>
+            </div>
+            <br />
+            <p jhiTranslate="global.homeTitle2" class="wow animate__animated animate__backInLeft animate__delay-1s"></p>
+            <br />
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row content-contact">
+        <div class="col-sm col-lg-6">
+            <div style="text-align: center" class="wow animate__animated animate__backInLeft animate__delay-2s">
+                <label style="font-size: xx-large; font-weight: bold; text-transform: uppercase" jhiTranslate="AladinTechApp.contact.home.title"></label>
+            </div>
+
+            <div class="row justify-content-center wow animate__animated animate__backInLeft animate__delay-3s">
+                <div class="col-8">
+                    <div class="alert alert-success" *ngIf="success" jhiTranslate="contact.sendContact.success"><strong>Nice!</strong>ok nhé</div>
+                    <div class="alert alert-danger" *ngIf="error" jhiTranslate="contact.sendContact.error">
+                        <strong>Send contact failed!</strong> {{ test }}
+                    </div>
+
+                    <form name="form" role="form" (ngSubmit)="sendContact()" [formGroup]="contactForm" *ngIf="!success">
+                        <div class="form-group">
+                            <label class="form-control-label font-weight-bold" for="fullname" jhiTranslate="contact.label.fullname">FullName</label>
+                            <input required type="text" class="form-control" id="fullname" name="fullname" placeholder="{{ 'contact.placeholder.fullname' | translate }}" formControlName="fullname" />
+
+                            <div *ngIf="contactForm.get('fullname')!.invalid && contactForm.get('fullname')!.touched">
+                                <small class="form-text text-danger" *ngIf="contactForm.get('fullname')?.errors?.required" jhiTranslate="contact.name.validate.required">
+                  Your name is required.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('fullname')?.errors?.minlength" jhiTranslate="contact.name.validate.minlength">
+                  Your name is required to be at least 1 character.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('fullname')?.errors?.maxlength" jhiTranslate="contact.name.validate.maxlength">
+                  Your name cannot be longer than 254 characters.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('fullname')?.errors?.pattern" jhiTranslate="contact.name.validate.pattern">
+                  Your name can only contain letters and digits.
+                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label font-weight-bold" for="email" jhiTranslate="contact.label.email">Email</label>
+                            <input required type="email" class="form-control" id="email" name="email" placeholder="{{ 'contact.placeholder.email' | translate }}" formControlName="email" data-cy="email" />
+
+                            <div *ngIf="contactForm.get('email')!.invalid && contactForm.get('email')!.touched">
+                                <small class="form-text text-danger" *ngIf="contactForm.get('email')?.errors?.required" jhiTranslate="contact.email.validate.required">
+                  Your email is required.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('email')?.errors?.invalid" jhiTranslate="contact.email.validate.pattern">
+                  Your email is invalid.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('email')?.errors?.minlength" jhiTranslate="contact.email.validate.minlength">
+                  Your email is required to be at least 5 characters.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('email')?.errors?.maxlength" jhiTranslate="contact.email.validate.maxlength">
+                  Your email cannot be longer than 254 characters.
+                </small>
+                            </div>
+                        </div>
+
+                        <!--  phone-->
+                        <div class="form-group">
+                            <label class="form-control-label font-weight-bold" for="phone" jhiTranslate="contact.label.phone">Phone</label>
+                            <br />
+                            <input required type="text" class="form-control" id="phone" name="phone" placeholder="{{ 'contact.placeholder.phone' | translate }}" formControlName="phone" ng2TelInput (intlTelInputObject)="telInputObject($event)" (keypress)="numericOnly($event)" (countryChange)="onCountryChange($event)"
+                            />
+
+                            <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')!.touched">
+                                <!--                <strong *ngIf="contactForm.get('phone')?.errors?.pattern">pls input phone number</strong>-->
+                                <small class="form-text text-danger" *ngIf="contactForm.get('phone')?.errors?.pattern"> pls input phone number </small>
+                                <small class="form-text text-danger" *ngIf="contactForm.get('phone')?.errors?.required" jhiTranslate="contact.phone.required">
+                  Your phone is required.
+                </small>
+                                <small class="form-text text-danger" *ngIf="contactForm.get('phone')?.errors?.minlength" jhiTranslate="contact.phone.minlength">
+                  Your phone is required to be at least 8 characters.
+                </small>
+                                <small class="form-text text-danger" *ngIf="contactForm.get('phone')?.errors?.maxlength" jhiTranslate="contact.phone.maxlength">
+                  Your phone cannot be longer than 254 characters.
+                </small>
+                                <small class="form-text text-danger" *ngIf="contactForm.get('phone')?.errors?.invalid" jhiTranslate="contact.phone.invalid">
+                  Your Phone is invalid.
+                </small>
+                            </div>
+                        </div>
+
+                        <!--  job title-->
+                        <div class="form-group">
+                            <label class="form-control-label font-weight-bold" for="job" jhiTranslate="contact.label.job">Job</label>
+                            <input required type="text" class="form-control" id="job" name="job" placeholder="{{ 'contact.placeholder.job' | translate }}" formControlName="job" />
+
+                            <div *ngIf="contactForm.get('job')?.invalid && contactForm.get('job')!.touched">
+                                <small class="form-text text-danger" *ngIf="contactForm.get('job')?.errors?.required" jhiTranslate="contact.job.required">
+                  Your job is required.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('job')?.errors?.minlength" jhiTranslate="contact.job.minlength">
+                  Your job is required to be at least 5 characters.
+                </small>
+                                <small class="form-text text-danger" *ngIf="contactForm.get('job')?.errors?.maxlength" jhiTranslate="contact.job.maxlength">
+                  Your job cannot be longer than 254 characters.
+                </small>
+                            </div>
+                        </div>
+
+                        <!--  company name-->
+                        <div class="form-group font-weight-bold">
+                            <label class="form-control-label" for="company" jhiTranslate="contact.label.company">Company</label>
+                            <input required type="text" class="form-control" id="company" name="company" placeholder="{{ 'contact.placeholder.company' | translate }}" formControlName="company" />
+
+                            <div *ngIf="contactForm.get('company')?.invalid && contactForm.get('company')!.touched">
+                                <small class="form-text text-danger" *ngIf="contactForm.get('company')?.errors?.required" jhiTranslate="contact.company.required">
+                  Your company is required.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('company')?.errors?.minlength" jhiTranslate="contact.company.minlength">
+                  Your company is required to be at least 5 characters.
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('company')?.errors?.maxlength" jhiTranslate="contact.company.maxlength">
+                  Your company name cannot be longer than 254 characters.
+                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label font-weight-bold" for="messages" jhiTranslate="contact.label.message">Messager</label>
+                            <textarea required type="text" class="form-control" rows="5" id="messages" name="messages" placeholder="{{ 'contact.placeholder.message' | translate }}" formControlName="messages" data-cy="messages"></textarea>
+
+                            <div *ngIf="contactForm.get('messages')!.invalid && contactForm.get('messages')!.touched">
+                                <small class="form-text text-danger" *ngIf="contactForm.get('messages')?.errors?.required" jhiTranslate="contact.message.validate.required">
+                  Your message is required
+                </small>
+
+                                <small class="form-text text-danger" *ngIf="contactForm.get('messages')?.errors?.minlength" jhiTranslate="contact.message.validate.minlength">
+                  Your message is required to be at least 4 characters.
+                </small>
+                            </div>
+                        </div>
+
+                        <!--          interest -->
+                        <div *ngIf="listService" class="form-group">
+                            <label class="form-control-label font-weight-bold" jhiTranslate="contact.label.interestThing">Interest Thing</label><br />
+                            <label class="form-control col-sm" style="border: none; margin: 1% 2%" formArrayName="interestThing" *ngFor="let item of ordersFormArray.controls; let i = index">
+                <input type="checkbox" [formControlName]="i" /> {{ listService[i].type }}
+              </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control col-sm" style="border: none">
+                <input type="checkbox" formControlName="receive" /> <label jhiTranslate="AladinTechApp.contact.receiveMail"></label>
+                            </label>
+                        </div><br><br>
+
+                        <!--          <strong>{{contactForm.get('interestThing')?.value}}</strong>-->
+                        <!--          <strong>{{test}}</strong>-->
+
+                        <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary" jhiTranslate="contact.button" data-cy="submit">
+              Contact us
+            </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm col-lg-6" style="margin-bottom: 2%">
+            <div class="col-sm col-xl-10 wow animate__animated animate__backInRight animate__delay-2s" style="text-align: left">
+                <label style="font-size: xx-large; font-weight: bold; border-bottom: 1px solid black; display: block; position: relative" jhiTranslate="AladinTechApp.contact.information">THÔNG TIN</label
+        >
+      </div>
+      <div class="wow animate__animated animate__backInRight animate__delay-3s">
+        <div class="col-xl-10 company_name">
+          <!--          <img src="../../../content/images/home/Layer%202.png " alt=" " width="300px " height="70px " />-->
+          <div class="row col-12 justify-content-center">
+            <div class="logo-img-footer"></div>
+          </div>
+          <br />
+          <p style="padding-left: 10px" jhiTranslate="global.companyName"></p>
+        </div>
+        <br />
+        <p style="font-weight: 480; margin-left: 22px">
+          <fa-icon icon="map-marked-alt" size="1x"></fa-icon>&ensp;
+          <span jhiTranslate="AladinTechApp.contact.address.subAddress"></span>
+          <br />
+          <fa-icon icon="phone" size="1x"></fa-icon>&ensp;&ensp;(+84) 988 - 985 - 247
+          <br />
+          <fa-icon icon="envelope" size="1x"></fa-icon>&ensp;&ensp;support@aladintech.co
+        </p>
+      </div>
+      <br /><br />
+      <iframe
+        class="map-company col-xl-10 wow animate__animated animate__backInRight"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.821684568763!2d105.83483461533181!3d20.99978379414175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135adf6cd7d9e2d%3A0x4dcd5ff7ed5fb5f0!2zQ8O0bmcgVHkgVE5ISCBDw7RuZyBOZ2jhu4cgQWxhZGlu!5e0!3m2!1svi!2s!4v1641881146378!5m2!1svi!2s"
+        width="100% "
+        height="500px "
+        style="border: 0"
+        allowfullscreen=" "
+        loading="lazy "
+      ></iframe>
+    </div>
+  </div>
+</div>
+<ngx-scrolltop [backgroundColor]="'green'" [symbolColor]="'#fafafa'" [size]="55" [mode]="'classic'" position="right" theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>

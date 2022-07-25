@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Heroes3.
+    -->
+    <changeSet id="20210508024132-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="viettel_subscriber2_id"
+                                 baseTableName="heroes3"
+                                 constraintName="fk_heroes3__viettel_subs_7a_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="viettel_subscriber2"/>
+    </changeSet>
+</databaseChangeLog>

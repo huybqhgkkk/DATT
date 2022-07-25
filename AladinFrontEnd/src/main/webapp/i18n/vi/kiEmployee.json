@@ -1,0 +1,96 @@
+{
+  "AladinTechApp": {
+    "kiEmployee": {
+      "home": {
+        "title": "Danh sách KI",
+        "refreshListLabel": "Tải lại danh sách",
+        "createLabel": "Thêm mới một KI nhân viên",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Ki Employee",
+        "notFound": "Không tìm thấy KI"
+      },
+      "created": "Một Ki Employee mới được tạo với định danh {{ param }}",
+      "updated": "Một Ki Employee cập nhật với định danh {{ param }}",
+      "deleted": "Một Ki Employee đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Ki Employee {{ id }}?"
+      },
+      "detail": {
+        "title": "Ki Employee",
+        "nevaluate_ki": "ĐÁNH GIÁ KI",
+        "monthly_job_evaluation": "ĐÁNH GIÁ CÔNG VIỆC HÀNG THÁNG",
+        "head_of_department_assessment": "ĐÁNH GIÁ CỦA TRƯỞNG PHÒNG",
+        "director_rating": "ĐÁNH GIÁ CỦA GIÁM ĐỐC"
+      },"placeholder":{
+        "work_quantity": "Số lượng công việc",
+        "work_quantity_comment": "Ý kiến về số lượng công việc",
+        "work_quality": "Chất lượng công việc",
+        "work_quality_comment": "Ý kiến về chất lượng công việc",
+        "work_progress": "Tiến độ công việc",
+        "work_progress_comment": "Ý kiến về tiến độ công việc",
+        "work_attitude": "Thái độ làm việc",
+        "work_attitude_comment": "Ý kiến về thái độ làm việc",
+        "work_discipline": "Kỷ luật trong công việc",
+        "work_discipline_comment": "Ý kiến về kỷ luật trong công việc",
+        "assigned_work": "Công việc được giao",
+        "other_work": "Công việc khác",
+        "completed_work": "Công việc đã hoàn thành",
+        "uncompleted_work": "Công việc chưa hoàn thành",
+        "favourite_work": "Công việc yêu thích",
+        "unfavourite_work": "Công việc không yêu thích",
+        "employee_ki_point": "KI nhân viên tự đánh giá",
+        "leader_ki_point": "KI Trưởng Phòng đánh giá",
+        "leader_comment": "Ý kiến của Trưởng Phòng",
+        "boss_ki_point": "KI Giám Đốc đánh giá",
+        "boss_comment": "Ý kiến của Giám Đốc",
+        "employee": "Tên nhân viên"
+      },
+      "ki_create": "BIỂU MẪU ĐÁNH GIÁ KI",
+      "ki_detail": "PHIẾU ĐÁNH GIÁ NHÂN VIÊN",
+      "ki_list": "DANH SÁCH KI NHÂN VIÊN",
+      "employee1": "NHÂN VIÊN",
+      "disciplinary_performance_assessment": "ĐÁNH GIÁ THỰC HIỆN KỶ LUẬT",
+      "assessment_of_workload": "ĐÁNH GIÁ SỐ LƯỢNG CÔNG VIỆC",
+      "assess_the_quality_of_work": "ĐÁNH GIÁ CHẤT LƯỢNG CÔNG VIỆC",
+      "evaluate_work_progress": "ĐÁNH GIÁ TIẾN ĐỘ CÔNG VIỆC",
+      "evaluate_working_style": "ĐÁNH GIÁ TÁC PHONG LÀM VIỆC",
+      "jobs_for_the_month": "CÁC CÔNG VIỆC TRONG THÁNG",
+      "leader": "TRƯỞNG PHÒNG",
+      "boss": "GIÁM ĐỐC",
+      "id": "ID",
+      "status": "Trạng thái",
+      "date_time": "Thời gian đánh giá",
+      "work_quantity": "Số lượng công việc",
+      "work_quantity_comment": "Ý kiến về số lượng công việc",
+      "work_quality": "Chất lượng công việc",
+      "work_quality_comment": "Ý kiến về chất lượng công việc",
+      "work_progress": "Tiến độ công việc",
+      "work_progress_comment": "Ý kiến về tiến độ công việc",
+      "work_attitude": "Thái độ làm việc",
+      "work_attitude_comment": "Ý kiến về thái độ làm việc",
+      "work_discipline": "Kỷ luật trong công việc",
+      "work_discipline_comment": "Ý kiến về kỷ luật trong công việc",
+      "assigned_work": "Công việc được giao",
+      "other_work": "Công việc khác",
+      "completed_work": "Công việc đã hoàn thành",
+      "uncompleted_work": "Công việc chưa hoàn thành",
+      "favourite_work": "Công việc yêu thích",
+      "unfavourite_work": "Công việc không yêu thích",
+      "employee_ki_point": "KI nhân viên tự đánh giá",
+      "leader_ki_point": "KI Trưởng Phòng đánh giá",
+      "leader_comment": "Ý kiến của Trưởng Phòng",
+      "boss_ki_point": "KI Giám Đốc đánh giá",
+      "boss_comment": "Ý kiến của Giám Đốc",
+      "employee": "Tên nhân viên"
+    }
+  },
+  "backendAladinApp": {
+    "kiEmployee": {
+      "created": "Bạn đã tạo mới KI thành công",
+      "updated": "Bạn đã sửa thành công",
+      "deleted": "Bạn đã xóa KI thành công",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Ki Employee {{ id }}?"
+      }
+    }
+    }
+  }

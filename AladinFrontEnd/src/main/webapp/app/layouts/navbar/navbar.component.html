@@ -1,0 +1,319 @@
+<header>
+  <nav class="navbar sticky-top navbar-expand-lg">
+    <a class="navbar-brand" routerLink="/" class="logo">
+      <img class="w-100" id="big-logo" src="../../../content/images/home/Layer 2.png" alt="" />
+      <img id="small-logo" src="../../../content/images/home/logo-aladintech 1.png" alt="" />
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto w-100 justify-content-start ml-5">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            jhiTranslate="global.menu.home"
+            routerLink="/"
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            jhiTranslate="global.menu.contact"
+            routerLink="/contacts"
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            jhiTranslate="global.menu.career"
+            routerLink="/career"
+          ></a>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link expandToggle" href="#serviceExpand" data-toggle="collapse" jhiTranslate="global.menu.service"></a>
+          <a class="nav-link normalMenu" jhiTranslate="global.menu.service"></a>
+          <ul class="sub-menu collapse" id="serviceExpand">
+            <li *ngFor="let items of listService">
+              <a routerLink="/service/{{ items.id }}" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span>{{ items.type }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="nav-item dropdown"
+          *jhiHasAnyAuthority="['ROLE_USER', 'ROLE_ADMIN']"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            class="nav-link expandToggle"
+            href="#employeeExpand"
+            data-toggle="collapse"
+            *jhiHasAnyAuthority="'ROLE_USER'"
+            jhiTranslate="global.menu.entities.main"
+          >
+          </a>
+          <a class="nav-link normalMenu" jhiTranslate="global.menu.entities.main" *jhiHasAnyAuthority="'ROLE_USER'"> </a>
+          <ul class="sub-menu collapse" id="employeeExpand">
+            <li>
+              <a class="dropdown-item" routerLink="employee" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span *jhiHasAnyAuthority="'ROLE_USER'" jhiTranslate="global.menu.entities.main"></span>
+              </a>
+            </li>
+            <!-- <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a class="dropdown-item" routerLink="recruitmen" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span jhiTranslate="global.menu.entities.recruitmen"></span>
+              </a>
+            </li> -->
+            <!-- <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a class="dropdown-item" routerLink="news" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span jhiTranslate="global.menu.entities.news"></span>
+              </a>
+            </li> -->
+            <li *jhiHasAnyAuthority="'ROLE_USER'">
+              <a class="dropdown-item" routerLink="ki-employee" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span jhiTranslate="global.menu.entities.kiEmployee"></span>
+              </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_USER'">
+              <a class="dropdown-item" routerLink="department" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <span jhiTranslate="global.menu.entities.department">Department</span>
+              </a>
+            </li>
+            <!-- <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="emailtemplate"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <span jhiTranslate="global.menu.entities.emailtemplate"></span>
+              </a>
+            </li> -->
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="contact"
+                jhiTranslate="global.menu.entities.contact"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              </a>
+            </li>
+
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="services"
+                jhiTranslate="global.menu.entities.services"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              </a>
+            </li>
+            <!-- <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="product"
+                jhiTranslate="global.menu.entities.product"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              </a>
+            </li> -->
+
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="recruitment"
+                jhiTranslate="global.menu.entities.recruitmen"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+              <a
+                class="dropdown-item"
+                routerLink="candidate"
+                jhiTranslate="global.menu.entities.candidate"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          class="nav-item dropdown"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link expandToggle" jhiTranslate="global.menu.admin.main" href="#adminExpand" data-toggle="collapse"> </a>
+          <a class="nav-link normalMenu" jhiTranslate="global.menu.admin.main"> </a>
+          <ul class="sub-menu collapse" id="adminExpand">
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="admin/user-management"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.userManagement"></span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="admin/metrics"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.metrics"></span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="admin/health"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.health"></span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="admin/configuration"
+                routerLinkActive="child-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.configuration"></span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.logs"></span>
+              </a>
+            </li>
+            <li *ngIf="openAPIEnabled">
+              <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="child-active" [routerLinkActiveOptions]="{ exact: true }">
+                <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.apidocs"></span>
+              </a>
+            </li>
+            <li *ngIf="!inProduction">
+              <a class="dropdown-item" href="./h2-console/" target="_tab">
+                <fa-icon icon="database" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.database"></span>
+              </a>
+            </li>
+          </ul>
+        </li> -->
+        <li class="ml-1 mt-1 account-responsive">
+          <a
+            *ngIf="account == null"
+            style="cursor: pointer"
+            class="log-in-out account ml-2"
+            (click)="login()"
+            jhiTranslate="global.menu.account.login"
+          >
+          </a>
+          <a
+            *ngIf="account"
+            style="cursor: pointer"
+            class="log-in-out account ml-2"
+            (click)="logout()"
+            jhiTranslate="global.menu.account.logout"
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="right-menu">
+    <span class="p-input-icon-right">
+      <input
+        type="text"
+        (keyup)="onKeyUp()"
+        [(ngModel)]="navbarSearchText"
+        (keyup.enter)="navigateToSearch()"
+        pInputText
+        placeholder="{{ 'global.search' | translate }}"
+      />
+      <i class="pi pi-search" (click)="navigateToSearch()"></i>
+      <div class="result-area" *ngIf="responseData">
+        <ul>
+          <li *ngFor="let data of responseData">
+            <a *ngIf="data.index === 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}/view">
+              <p>{{ data.displayInfo }}</p>
+              <span class="category" jhiTranslate="global.menu.entities.employee"></span>
+            </a>
+            <a *ngIf="data.index != 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}">
+              <p>{{ data.displayInfo }}</p>
+              <span *ngIf="data.index === 'service'" class="category" jhiTranslate="global.menu.entities.services"></span>
+              <span *ngIf="data.index === 'career'" class="category" jhiTranslate="global.menu.entities.recruitmen"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </span>
+    <div class="others">
+      <div class="dropdown">
+        <a class="language-option expandToggle" href="#languageExpand" data-toggle="collapse">
+          <img class="language" src="../../../content/images/languages/{{ currentLanguage }}.png" alt="" />
+        </a>
+        <a class="language-option normalMenu">
+          <img class="language" src="../../../content/images/languages/{{ currentLanguage }}.png" alt="" />
+        </a>
+        <ul class="sub-menu other-languages collapse" id="languageExpand">
+          <ng-container *ngFor="let language of languages">
+            <li *ngIf="language != currentLanguage">
+              <a class="choose-language" (click)="changeLanguage(language)">
+                <img class="language" src="../../../content/images/languages/{{ language }}.png" alt="" />
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <a
+        *ngIf="account == null"
+        style="cursor: pointer"
+        class="log-in-out account registry ml-2"
+        (click)="login()"
+        jhiTranslate="global.menu.account.login"
+      >
+      </a>
+      <a
+        *ngIf="account"
+        style="cursor: pointer"
+        class="log-in-out account registry ml-2"
+        (click)="logout()"
+        jhiTranslate="global.menu.account.logout"
+      ></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa fa-bars" style="color: #fff" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="line"></div>

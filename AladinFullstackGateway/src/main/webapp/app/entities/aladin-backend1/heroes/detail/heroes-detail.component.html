@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="heroes">
+      <h2 data-cy="heroesDetailsHeading"><span jhiTranslate="aladinFullstackApp.heroes.detail.title">Heroes</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ heroes.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aladinFullstackApp.heroes.name">Name</span></dt>
+        <dd>
+          <span>{{ heroes.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="aladinFullstackApp.heroes.create_time">Create Time</span></dt>
+        <dd>
+          <span>{{ heroes.create_time | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aladinFullstackApp.heroes.viettelSubscriber">Viettel Subscriber</span></dt>
+        <dd>
+          <div *ngIf="heroes.viettelSubscriber">
+            <a [routerLink]="['/viettel-subscriber', heroes.viettelSubscriber?.id, 'view']">{{ heroes.viettelSubscriber?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/heroes', heroes.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

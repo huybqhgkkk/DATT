@@ -1,0 +1,28 @@
+{
+  "AladinTechApp": {
+    "emailtemplate": {
+      "home": {
+        "title": "Emailtemplates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Add a new Emailtemplate",
+        "createOrEditLabel": "Add new or update Emailtemplate",
+        "notFound": "No Emailtemplates found"
+      },
+      "created": "A new Emailtemplate created with the identifier {{ param }}",
+      "updated": "Emailtemplate updated with identifier {{ param }}",
+      "deleted": "Emailtemplate deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Do you want to delete Emailtemplate {{ id }}?"
+      },
+      "detail": {
+        "title": "Emailtemplate"
+      },
+      "id": "ID",
+      "templatename": "Templatename",
+      "subject": "Subject",
+      "hyperlink": "Hyperlink",
+      "datetime": "Datetime",
+      "content": "Content"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "AladinTechApp": {
+    "news": {
+      "home": {
+        "title": "News",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một News",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật News",
+        "notFound": "No News found"
+      },
+      "created": "Một News mới được tạo với định danh {{ param }}",
+      "updated": "Một News cập nhật với định danh {{ param }}",
+      "deleted": "Một News đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa News {{ id }}?"
+      },
+      "detail": {
+        "title": "News"
+      },
+      "id": "ID",
+      "title": "Title",
+      "content": "Content",
+      "image1": "Image 1",
+      "image2": "Image 2",
+      "image3": "Image 3"
+    }
+  }
+}

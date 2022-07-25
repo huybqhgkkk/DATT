@@ -1,0 +1,36 @@
+{
+  "AladinTechApp": {
+    "services": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new service",
+        "createOrEditLabel": "Insert or Update Services",
+        "notFound": "No Services found"
+      },
+      "created": "Service has been created with the identifier{{ param }}",
+      "updated": "Service has been updated with the identifier {{ param }}",
+      "deleted": "Service has been deleted with the identifier {{ param }}",
+      "delete": {
+        "question": "Do you want to delete a service {{ id }}?"
+      },
+      "detail": {
+        "title": "Services"
+      },
+      "id": "ID",
+      "type": "Type",
+      "description": "Description",
+      "reason": "Reason"
+    }
+  },
+  "backendAladinApp": {
+    "services": {
+      "created": "You have created a new service successfully ",
+      "updated": "You have updated a service successfully",
+      "deleted": "You have deleted a service successfully",
+      "delete": {
+        "question": "Do you want to delete a service {{ id }}?"
+      }
+    }
+  }
+}

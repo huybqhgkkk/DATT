@@ -1,0 +1,426 @@
+<ngb-carousel #carousel [animation]="false" [interval]="8000" [pauseOnFocus]="true" [pauseOnHover]="true" [showNavigationArrows]="false">
+  <ng-template ngbSlide>
+    <div
+      class="row banner"
+      style="
+        background: url('../../content/images/home/home0.jpg') center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      "
+    >
+      <div class="col-12 col-sm-12 col-lg-7 col-xl-7" style="padding: 8% 4% 10% 5%; color: white">
+        <div class="wow animate__animated">
+          <p class="wow animate__animated animate__fadeInDown">
+            <span style="font-size: 4.5em"><b jhiTranslate="global.homeTitle1"></b></span> <br />
+          </p>
+
+          <p
+            jhiTranslate="global.homeTitle2"
+            class="wow animate__animated animate__fadeInLeft"
+            style="font-size: 1.1rem; line-height: 2; text-align: justify"
+          ></p>
+
+          <p></p>
+          <br />
+          <a
+            class="btn btn-dark btn-outline-light wow animate__animated animate__fadeInUp animate__delay-1s"
+            href="contacts"
+            jhiTranslate="contact.button"
+            style="padding: 2%"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-5 col-xl-5 search-container">
+        <div class="wow animate__animated animate__fadeIn search-form">
+          <div class="form-input">
+            <input
+              (focusin)="inFocus()"
+              (focusout)="outFocus()"
+              (keydown)="onKeyDown()"
+              (keyup)="onKeyUp()"
+              (keyup.enter)="navigateToSearch()"
+              [(ngModel)]="searchText"
+              class="search-input"
+              name="searchValue"
+              placeholder="{{ 'global.search' | translate }}"
+              type="text"
+            />
+            <i aria-hidden="true" class="fa fa-search search"></i>
+          </div>
+          <div class="result-area">
+            <ul>
+              <li *ngFor="let data of responseData">
+                <a *ngIf="data.index === 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}/view">
+                  <p>{{ data.displayInfo }}</p>
+                  <span class="category" jhiTranslate="global.menu.entities.employee"></span>
+                </a>
+                <a *ngIf="data.index != 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}">
+                  <p>{{ data.displayInfo }}</p>
+                  <span *ngIf="data.index === 'service'" class="category" jhiTranslate="global.menu.entities.services"></span>
+                  <span *ngIf="data.index === 'career'" class="category" jhiTranslate="global.menu.entities.recruitmen"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template ngbSlide>
+    <div
+      class="row banner"
+      style="
+        background: url('../../content/images/home/home1.jpg') center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        min-height: 50rem;
+      "
+    >
+      <div class="col-12 col-sm-12 col-lg-7 col-xl-7" style="padding: 8% 4% 10% 5%; color: white">
+        <div>
+          <p>
+            <span style="font-size: 4.5em"><b jhiTranslate="global.homeTitle1"></b></span> <br />
+          </p>
+
+          <p style="font-size: 1.1rem; line-height: 2; text-align: justify" jhiTranslate="global.homeTitle2"></p>
+
+          <p></p>
+          <br />
+          <a class="btn btn-dark btn-outline-light" href="contacts" jhiTranslate="contact.button" style="padding: 2%">Contact Us</a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-5 col-xl-5 search-container">
+        <div class="search-form">
+          <div class="form-input">
+            <input
+              (focus)="inFocus()"
+              (focusout)="outFocus()"
+              (keydown)="onKeyDown()"
+              (keyup)="onKeyUp()"
+              [(ngModel)]="searchText"
+              (keyup.enter)="navigateToSearch()"
+              class="search-input"
+              name="searchValue"
+              placeholder="Search"
+              type="text"
+            />
+            <i aria-hidden="true" class="fa fa-search search"></i>
+          </div>
+          <div class="result-area">
+            <ul>
+              <li *ngFor="let data of responseData">
+                <a *ngIf="data.index === 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}/view">
+                  <p>{{ data.displayInfo }}</p>
+                  <span class="category" jhiTranslate="global.menu.entities.employee"></span>
+                </a>
+                <a *ngIf="data.index != 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}">
+                  <p>{{ data.displayInfo }}</p>
+                  <span *ngIf="data.index === 'service'" class="category" jhiTranslate="global.menu.entities.services"></span>
+                  <span *ngIf="data.index === 'career'" class="category" jhiTranslate="global.menu.entities.recruitmen"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div
+      class="row banner"
+      style="
+        background: url('../../content/images/home/home2.jpg') center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        min-height: 50rem;
+      "
+    >
+      <div class="col-12 col-sm-12 col-lg-7 col-xl-7" style="padding: 8% 4% 10% 5%; color: white">
+        <div>
+          <p>
+            <span style="font-size: 4.5em; color: #111112"><b jhiTranslate="global.homeTitle1"></b></span>
+            <br />
+          </p>
+
+          <p style="font-size: 1.1rem; line-height: 2; text-align: justify; color: #111112" jhiTranslate="global.homeTitle2"></p>
+
+          <p></p>
+          <br />
+          <a class="btn btn-dark btn-outline-light" href="contacts" jhiTranslate="contact.button" style="padding: 2%">Contact Us</a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-5 col-xl-5 search-container">
+        <div class="search-form">
+          <div class="form-input">
+            <input
+              (focus)="inFocus()"
+              (focusout)="outFocus()"
+              (keydown)="onKeyDown()"
+              (keyup)="onKeyUp()"
+              [(ngModel)]="searchText"
+              (keyup.enter)="navigateToSearch()"
+              class="search-input"
+              name="searchValue"
+              placeholder="Search"
+              type="text"
+            />
+            <i aria-hidden="true" class="fa fa-search search"></i>
+          </div>
+          <div class="result-area">
+            <ul>
+              <li *ngFor="let data of responseData">
+                <a *ngIf="data.index === 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}/view">
+                  <p>{{ data.displayInfo }}</p>
+                  <span class="category" jhiTranslate="global.menu.entities.employee"></span>
+                </a>
+                <a *ngIf="data.index != 'employee'" class="result-link" routerLink="/{{ data.index }}/{{ data.id }}">
+                  <p>{{ data.displayInfo }}</p>
+                  <span *ngIf="data.index === 'service'" class="category" jhiTranslate="global.menu.entities.services"></span>
+                  <span *ngIf="data.index === 'career'" class="category" jhiTranslate="global.menu.entities.recruitmen"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<!-- -->
+<div class="container-fluid services" style="min-height: 100vh; text-align: center; line-height: 2">
+  <div class="row justify-content-center">
+    <div class="row col-11 justify-content-center" style="margin-top: 5%">
+      <div class="col-12">
+        <hr class="col-lg-2" class="hr" />
+      </div>
+      <div class="row col-12 justify-content-center">
+        <div class="col-12">
+          <span class="sub-title-large-cus" jhiTranslate="global.ourServices">Dịch vụ của chúng tôi</span>
+        </div>
+      </div>
+      <div class="row col-12 justify-content-center" style="margin-top: 2%; text-align: justify">
+        <ng-container *ngFor="let items of listServices; let i = index">
+          <div class="col-sm-12">
+            <div class="services-container" class="wow animate__animated animate__fadeIn">
+              <a href="service/{{ items.id }}"
+                ><img
+                  class="card-img-cus-services"
+                  style="max-width: unset; max-height: 13rem"
+                  src="../../content/images/home/{{ items?.type?.toLowerCase() }}.png"
+                />
+                <span class="type-services overlay-text">
+                  {{ items?.type }}
+                </span>
+              </a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!--    -->
+    <div class="row col-11 justify-content-center" style="margin-top: 5%">
+      <div class="col-12">
+        <hr class="col-lg-2" class="hr" />
+      </div>
+      <div class="row col-12 justify-content-center">
+        <div class="col-12">
+          <span class="sub-title-large-cus" jhiTranslate="global.choose">Vì sao nên chọn Aladin</span>
+        </div>
+      </div>
+      <div class="row col-12 justify-content-center" style="margin-top: 3%; text-align: center">
+        <div class="col-sm-6 col-lg-3 wow animate__animated animate__fadeInLeft">
+          <div class="card-img-top">
+            <img class="card-img-cus" src="../../content/images/home/Rectangle%20596.png" />
+          </div>
+          <div class="card-body">
+            <div class="card-subtitle">
+              <span jhiTranslate="global.homeTitle3">Môi trường làm việc năng động & sáng tạo</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow animate__animated animate__fadeInDown animate__delay-700ms">
+          <div class="card-img-top">
+            <img class="card-img-cus" src="../../content/images/home/Rectangle%20605.png" />
+          </div>
+          <div class="card-body">
+            <div class="card-subtitle">
+              <span jhiTranslate="global.homeTitle4">Quy trình chuyên nghiệp & hiệu quả</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow animate__animated animate__fadeInUp animate__delay-700ms">
+          <div class="card-img-top">
+            <img class="card-img-cus" src="../../content/images/home/Rectangle%20606.png" />
+          </div>
+          <div class="card-body">
+            <div class="card-subtitle">
+              <span jhiTranslate="global.homeTitle5">Cơ hội đào tạo & phát triển sự nghiệp</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow animate__animated animate__fadeInRight">
+          <div class="card-img-top">
+            <img class="card-img-cus" src="../../content/images/home/Rectangle%20607.png" />
+          </div>
+          <div class="card-body">
+            <div class="card-subtitle">
+              <span jhiTranslate="global.homeTitle6">Hoạt động ngoại khóa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row col-11 justify-content-center" style="margin-top: 3%">
+      <div class="row col-12 justify-content-center">
+        <div class="col-12" style="margin-top: 2%">
+          <div class="col-12">
+            <hr class="col-lg-2" class="hr" />
+          </div>
+          <span class="sub-title-large-cus" jhiTranslate="global.homeTitle7">Công nghệ chúng tôi sử dụng</span>
+        </div>
+      </div>
+      <!--      list -->
+      <div class="row col-12 justify-content-center" style="margin-top: 4%">
+        <div class="col-12">
+          <div>
+            <span class="sub-title-list-tech-use" jhiTranslate="global.homeTitle8"> Công nghệ Bigdata </span>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 2%">
+          <div class="slides technologies">
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown">
+              <img style="width: -webkit-fill-available" src="../../content/images/home/1024px-Hadoop_logo%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-1s">
+              <img src="../../content/images/home/apache-kafka.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-2s">
+              <img src="../../content/images/home/Apache_Hive_logo%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-3s">
+              <img
+                src="../../content/images/home/png-transparent-apache-spark-apache-hadoop-big-data-scala-apache-http-server-spark-miscellaneous-text-orange%201.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      -->
+      <div class="row col-12 justify-content-center" style="margin-top: 4%">
+        <div class="col-12">
+          <div>
+            <span class="sub-title-list-tech-use" jhiTranslate="global.homeTitle9"> Ngôn ngữ</span>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 2%">
+          <div class="slides technologies">
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown">
+              <img src="../../content/images/home/java-logo-1%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-1s">
+              <img src="../../content/images/home/image%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-2s">
+              <img src="../../content/images/home/1822px-ISO_C++_Logo%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-3s">
+              <img src="../../content/images/home/480px-Unofficial_JavaScript_logo_2%201.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      -->
+      <div class="row col-12 justify-content-center" style="margin-top: 4%">
+        <div class="col-12">
+          <div>
+            <span class="sub-title-list-tech-use" jhiTranslate="global.homeTitle10">Công cụ</span>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 2%">
+          <div class="slides technologies">
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3 wow animate__animated animate__fadeInDown">
+              <img src="../../content/images/home/1280px-Apache_Software_Foundation_Logo_(2016)%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-1s">
+              <img src="../../content/images/home/netbeans-logo-png-transparent%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-2s">
+              <img src="../../content/images/home/Node-JS-logo%201.png" />
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3 wow animate__animated animate__fadeInDown animate__delay-3s">
+              <img src="../../content/images/home/vs-code%201.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      -->
+    </div>
+
+    <!--    end Cong nghe ctoi-->
+
+    <!--    doi tac-->
+    <div style="margin: 3% 0 3% 0; padding: 2% 0 2% 0; background: #fff6f7">
+      <div class="" style="justify-content: center; display: flex">
+        <div class="row col-12 content-contact container-cus">
+          <div class="col-sm col-lg-5" style="padding-left: 5%">
+            <div
+              class="row col-sm-12 col-lg-12 wow animate__animated animate__fadeInLeft animate__delay-300ms"
+              style="align-content: center; text-align: justify"
+            >
+              <span jhiTranslate="global.homeTitle11" class="sub-title-large-cus col-12">Đối tác</span>
+              <span class="col-12 card-subtitle" jhiTranslate="global.homeTitle12">
+                Và phương châm hợp tác và phát triển, mang nhiều lợi ích về các nguồn lực, tài năng, tài nguyên, chuyên môn và đảm bảo rằng
+                mục tiêu luôn đi đúng hướng</span
+              >
+            </div>
+            <div
+              class="row col-sm-12 col-lg-12 wow animate__animated animate__fadeInLeft animate__delay-300ms"
+              style="align-content: center; text-align: justify; padding-top: 6%"
+            >
+              <span class="sub-title-large-cus col-12" jhiTranslate="global.homeTitle14"> 500+</span>
+              <span class="col-12 card-subtitle" jhiTranslate="global.homeTitle15"
+                >Doanh nghiệp, khách hàng đã tin tưởng hợp tác và làm việc cùng với Aladintech</span
+              >
+            </div>
+          </div>
+
+          <div class="col-sm col-lg-7">
+            <div class="row col-sm-12 col-lg-12 nice technologies justify-content-center" style="overflow: hidden">
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-1s">
+                <img class="card-img-cus" src="../../content/images/home/bitel.png" />
+              </div>
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-2s">
+                <img class="card-img-cus" src="../../content/images/home/viettel.png" />
+              </div>
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-3s">
+                <img class="card-img-cus" src="../../content/images/home/viettinbank.png" />
+              </div>
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-1s">
+                <img class="card-img-cus" src="../../content/images/home/unitel.png" />
+              </div>
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-2s">
+                <img class="card-img-cus" src="../../content/images/home/intelligent.png" />
+              </div>
+              <div class="col-md-3 card-img-cus-none-background wow animate__animated animate__fadeInRight animate__delay-3s">
+                <img class="card-img-cus" src="../../content/images/home/evn.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<ngx-scrolltop [backgroundColor]="'green'" [symbolColor]="'#fafafa'" [size]="55" [mode]="'classic'" position="right" theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>

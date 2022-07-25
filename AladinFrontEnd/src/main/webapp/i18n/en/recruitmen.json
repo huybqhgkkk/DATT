@@ -1,0 +1,65 @@
+{
+  "AladinTechApp": {
+    "recruitmen": {
+      "home": {
+        "title": "Recruitment",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new recruitment",
+        "createOrEditLabel": "Create or update recruitment",
+        "notFound": "No Recruitment found"
+      },
+      "quote": "Coming to Aladin, there are many opportunities just right for you waiting to be discovered!",
+      "created": "Recruitment has been created with the identifier {{ param }}",
+      "updated": "Recruitment has been updated with the identifier {{ param }}",
+      "deleted": "Recruitment has been deleted with the identifier {{ param }}",
+      "delete": {
+        "question": "Do you want to delete a Recruitment {{ id }}?"
+      },
+      "detail": {
+        "title": "Recruitment"
+      },
+      "id": "ID",
+      "position": "Position",
+      "description": "Description",
+      "require": "Require",
+      "benefit": "Benefit",
+      "amount": "Number",
+      "job": "Job",
+      "location": "Location",
+      "duration": "Duration",
+      "level": "Level",
+      "career": "Career",
+      "come_in": "Come to us, there are many opportunities for you to discover!",
+      "contact": "Contact",
+      "more_job": "More job"
+    }
+  },
+  "recruitment": {
+    "home": {
+      "title": "Recuirement",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Create a new recuirement",
+      "createOrEditLabel": "Create or update recuirement",
+      "notFound": "No Recuirement found"
+    },
+    "created": "Recruitment has been created with the identifier {{ param }}",
+    "updated": "Recruitment has been updated with the identifier {{ param }}",
+    "deleted": "Recruitment has been deleted with the identifier {{ param }}",
+    "delete": {
+      "question": "Do you want to delete Recruitment {{ id }}?"
+    },
+    "detail": {
+      "title": "Recuirement"
+    },
+    "id": "ID",
+    "position": "Position",
+    "description": "Description",
+    "require": "Require",
+    "benefit": "Benefit",
+    "amount": "Number",
+    "job": "Job",
+    "location": "Location",
+    "duration": "Duration",
+    "level": "Level"
+  }
+}

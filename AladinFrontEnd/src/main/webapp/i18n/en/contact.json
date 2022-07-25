@@ -1,0 +1,103 @@
+{
+  "contact": {
+    "title": "Contact",
+    "button": "Contact",
+    "subtitle": "This is your homepage",
+    "logged": {
+      "message": "You are logged in with an account \"{{username}}\"."
+    },
+    "label": {
+      "fullname": "First and last name",
+      "email": "Email",
+      "message": "Message",
+      "interestThing": "Your interested",
+      "phone": "Phone number",
+      "job": "Your job",
+      "company": "Company name"
+    },
+    "placeholder": {
+      "fullname": "Import your first and last name",
+      "email": "Enter email",
+      "message": "Message you want to send to us",
+      "phone": "Enter your phone number",
+      "job": "Enter career name",
+      "company": "Enter company name"
+    },
+    "company": {
+      "required": "Company name is required",
+      "minlength": "Company name at least 5 characters"
+    },
+    "job": {
+      "required": "Job title is required",
+      "minlength": "Job name at least 5 characters"
+    },
+    "name": {
+      "validate": {
+        "required": "Name is a must.",
+        "minlength": "Your name must be more than 1 character",
+        "pattern": "Name does not contain special characters"
+      }
+    },
+    "email": {
+      "validate": {
+        "required": "Email is a must",
+        "minlength": "Email must be between 5 and 254 characters",
+        "maxlength": "Email must be between 5 and 254 characters",
+        "pattern": "Email is not valid"
+      }
+    },
+    "message": {
+      "validate": {
+        "required": "Message is a must",
+        "minlength": "Message must be more than 4 characters",
+        "pattern": "Invalid message"
+      }
+    },
+    "phone": {
+      "required": "Phone number cannot be left blank",
+      "invalid": "Invalid phone number",
+      "maxlength": "Phone number with extra characters",
+      "minlength": "Phone number needs at least 9 characters"
+    },
+    "sendContact": {
+      "success": "Information has been sent! ^.^",
+      "error": "Communication failed!"
+    }
+  },
+  "AladinTechApp": {
+    "contact": {
+      "home": {
+        "title": "Contact",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contact",
+        "createOrEditLabel": "Create new or edit Contact",
+        "notFound": "Contact not found"
+      },
+      "information": "Information",
+      "receiveMail": "Do you want to receive mail from us ?",
+      "created": "Create a new Contact {{ param }}",
+      "updated": "Update Contact {{ param }}",
+      "deleted": "Delete Contact {{ param }}",
+      "delete": {
+        "question": "Are you sure to delete Contact {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "phone": "Phone",
+      "datetime": "Date Time",
+      "jobtitle": "Job",
+      "company": "Company Name",
+      "interest": "Interested",
+      "address": {
+        "subAddress": "4th Floor, HH1 Meco Complex Department, 102 Truong Chinh, Phuong Mai, Dong Da, Ha Noi",
+        "detailAddress": "4th Floor, HH1 Meco Complex Department, lane 102 Truong Chinh, Phuong Mai ward, Dong Da district, Ha Noi city",
+        "businessRegistryAddress": "89/34, Vinh Tuy, Hai Ba Trung, Ha Noi"
+      }
+    }
+  }
+}

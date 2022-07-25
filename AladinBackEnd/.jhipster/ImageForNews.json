@@ -1,0 +1,28 @@
+{
+  "name": "ImageForNews",
+  "fields": [
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "news",
+      "otherEntityRelationshipName": "imageForNews",
+      "relationshipName": "news"
+    }
+  ],
+  "entityTableName": "image_for_news",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210806020402"
+}

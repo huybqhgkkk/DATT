@@ -1,0 +1,28 @@
+{
+  "AladinTechApp": {
+    "emailtemplate": {
+      "home": {
+        "title": "Emailtemplates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Emailtemplate",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Emailtemplate",
+        "notFound": "No Emailtemplates found"
+      },
+      "created": "Một Emailtemplate mới được tạo với định danh {{ param }}",
+      "updated": "Một Emailtemplate cập nhật với định danh {{ param }}",
+      "deleted": "Một Emailtemplate đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Emailtemplate {{ id }}?"
+      },
+      "detail": {
+        "title": "Emailtemplate"
+      },
+      "id": "ID",
+      "templatename": "Templatename",
+      "subject": "Subject",
+      "hyperlink": "Hyperlink",
+      "datetime": "Datetime",
+      "content": "Content"
+    }
+  }
+}

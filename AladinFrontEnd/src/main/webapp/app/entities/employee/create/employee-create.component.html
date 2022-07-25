@@ -1,0 +1,1091 @@
+<div class="row justify-content-center">
+  <div class="col-9">
+    <form (ngSubmit)="save()" [formGroup]="editForm" name="editForm" novalidate role="form">
+      <br /><br />
+      <div style="position: relative">
+        <img class="photo-img" src="./content/images/Employee_U.png" /><br /><br /><br />
+        <div>
+          <h1 class="emc-text" jhiTranslate="AladinTechApp.employee.nemployee_information_declaration_form"><b>Employee</b></h1>
+        </div>
+      </div>
+      <div>
+        <h2
+          class="headerh2"
+          id="jhi-employee-heading"
+          data-cy="EmployeeCreateUpdateHeading"
+          jhiTranslate="AladinTechApp.employee.home.createOrEditLabel"
+        >
+          Create or edit a Employee
+        </h2>
+      </div>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row justify-content-center">
+          <div class="form-group col-2" [hidden]="editForm.get('id')!.value == null">
+            <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input [readonly]="true" class="form-control" data-cy="id" formControlName="id" id="field_id" name="id" type="number" />
+          </div>
+          <div class="form-group col-10"></div>
+        </div>
+
+        <div class="" style="justify-content: center; display: flex">
+          <div class="row col-12 content-contact container-cus">
+            <div class="col-sm col-lg-4">
+              <div class="col-12">
+                <div class="rectangle">
+                  <h4 class="font-nv" style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.formTitle"></h4>
+                </div>
+                <br />
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_avatar" jhiTranslate="AladinTechApp.employee.avatar"
+                    >Avatar</label
+                  >
+                  <br />
+                  <span class="chooseFileButton" (click)="showModalDialog()">
+                    <i class="fa fa-plus mr-1" aria-hidden="true"></i>
+                    <span jhiTranslate="AladinTechApp.employee.chooseImage"></span>
+                  </span>
+                  <br />
+                  <ng-container *ngIf="showCropper && editForm.get('avatar')?.valid">
+                    <img
+                      [src]="croppedImage"
+                      class="confirm-image"
+                      style="max-height: 170px; max-width: 70%; border: 1px solid black"
+                      class="confirm-image"
+                    />
+                  </ng-container>
+                  <p-dialog
+                    header="{{ 'AladinTechApp.employee.chooseImage' | translate }}"
+                    [(visible)]="displayModal"
+                    [modal]="true"
+                    [style]="{ width: '50vw' }"
+                    [baseZIndex]="10000"
+                    [draggable]="false"
+                    [resizable]="false"
+                  >
+                    <input
+                      type="file"
+                      accept="image/png, image/jpeg"
+                      jhiTranslate="entity.action.addimage"
+                      formControlName="avatar"
+                      (change)="fileChangeEvent($event)"
+                    />
+                    <div *ngIf="editForm.get('avatar')?.invalid && (editForm.get('avatar')?.dirty || editForm.get('avatar')?.touched)">
+                      <small
+                        class="form-text text-danger"
+                        *ngIf="editForm.get('avatar')?.errors?.required"
+                        jhiTranslate="entity.validation.required"
+                      >
+                        This field is required.
+                      </small>
+                      <small
+                        class="form-text text-danger"
+                        *ngIf="editForm.get('avatar')?.errors?.invalidImageFile"
+                        jhiTranslate="entity.validation.invalidImageFile"
+                      >
+                        Invalid image file (png/jpg only).
+                      </small>
+                    </div>
+                    <span class="zoomButton" *ngIf="showCropper" (click)="zoomOut()"
+                      ><i class="fa fa-search-minus" aria-hidden="true"></i
+                    ></span>
+                    <span class="zoomButton" *ngIf="showCropper" (click)="zoomIn()"
+                      ><i class="fa fa-search-plus" aria-hidden="true"></i
+                    ></span>
+                    <span class="zoomButton" *ngIf="showCropper" (click)="rotateLeft()"><i class="fa fa-undo" aria-hidden="true"></i></span>
+                    <span class="zoomButton" *ngIf="showCropper" (click)="rotateRight()"
+                      ><i class="fa fa-repeat" aria-hidden="true"></i
+                    ></span>
+                    <div class="crop-image" *ngIf="editForm.get('avatar')?.valid">
+                      <image-cropper
+                        [imageChangedEvent]="imageChangedEvent"
+                        [maintainAspectRatio]="true"
+                        [containWithinAspectRatio]="containWithinAspectRatio"
+                        [aspectRatio]="4 / 5"
+                        [resizeToWidth]="560"
+                        [resizeToHeight]="720"
+                        [cropperMinWidth]="560"
+                        [cropperMaxWidth]="560"
+                        [cropperMinHeight]="720"
+                        [cropperMaxHeight]="720"
+                        [onlyScaleDown]="true"
+                        [canvasRotation]="canvasRotation"
+                        [roundCropper]="false"
+                        [transform]="transform"
+                        [style.display]="showCropper ? null : 'none'"
+                        (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"
+                        (loadImageFailed)="loadImageFailed()"
+                        alignImage="left"
+                      >
+                      </image-cropper>
+                      <div *ngIf="showCropper" class="text-center mt-2">
+                        <h5 jhiTranslate="AladinTechApp.employee.preview"></h5>
+                        <img [src]="croppedImage" style="border: 1px solid #000; width: 560px; height: 700px" />
+                      </div>
+                    </div>
+                    <div class="actionButton mt-2" *ngIf="showCropper && editForm.get('avatar')?.valid">
+                      <button
+                        pButton
+                        type="button"
+                        (click)="confirmImage()"
+                        icon="pi pi-check"
+                        class="p-button-sm p-button-success"
+                        label="{{ 'button.save' | translate }}"
+                      ></button>
+                      <button
+                        pButton
+                        type="button"
+                        (click)="declineImage()"
+                        icon="pi pi-times"
+                        class="p-button-sm p-button-danger ml-2"
+                        label="{{ 'button.decline' | translate }}"
+                      ></button>
+                    </div>
+                  </p-dialog>
+                  <div *ngIf="editForm.get('avatar')?.invalid && (editForm.get('avatar')?.dirty || editForm.get('avatar')?.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('avatar')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('avatar')?.errors?.invalidImageFile"
+                      jhiTranslate="entity.validation.invalidImageFile"
+                    >
+                      Invalid image file (png/jpg only).
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-control-label font-color"
+                    jhiTranslate="AladinTechApp.employee.first_day_work"
+                    for="field_first_day_work"
+                    >First Day Work</label
+                  >
+                  <div class="input-group">
+                    <input
+                      max="{{ DateFDW }}"
+                      onkeydown="return false"
+                      required
+                      id="field_first_day_work"
+                      data-cy="first_day_work"
+                      type="date"
+                      class="form-control"
+                      name="first_day_work"
+                      ngbDatepicker
+                      formControlName="first_day_work"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      editForm.get('first_day_work')!.invalid &&
+                      (editForm.get('first_day_work')!.dirty || editForm.get('first_day_work')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('first_day_work')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_full_name" jhiTranslate="AladinTechApp.employee.full_name"
+                    >Full Name</label
+                  >
+                  <input
+                    placeholder="Nguyễn Văn A"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="full_name"
+                    id="field_full_name"
+                    data-cy="full_name"
+                    formControlName="full_name"
+                  />
+                  <div
+                    *ngIf="editForm.get('full_name')!.invalid && (editForm.get('full_name')!.dirty || editForm.get('full_name')!.touched)"
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('full_name')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('full_name')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 5 }"
+                    >
+                      This field is required to be at least 5 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('full_name')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_phone_number" jhiTranslate="AladinTechApp.employee.phone_number"
+                    >Phone Number</label
+                  >
+                  <input
+                    placeholder="09********"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="phone_number"
+                    id="field_phone_number"
+                    data-cy="phone_number"
+                    formControlName="phone_number"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('phone_number')!.invalid &&
+                      (editForm.get('phone_number')!.dirty || editForm.get('phone_number')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('phone_number')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('phone_number')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 10 }"
+                    >
+                      This field is required to be at least 10 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('phone_number')?.errors?.pattern"
+                      jhiTranslate="entity.validation.numberOnly"
+                    >
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('phone_number')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 32 }"
+                    >
+                      This field cannot be longer than 32 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_email" jhiTranslate="AladinTechApp.employee.email">Email</label>
+                  <input
+                    placeholder="hoten@gmail.com"
+                    required
+                    pattern="\S+"
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    id="field_email"
+                    data-cy="email"
+                    formControlName="email"
+                  />
+                  <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('email')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('email')?.errors?.email"
+                      jhiTranslate="entity.validation.email"
+                    >
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('email')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" jhiTranslate="AladinTechApp.employee.date_of_birth" for="field_date_of_birth"
+                    >Date Of Birth</label
+                  >
+                  <div class="input-group">
+                    <input
+                      max="{{ DateFDW }}"
+                      onkeydown="return false"
+                      required
+                      id="field_date_of_birth"
+                      data-cy="date_of_birth"
+                      type="date"
+                      class="form-control"
+                      name="date_of_birth"
+                      ngbDatepicker
+                      formControlName="date_of_birth"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      editForm.get('date_of_birth')!.invalid &&
+                      (editForm.get('date_of_birth')!.dirty || editForm.get('date_of_birth')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('date_of_birth')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_countryside" jhiTranslate="AladinTechApp.employee.countryside"
+                    >Countryside</label
+                  >
+                  <input
+                    placeholder="Thanh Xuân, Hà Nội"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="countryside"
+                    id="field_countryside"
+                    data-cy="countryside"
+                    formControlName="countryside"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('countryside')!.invalid && (editForm.get('countryside')!.dirty || editForm.get('countryside')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('countryside')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('countryside')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-control-label font-color"
+                    jhiTranslate="AladinTechApp.employee.current_residence"
+                    for="field_current_residence"
+                    >Current Residence</label
+                  >
+                  <input
+                    placeholder="102 Trường Chinh, Hà Nội"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="current_residence"
+                    id="field_current_residence"
+                    data-cy="current_residence"
+                    formControlName="current_residence"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('current_residence')!.invalid &&
+                      (editForm.get('current_residence')!.dirty || editForm.get('current_residence')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('current_residence')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('current_residence')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_relative" jhiTranslate="AladinTechApp.employee.relative"
+                    >Relative</label
+                  >
+                  <input
+                    placeholder="Bố - 09********"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="relative"
+                    id="field_relative"
+                    data-cy="relative"
+                    formControlName="relative"
+                  />
+                  <div *ngIf="editForm.get('relative')!.invalid && (editForm.get('relative')!.dirty || editForm.get('relative')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('relative')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('relative')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_favourite" jhiTranslate="AladinTechApp.employee.favourite"
+                    >Favourite</label
+                  >
+                  <input
+                    placeholder="Thể thao, bóng đá, đọc sách, tài chính"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="favourite"
+                    id="field_favourite"
+                    data-cy="favourite"
+                    formControlName="favourite"
+                  />
+                  <div
+                    *ngIf="editForm.get('favourite')!.invalid && (editForm.get('favourite')!.dirty || editForm.get('favourite')!.touched)"
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('favourite')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('favourite')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-control-label font-color"
+                    jhiTranslate="AladinTechApp.employee.marital_status"
+                    for="field_marital_status"
+                    >Marital Status</label
+                  >
+                  <input
+                    placeholder="Độc thân"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="marital_status"
+                    id="field_marital_status"
+                    data-cy="marital_status"
+                    formControlName="marital_status"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('marital_status')!.invalid &&
+                      (editForm.get('marital_status')!.dirty || editForm.get('marital_status')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('marital_status')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('marital_status')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_children" jhiTranslate="AladinTechApp.employee.children"
+                    >Children</label
+                  >
+                  <input
+                    placeholder="2 trai 1 gái"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="children"
+                    id="field_children"
+                    data-cy="children"
+                    formControlName="children"
+                  />
+                  <div *ngIf="editForm.get('children')!.invalid && (editForm.get('children')!.dirty || editForm.get('children')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('children')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('children')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_family" jhiTranslate="AladinTechApp.employee.family"
+                    >Family</label
+                  >
+                  <input
+                    placeholder="Bố: Nguyễn Văn A: Giám đốc; Mẹ: Nguyễn Thị B: Phó giám đốc; Em trai: Nguyễn Văn C: Lớp 10"
+                    required
+                    pattern="\S(.*\S)?"
+                    type="text"
+                    class="form-control"
+                    name="family"
+                    id="field_family"
+                    data-cy="family"
+                    formControlName="family"
+                  />
+                  <div *ngIf="editForm.get('family')!.invalid && (editForm.get('family')!.dirty || editForm.get('family')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('family')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('family')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" jhiTranslate="AladinTechApp.employee.bank_name" for="field_bank_name"
+                    >Bank Name</label
+                  >
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    name="bank_name"
+                    id="field_bank_name"
+                    data-cy="bank_name"
+                    formControlName="bank_name"
+                    list="bankname"
+                  />
+                  <datalist id="bankname">
+                    <option *ngFor="let banks of bank">({{ banks.short_name }}) {{ banks.name }}</option>
+                  </datalist>
+                  <div
+                    *ngIf="editForm.get('bank_name')!.invalid && (editForm.get('bank_name')!.dirty || editForm.get('bank_name')!.touched)"
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('bank_name')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('bank_name')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 1 }"
+                    >
+                      This field is required to be at least 1 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('bank_name')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 200 }"
+                    >
+                      This field cannot be longer than 200 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-control-label font-color"
+                    for="field_account_number"
+                    jhiTranslate="AladinTechApp.employee.account_number"
+                    >Account Number</label
+                  >
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    name="account_number"
+                    id="field_account_number"
+                    data-cy="account_number"
+                    formControlName="account_number"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('account_number')!.invalid &&
+                      (editForm.get('account_number')!.dirty || editForm.get('account_number')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('account_number')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('account_number')?.errors?.pattern"
+                      jhiTranslate="entity.validation.numberOnly"
+                    ></small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('account_number')?.errors?.minlength"
+                      jhiTranslate="entity.validation.minlength"
+                      [translateValues]="{ min: 1 }"
+                    >
+                      This field is required to be at least 1 characters.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('account_number')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 30 }"
+                    >
+                      This field cannot be longer than 30 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_gender" jhiTranslate="AladinTechApp.employee.gender"
+                    >Gender</label
+                  >
+                  <select
+                    required
+                    type="text"
+                    class="form-control"
+                    name="gender"
+                    id="field_gender"
+                    data-cy="gender"
+                    formControlName="gender"
+                  >
+                    <option value="Nam" jhiTranslate="AladinTechApp.employee.male"></option>
+                    <br />
+                    <option value="Nữ" jhiTranslate="AladinTechApp.employee.female"></option>
+                  </select>
+                  <div *ngIf="editForm.get('gender')!.invalid && (editForm.get('gender')!.dirty || editForm.get('gender')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('gender')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('gender')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 10 }"
+                    >
+                      This field cannot be longer than 10 characters.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm col-lg-1"></div>
+            <div class="col-sm col-lg-7">
+              <div class="col-sm col-xl-12" style="text-align: left">
+                <div class="rectangle1">
+                  <h4 class="font-td" style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.qualification"></h4>
+                </div>
+                <br />
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_certification" jhiTranslate="AladinTechApp.employee.certification"
+                    >Certification</label
+                  >
+                  <div>
+                    <div *ngIf="editForm.get('certification')!.value" class="form-text text-danger clearfix">
+                      <a
+                        class="pull-left"
+                        style="color: green"
+                        (click)="openFile(editForm.get('certification')!.value, editForm.get('certificationContentType')!.value)"
+                        jhiTranslate="entity.action.open"
+                        >open</a
+                      >
+                      <button
+                        style="background-color: red"
+                        type="button"
+                        (click)="editForm.patchValue({ certification: null }); editForm.patchValue({ certificationContentType: null })"
+                        class="btn btn-secondary btn-xs pull-right"
+                      >
+                        <fa-icon icon="times"></fa-icon>
+                      </button>
+                    </div>
+                    <input
+                      type="file"
+                      id="file_certification"
+                      data-cy="certification"
+                      (change)="setFileData($event, 'certification', false)"
+                      jhiTranslate="entity.action.addblob"
+                      accept="application/pdf"
+                      formControlName="certificationFile"
+                    />
+                  </div>
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="certification"
+                    id="field_certification"
+                    data-cy="certification"
+                    formControlName="certification"
+                  />
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="certificationContentType"
+                    id="field_certificationContentType"
+                    formControlName="certificationContentType"
+                  />
+                  <div
+                    *ngIf="
+                      editForm.get('certificationFile')!.invalid &&
+                      (editForm.get('certificationFile')!.dirty || editForm.get('certificationFile')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('certificationFile')?.errors"
+                      jhiTranslate="entity.validation.invalidPdfFile"
+                    >
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_english" jhiTranslate="AladinTechApp.employee.english"
+                    >English</label
+                  >
+                  <textarea
+                    placeholder="Toeic 750
+  Speak: Good
+  Read: Good
+  Listen: Good
+  Write: Good
+  "
+                    required
+                    rows="5"
+                    type="text"
+                    class="form-control"
+                    name="english"
+                    id="field_english"
+                    data-cy="english"
+                    formControlName="english"
+                  ></textarea>
+                  <div *ngIf="editForm.get('english')!.invalid && (editForm.get('english')!.dirty || editForm.get('english')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('english')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('english')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_education" jhiTranslate="AladinTechApp.employee.education"
+                    >Education</label
+                  >
+                  <textarea
+                    placeholder="Trường Đại học Bách Khoa Hà Nội"
+                    required
+                    rows="5"
+                    type="text"
+                    class="form-control"
+                    name="education"
+                    id="field_education"
+                    data-cy="education"
+                    formControlName="education"
+                  ></textarea>
+                  <div
+                    *ngIf="editForm.get('education')!.invalid && (editForm.get('education')!.dirty || editForm.get('education')!.touched)"
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('education')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('education')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_experience" jhiTranslate="AladinTechApp.employee.experience"
+                    >Experience</label
+                  >
+                  <textarea
+                    placeholder="10 năm làm việc tại Vietel.
+Ngôn ngữ: html, Javascript, C/C++,…
+"
+                    required
+                    rows="5"
+                    type="text"
+                    class="form-control"
+                    name="experience"
+                    id="field_experience"
+                    data-cy="experience"
+                    formControlName="experience"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      editForm.get('experience')!.invalid && (editForm.get('experience')!.dirty || editForm.get('experience')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('experience')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('experience')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+
+                <div class="rectangle2">
+                  <h4 class="font-mmcb" style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.target"></h4>
+                </div>
+                <br />
+                <div class="form-group">
+                  <label
+                    class="form-control-label font-color"
+                    jhiTranslate="AladinTechApp.employee.objective_in_cv"
+                    for="field_objective_in_cv"
+                    >Objective In Cv</label
+                  >
+                  <textarea
+                    placeholder="-Xây dựng công ty Aladin phát triển IPO
+-Thăng tiến trong công việc
+"
+                    required
+                    rows="8"
+                    type="text"
+                    class="form-control"
+                    name="objective_in_cv"
+                    id="field_objective_in_cv"
+                    data-cy="objective_in_cv"
+                    formControlName="objective_in_cv"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      editForm.get('objective_in_cv')!.invalid &&
+                      (editForm.get('objective_in_cv')!.dirty || editForm.get('objective_in_cv')!.touched)
+                    "
+                  >
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('objective_in_cv')?.errors?.required"
+                      jhiTranslate="entity.validation.required"
+                    >
+                      This field is required.
+                    </small>
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="editForm.get('objective_in_cv')?.errors?.maxlength"
+                      jhiTranslate="entity.validation.maxlength"
+                      [translateValues]="{ max: 2000 }"
+                    >
+                      This field cannot be longer than 2000 characters.
+                    </small>
+                  </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+
+                <div class="rectangle3">
+                  <h4 class="font-chv" style="text-transform: uppercase" jhiTranslate="AladinTechApp.employee.team"></h4>
+                </div>
+                <br />
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_user" jhiTranslate="AladinTechApp.employee.user">User</label>
+                  <input
+                    required
+                    onkeydown="return false"
+                    class="form-control"
+                    id="field_user"
+                    data-cy="user"
+                    name="user"
+                    formControlName="user"
+                  />
+                </div>
+                <div *ngIf="editForm.get(['user'])!.invalid && (editForm.get(['user'])!.dirty || editForm.get(['user'])!.touched)">
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get(['user'])?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label font-color" for="field_department" jhiTranslate="AladinTechApp.employee.department"
+                    >Department</label
+                  >
+                  <input
+                    onkeydown="return false"
+                    required
+                    class="form-control"
+                    id="field_department"
+                    data-cy="department"
+                    name="department"
+                    formControlName="department"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    editForm.get(['department'])!.invalid && (editForm.get(['department'])!.dirty || editForm.get(['department'])!.touched)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="editForm.get(['department'])?.errors?.required"
+                    jhiTranslate="entity.validation.required"
+                  >
+                    This field is required.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button (click)="previousState()" class="btn btn-secondary" data-cy="entityCreateCancelButton" id="cancel-save" type="button">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          [disabled]="editForm.invalid || isSaving"
+          data-cy="entityCreateSaveButton"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+      <br /><br />
+    </form>
+  </div>
+</div>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<ngx-scrolltop [backgroundColor]="'green'" [mode]="'classic'" [size]="55" [symbolColor]="'#fafafa'" position="right" theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>

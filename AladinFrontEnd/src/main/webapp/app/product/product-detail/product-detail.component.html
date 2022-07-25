@@ -1,0 +1,118 @@
+<div class="row background-img" [ngStyle]="backgroundSer">
+  <div class="row col-12" style="padding: 4%; color: white; line-height: 2.5">
+    <div style="width: 93%; border-radius: 10%; position: absolute; bottom: 10px; justify-content: center; display: flex">
+      <a class="mouse" (click)="onScroll()"></a>
+    </div>
+    <ng-container
+      *ngIf="
+        productDetail?.name !== 'USHAPPY' &&
+        productDetail?.name !== 'MYLOVE' &&
+        productDetail?.name !== 'ISIGN' &&
+        productDetail?.name !== 'Chatbot' &&
+        productDetail?.name !== 'IVRGW'
+      "
+    >
+      <div class="col-sm col-md-5 img-header-service" style="width: 100%; padding: 3rem; border-radius: 10%">
+        <p>
+          <span style="font-size: 2em">
+            <b>{{ productDetail?.name | uppercase }}</b>
+          </span>
+          <br />
+          {{ productDetail?.description }}
+        </p>
+        <br />
+        <a
+          type="button"
+          class="btn btn-dark btn-outline-light"
+          href="contacts"
+          style="padding: 2%; border-radius: 7%; background: #096c0987"
+          >Liên hệ</a
+        >
+      </div>
+    </ng-container>
+    <ng-container *ngIf="productDetail?.name === 'IVRGW'">
+      <div class="col-sm col-md-5 img-header-service" style="width: 100%; background: #09c609a6; padding: 3rem; border-radius: 10%">
+        <p>
+          <span style="font-size: 2em">
+            <b>{{ productDetail?.name }}</b>
+          </span>
+          <br />
+          {{ productDetail?.description }}
+        </p>
+        <br />
+        <a
+          type="button"
+          class="btn btn-dark btn-outline-light"
+          href="contacts"
+          style="padding: 2%; border-radius: 7%; background: #096c0987"
+          >Liên hệ</a
+        >
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container" id="ok1">
+    <div class="row justify-content-center">
+      <div class="col-12 mt-5">
+        <hr class="col-lg-2" class="hr" />
+      </div>
+      <div class="row col-12 justify-content-center" style="text-align: center">
+        <div class="col-12">
+          <span class="sub-title-large-cus">{{ productDetail?.name }}</span>
+        </div>
+      </div>
+
+      <div
+        class="row col-lg-12 justify-content-center mt-md-2"
+        style="display: flex; padding: 2rem; min-height: 400px; align-items: center; text-align: justify; line-height: 2"
+      >
+        <div class="col-10">
+          <span>{{ productDetail?.description }}</span>
+        </div>
+        <img
+          class="col-lg-8"
+          style="width: inherit; height: fit-content; margin: 5%"
+          [src]="'data:' + 'image/png' + ';base64,' + productDetail?.image"
+          *ngIf="productDetail?.image"
+          alt="{{ productDetail?.image }}"
+        />
+        <div class="col-10">
+          <ng-container *ngFor="let items of listContent">
+            <!--          <textarea class="textarea-cus" rows="num">{{productDetail?.content}}</textarea>-->
+            <p [ngStyle]="items.includes('*') ? fontBold : fontIndented">{{ items }}</p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center" style="margin: 2%">
+    <!--      -->
+    <div class="row col-12 justify-content-center" style="margin-top: 4%; margin-bottom: 3rem">
+      <div class="col-12">
+        <div>
+          <span class="sub-title-list-tech-use">Danh sách sản phẩm</span>
+        </div>
+      </div>
+      <div class="col-12" style="margin-top: 2%">
+        <div class="slides">
+          <ng-container *ngFor="let items of listProducts">
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3">
+              <div class="card justify-content-center" style="background: unset; border: unset">
+                <img
+                  class="col-lg-12 card-img"
+                  style="width: inherit; height: fit-content; margin: 5%"
+                  [src]="'data:' + 'image/png' + ';base64,' + items?.image"
+                  *ngIf="items?.image"
+                  alt="{{ items?.image }}"
+                />
+                <a style="text-align: center" href="products/{{ items?.id }}">{{ items?.name }}</a>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

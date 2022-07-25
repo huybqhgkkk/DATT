@@ -1,0 +1,93 @@
+{
+    "AladinTechApp": {
+        "employee": {
+            "formTitle": "Thông tin cá nhân",
+            "qualification": "Trình độ học vấn",
+            "target": "Mục tiêu",
+            "team": "Phòng ban",
+            "home": {
+                "title": "Nhân viên",
+                "refreshListLabel": "Làm mới",
+                "createLabel": "Thêm mới một nhân viên",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật nhân viên",
+                "notFound": "Không tìm thấy nhân viên nào"
+            },
+            "created": "Một nhân viên mới được tạo với định danh {{ param }}",
+            "updated": "Một nhân viên cập nhật với định danh {{ param }}",
+            "deleted": "Một nhân viên đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa nhân viên {{ id }}?"
+            },
+            "detail": {
+                "title": "Nhân viên"
+            },
+            "placeholder": {
+                "full_name": "Nguyễn Văn Minh",
+                "phone_number": "Số điện thoại",
+                "email": "Email cá nhân",
+                "date_of_birth": "Ngày sinh",
+                "countryside": "Quê quán",
+                "current_residence": "Nơi ở hiện tại",
+                "relative": "Người thân",
+                "favourite": "Sở thích",
+                "education": "Trình độ học vấn",
+                "experience": "Kinh nghiệm",
+                "english": "Trình độ Tiếng Anh",
+                "objective_in_cv": "Mục tiêu công việc",
+                "marital_status": "Tình trạng hôn nhân",
+                "children": "Số con",
+                "family": "Gia đình",
+                "avatar": "Ảnh đại diện",
+                "gender": "Giới tính",
+                "certification": "Bằng cấp",
+                "bank_name": "Tên ngân hàng",
+                "account_number": "Số tài khoản"
+            },
+            "employee_information_list": "DANH SÁCH THÔNG TIN NHÂN VIÊN",
+            "nemployee_information_declaration_form": "BIỂU MẪU KÊ KHAI THÔNG TIN NHÂN VIÊN",
+            "employee_details": "THÔNG TIN CHI TIẾT NHÂN VIÊN",
+            "personal_information": "THÔNG TIN CÁ NHÂN",
+            "level": "TRÌNH ĐỘ",
+            "your_wishes": "MONG MUỐN CỦA BẠN",
+            "position": "CHỨC VỤ",
+            "id": "ID",
+            "first_day_work": "Ngày vào làm",
+            "full_name": "Họ và tên",
+            "phone_number": "Số điện thoại",
+            "email": "Email cá nhân",
+            "date_of_birth": "Ngày sinh",
+            "countryside": "Quê quán",
+            "current_residence": "Nơi ở hiện tại",
+            "relative": "Người thân",
+            "favourite": "Sở thích",
+            "education": "Trình độ học vấn",
+            "experience": "Kinh nghiệm",
+            "english": "Trình độ Tiếng Anh",
+            "objective_in_cv": "Mục tiêu công việc",
+            "marital_status": "Tình trạng hôn nhân",
+            "children": "Số con",
+            "family": "Gia đình",
+            "avatar": "Ảnh đại diện",
+            "gender": "Giới tính",
+            "certification": "Bằng cấp",
+            "bank_name": "Tên ngân hàng",
+            "account_number": "Số tài khoản",
+            "user": "Người dùng",
+            "department": "Phòng ban",
+            "male": "Nam",
+            "female": "Nữ",
+            "preview": "Xem trước",
+            "chooseImage": "Chọn ảnh"
+        }
+    },
+    "backendAladinApp": {
+        "employee": {
+            "created": "Bạn đã tạo mới Hồ sơ nhân viên thành công",
+            "updated": "Bạn đã sửa Hồ sơ nhân viên thành công",
+            "deleted": "Bạn đã xóa Hồ sơ nhân viên thành công",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Hồ sơ nhân viên {{ id }}?"
+            }
+        }
+    }
+}

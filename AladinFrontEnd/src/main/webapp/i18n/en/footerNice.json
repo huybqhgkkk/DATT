@@ -1,0 +1,19 @@
+{
+  "footerTranslate": {
+    "label": {
+      "news": "News",
+      "services": "Services",
+      "products": "Products",
+      "home": "Home page",
+      "career": "Recruitment",
+      "introduction": "Introduction the Company",
+      "expand": "Develop",
+      "follow": "Follow us",
+      "contact": "Contact",
+      "rule": "Term of use |",
+      "diagram": "Digram website |",
+      "help": "Contact & Support |",
+      "trademark": "Brand"
+    }
+  }
+}

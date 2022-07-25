@@ -1,0 +1,103 @@
+body {
+  font-family: 'Lato', sans-serif !important;
+}
+
+.job-tab {
+  position: relative;
+  margin: 14px 0px;
+}
+
+.job-list {
+  position: relative;
+  margin: 14px 0;
+}
+
+.job-avatar-url {
+}
+
+.job-search {
+  margin: 15px 0px;
+  .job-search-input {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  #input {
+  }
+}
+
+.btn-outline-success {
+  color: #fff;
+  background: #09c608;
+  border-color: #09c608;
+  &:hover {
+    color: white;
+    background-color: #09c608;
+  }
+}
+
+.job-active {
+  button {
+    width: 120px;
+  }
+}
+
+b {
+  margin-right: 5px;
+}
+
+.job-find-title {
+  color: #09c608;
+}
+
+.modal-header {
+  color: #09c608;
+}
+
+a {
+  background-color: #09c608 !important;
+  color: white !important;
+}
+
+.job-not-found {
+  height: 300px;
+  background-color: whitesmoke;
+  width: 100%;
+  color: #09c608;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 5px;
+  border: solid #09c608 1px;
+}
+
+.table {
+  width: 100%;
+  display: table;
+}
+
+.career-header {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  padding: 15% 0;
+
+  content {
+    color: white;
+    .contact {
+      border: solid white 1px;
+    }
+    h4 {
+      color: white !important;
+      padding: 0px;
+    }
+
+    .contact {
+      color: white !important;
+
+    }
+    top: 20%;
+    left: 10%;
+  }
+}

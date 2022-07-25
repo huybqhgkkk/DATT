@@ -1,0 +1,66 @@
+{
+  "AladinTechApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product",
+        "createOrEditLabel": "Insert or Update Product",
+        "notFound": "No Products found"
+      },
+      "created": "Product created with the identifier{{ param }}",
+      "updated": "Product updated with the identifier {{ param }}",
+      "deleted": "Product deleted with the identifier {{ param }}",
+      "delete": {
+        "question": "Do you want to delete Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "label": {
+        "id": "ID",
+        "name": "Name",
+        "content": "Content",
+        "services": "Service name",
+        "image": "Image",
+        "description": "Description"
+      },
+      "name": {
+        "validate": {
+          "required": "Name is required",
+          "minlength": "Name must be between 3 and 254 characters",
+          "maxlength": "Name must be between 3 and 254 characters"
+        }
+      },
+      "content": {
+        "validate": {
+          "required": "Content is required",
+          "minlength": "Content must be between 3 and 4000 characters",
+          "maxlength": "Content must be between 3 and 4000 characters"
+        }
+      },
+      "description": {
+        "validate": {
+          "required": "Description is required",
+          "minlength": "Description must be between 3 and 4000 characters",
+          "maxlength": "Description must be between 3 and 4000 characters"
+        }
+      },
+      "services": {
+        "validate": {
+          "required": "Please choose a service "
+        }
+      }
+    }
+  },
+  "backendAladinApp": {
+    "product": {
+      "created": "Created a new product successfully!",
+      "updated": "Updated a product successfully",
+      "deleted": "Deleted a product successfully",
+      "delete": {
+        "question": "Do you want to delete a service {{ id }}?"
+      }
+    }
+  }
+}

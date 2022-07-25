@@ -1,0 +1,246 @@
+<!--<div *ngIf="serviceDetail">{{ serviceDetail.type }}</div>-->
+<!--{{ ok }}{{ serviceDetail?.reason }} <br />{{ serviceDetail?.discripsion }}-->
+
+<!--<div *ngIf="listProductByType">-->
+<!--  <div *ngFor="let items of listProductByType">-->
+<!--    <a href="products/{{ items.id }}"> {{ items.name }},{{ items.id }}</a>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="font-family ">
+  <div class="row background-img" [ngStyle]="backgroundSer">
+    <div class="row col-8" style="padding: 4%; color: white; line-height: 2.5">
+      <ng-container *ngIf="serviceDetail?.type !== 'Platform'">
+        <div class="col-sm col-md-8 img-header-service wow animate__animated animate__backInLeft" style="width: 100%; background: #86946ec7; padding: 3rem; border-radius: 10%">
+          <p>
+            <span style="font-size: 2em">
+              <b>{{ serviceDetail?.type | uppercase }} </b>
+            </span>
+            <br />
+            {{ serviceDetail?.description }}
+          </p>
+          <br />
+          <a
+            type="button"
+            class="btn btn-dark btn-outline-light"
+            href="contacts"
+            style="padding: 2%; border-radius: 7%; background: #096c0987"
+            >Liên hệ</a
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="serviceDetail?.type === 'Platform'">
+        <div
+          class="col-sm col-md-8 img-header-service"
+          style="width: 100%; padding: 2%; border-radius: 7%; bottom: 50px; position: absolute"
+        >
+          <a type="button" class="btn btn-dark btn-outline-light wow animate__animated animate__fadeInUp animate__delay-1s" href="contacts" style="padding: 2%">Liên hệ</a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="wow animate__animated animate__backInLeft ">
+  <div id="ok2" class="row justify-content-center " style="background: linear-gradient(180deg, #a9ae9b, #fffdf8)">
+    <div class="container" style="padding: 4rem 0 7rem 0; display: flex; align-items: center; justify-content: center; width: 100%">
+      <div class="text-center col-sm col-md-11" style="border: none">
+        <ng-container *ngFor="let ov of overview">
+          <ng-container *ngIf="ov?.id == serviceDetail?.type">
+            <div class="card-title">
+              <h3></h3>
+              <div class="sub-title-large-cus">
+
+                Tổng quan dịch vụ
+              </div>
+            </div>
+            <div class="row card-body justify-content-center">
+              <ng-container *ngFor="let items of ov.arrFeature; let i = index">
+                <ng-container *ngIf="i % 2 === 0">
+                  <div class="row col-md-5 justify-content-center" style="margin: 2% 0 0 0">
+                    <div class="col-sm-6 col-md-8">
+                      <img src="../../../content/images/{{ items?.imgFeature }}" style="width: 100%; height: 14rem" />
+                    </div>
+                    <div class="col-md-10" style="text-align: left; line-height: 2; display: flex; align-items: center; padding: 2%">
+                      <p>{{ items?.content }}</p>
+                    </div>
+                  </div>
+                </ng-container>
+                <!---->
+                <ng-container *ngIf="i % 2 !== 0">
+                  <div class="row col-md-5 justify-content-center" style="margin: 2% 2% 0 0">
+                    <div class="col-md-10" style="text-align: left; line-height: 2; display: flex; align-items: center; padding: 2%">
+                      <p>{{ items?.content }}</p>
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                      <img src="../../../content/images/{{ items?.imgFeature }}" style="width: 100%; height: 14rem" />
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!--list product byte type service-->
+  <div class="row" style="background: linear-gradient(180deg, #dddddd, white)">
+    <div class="container" style="margin-top: 3%; padding-bottom: 5%">
+      <div class="row justify-content-center">
+
+        <div class="sub-title-large-cus">Dự án triển khai</div>
+      </div>
+      <div class="justify-content-center">
+        <ng-container *ngIf="listProducts" style="display: contents">
+          <ng-container *ngFor="let items of listProducts; let i = index">
+            <!--      card-->
+            <ng-container *ngIf="i % 2 == 0">
+              <div class="row justify-content-center product-container" style="margin-top: 5%">
+                <div class="col-md col-lg-5 center-img">
+                  <ng-container *ngIf="items.image">
+                    <img
+                      class="img-hover-lager"
+                      [src]="'data:' + 'image/png' + ';base64,' + items.image"
+                      style="max-width: 100%"
+                      alt="book image"
+                    />
+                    <!--            {{ items.imageProduct }}-->
+                  </ng-container>
+                </div>
+                <div class="col-sm col-lg-4 justify-content-center content-cus overlay-product-text">
+                  <div class="fun col-md-12" style="margin: 2% auto">
+                    <div class="card-title" style="text-align: center; padding-top: 1%; font-weight: bold; font-size: large">
+                      <a href="products/{{ items.id }}">{{ items.name }}</a>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-subtitle">
+                        <p>{{ items.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!--        -->
+            <ng-container *ngIf="i % 2 != 0">
+              <div class="row justify-content-center product-container" style="margin-top: 5%">
+                <div class="col-sm col-lg-4 justify-content-center content-cus overlay-product-text">
+                  <div class="fun col-md-12" style="margin: 2% auto">
+                    <div class="card-title" style="text-align: center; padding-top: 1%; font-weight: bold; font-size: large">
+                      <a href="products/{{ items.id }}">{{ items.name }}</a>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-subtitle">
+                        <p>{{ items.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-lg-5 center-img">
+                  <ng-container *ngIf="items.image">
+                    <img
+                      class="img-hover-lager"
+                      [src]="'data:' + 'image/png' + ';base64,' + items.image"
+                      style="max-width: 100%"
+                      alt="book image"
+                    />
+                    <!--            {{ items.imageProduct }}-->
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <!--  test-->
+      <!--  <div class="row justify-content-center">-->
+      <!--        &lt;!&ndash;      card&ndash;&gt;-->
+      <!--          <div class="row justify-content-center" style="margin-top: 5%">-->
+      <!--            <div class="col-md col-lg-6 card-customer">-->
+      <!--                <img-->
+      <!--                  src="../../../content/images/image3.jpg"-->
+      <!--                  style="min-width: 100%; width: fit-content"-->
+      <!--                  alt="book image"-->
+      <!--                />-->
+      <!--                &lt;!&ndash;            {{ items.imageProduct }}&ndash;&gt;-->
+      <!--            </div>-->
+      <!--            <div class="col-sm col-lg-4" style="margin-left: 7%">-->
+      <!--              <div class="card-title" style="text-align: center; padding-top: 1%; font-weight: bold; font-size: large">-->
+      <!--                <a href="#">AAAAA</a>-->
+      <!--              </div>-->
+      <!--              <div class="card-body">-->
+      <!--                <div class="card-subtitle">-->
+      <!--                  <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaa</p>-->
+      <!--                </div>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+
+      <!--        &lt;!&ndash;        &ndash;&gt;-->
+      <!--          <div class="row justify-content-center" style="margin-top: 5%">-->
+      <!--            <div id="title1" class="col-sm col-lg-4">-->
+      <!--              <div class="card-title" style="text-align: center; padding-top: 1%; font-weight: bold; font-size: large">-->
+      <!--                <a href="#">BBB</a>-->
+      <!--              </div>-->
+      <!--              <div class="card-body">-->
+      <!--                <div class="card-subtitle">-->
+      <!--                  <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaaaa-->
+      <!--                    aaaaaaaaaaaaa</p>-->
+      <!--                </div>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--            <div class="col-md col-lg-6 card-customer" style="margin-left: 7%">-->
+      <!--                <img-->
+      <!--                  id="test"-->
+      <!--                  src="../../../content/images/image3.jpg"-->
+      <!--                  alt="book image"-->
+      <!--                />-->
+      <!--                &lt;!&ndash;            {{ items.imageProduct }}&ndash;&gt;-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--  </div>-->
+
+      <!--  -->
+    </div>
+  </div>
+
+  <div class="justify-content-center row" style="margin: 2%">
+    <ng-container *ngFor="let items of benefit">
+      <ng-container *ngIf="items?.id === serviceDetail?.type">
+        <div class="justify-content-center container">
+          <div class="card col align-items-center" style="border: none; text-align: center; line-height: 2">
+            <div class="justify-content-center col-9">
+              <p class="sub-title-large-cus">Lợi ích hợp tác</p>
+              <p>{{ items.content }}</p>
+              <div class="card-body" style="width: 100%">
+                <div class="row justify-content-center" style="text-align: center">
+                  <ng-container *ngFor="let ok of items.arrReason">
+                    <div class="card-subtitle col-sm col-md-3" style="line-height: 2">
+                      <div class="img-thumbnail" style="border: none">
+                        <img src="../../../content/images/{{ ok.iconReason }}" style="width: 100%; height: 10rem; border-radius: 50%" />
+                      </div>
+                      <p>{{ ok!.contentReason }}</p>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<ngx-scrolltop [backgroundColor]="'green'" [symbolColor]="'#fafafa'" [size]="55" [mode]="'classic'" position="right" theme="gray">
+  <i class="fa fa-arrow-up"></i>
+</ngx-scrolltop>
+</div>

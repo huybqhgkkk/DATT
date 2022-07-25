@@ -1,0 +1,28 @@
+{
+  "AladinTechApp": {
+    "news": {
+      "home": {
+        "title": "News",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a news",
+        "createOrEditLabel": "Insert or Update News",
+        "notFound": "No News found"
+      },
+      "created": "A news has been created with the identifier {{ param }}",
+      "updated": "News has been updated with the identifier {{ param }}",
+      "deleted": "News has been deleted with the identifier  {{ param }}",
+      "delete": {
+        "question": "Do you want to delete News {{ id }}?"
+      },
+      "detail": {
+        "title": "News"
+      },
+      "id": "ID",
+      "title": "Title",
+      "content": "Content",
+      "image1": "Image 1",
+      "image2": "Image 2",
+      "image3": "Image 3"
+    }
+  }
+}

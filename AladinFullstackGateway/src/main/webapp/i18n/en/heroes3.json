@@ -1,0 +1,27 @@
+{
+  "aladinFullstackApp": {
+    "heroes3": {
+      "home": {
+        "title": "Heroes 3 S",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Heroes 3",
+        "createOrEditLabel": "Create or edit a Heroes 3",
+        "search": "Search for Heroes 3",
+        "notFound": "No Heroes 3 S found"
+      },
+      "created": "A new Heroes 3 is created with identifier {{ param }}",
+      "updated": "A Heroes 3 is updated with identifier {{ param }}",
+      "deleted": "A Heroes 3 is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Heroes 3 {{ id }}?"
+      },
+      "detail": {
+        "title": "Heroes 3"
+      },
+      "id": "ID",
+      "name": "Name",
+      "create_time": "Create Time",
+      "viettelSubscriber2": "Viettel Subscriber 2"
+    }
+  }
+}
